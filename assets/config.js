@@ -9,24 +9,24 @@
 window.DSR_CONFIG = {
   brand: {
     name: 'Display Sport',
-    tagline: 'Ropa técnica para running, fitness, cycling y CrossFit',
+    tagline: 'Accesorios y ropa deportiva',
     foundedIn: 'Armenia, Quindío',
     country: 'Colombia',
     countryCode: 'CO',
     region: 'Quindío',
     city: 'Armenia',
-    addressStreet: 'Cra 15 #10N-22',
-    addressSector: 'Uniquindío',
-    addressFull: 'Cra 15 #10N-22, sector Uniquindío, Armenia, Quindío, Colombia',
+    addressStreet: 'Cra 14 #8-12',
+    addressSector: 'Armenia',
+    addressFull: 'Cra 14 #8-12, Armenia, Quindío, Colombia',
     geo: { lat: 4.5333, lng: -75.6811 } // Armenia, Quindío aprox.
   },
 
   contact: {
     // Solo dígitos, sin '+', para construir wa.me URLs
-    whatsapp: '573016658929',
-    whatsappDisplay: '+57 301 665 8929',
-    instagram: 'display_sport',
-    instagramUrl: 'https://www.instagram.com/display_sport',
+    whatsapp: '573185899233',
+    whatsappDisplay: '+57 318 589 9233',
+    instagram: 'Display_sportwear',
+    instagramUrl: 'https://www.instagram.com/Display_sportwear',
     // Email no provisto aún; dejar vacío hasta tenerlo.
     email: ''
   },

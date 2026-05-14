@@ -35,7 +35,8 @@ const PRODUCTS = {
     tag: 'Pantaloneta / Running · Fitness',
     lines: ['hombre'],
     disciplines: ['running', 'fitness', 'crossfit'],
-    priceTBD: true,
+    priceTBD: false,
+    price: '70.000',
     bgNum: '01',
     badge: 'Pantaloneta', badgeStyle: 'light',
     short: 'Pantaloneta técnica con tela liviana, cordón ajustable y bolsillo interno. Para correr, entrenar y moverte sin restricciones.',
@@ -53,7 +54,7 @@ const PRODUCTS = {
       'Cuidado': 'Lavado en agua fría, no usar suavizante'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#6e6e6e' }],
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M50 55 L 150 55 L 155 75 L 158 165 L 108 165 L 105 100 L 95 100 L 92 165 L 42 165 L 45 75 Z"/></g><rect x="48" y="55" width="104" height="10" fill="#0a0a0a"/><path d="M100 65 L 100 165" stroke="#0a0a0a" stroke-width="2"/><path d="M55 100 L 90 105" stroke="#6e6e6e" stroke-width="1.5" fill="none" opacity="0.6"/><path d="M145 100 L 110 105" stroke="#6e6e6e" stroke-width="1.5" fill="none" opacity="0.6"/><rect x="65" y="80" width="14" height="3" fill="#0a0a0a" opacity="0.5"/></svg>`,
     related: ['licra', 'camiseta', 'esqueleto', 'visera']
   },
@@ -65,7 +66,8 @@ const PRODUCTS = {
     tag: 'Licra / Running · Cycling · Fitness',
     lines: ['hombre', 'dama'],
     disciplines: ['running', 'cycling', 'fitness'],
-    priceTBD: true,
+    priceTBD: false,
+    price: '90.000',
     bgNum: '02',
     badge: 'Licra', badgeStyle: 'dark',
     short: 'Licra de compresión técnica para máxima libertad de movimiento. Soporte muscular sin restringir el paso.',
@@ -84,7 +86,7 @@ const PRODUCTS = {
       'Cuidado': 'Lavado en agua fría'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris oscuro', hex: '#2a2a2a' }],
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><path d="M58 30 L 142 30 L 148 60 L 152 180 L 108 180 L 105 90 L 95 90 L 92 180 L 48 180 L 52 60 Z"/></g><rect x="56" y="30" width="88" height="8" fill="#0a0a0a"/><path d="M100 38 L 100 180" stroke="#6e6e6e" stroke-width="1" opacity="0.6"/><path d="M62 80 L 90 80 M 110 80 L 138 80" stroke="#6e6e6e" stroke-width="0.8" opacity="0.4"/><path d="M62 130 L 90 130 M 110 130 L 138 130" stroke="#6e6e6e" stroke-width="0.8" opacity="0.4"/></svg>`,
     related: ['pantaloneta', 'top', 'buso-compresion', 'cinturon-running']
   },
@@ -96,7 +98,8 @@ const PRODUCTS = {
     tag: 'Camiseta / Running · Fitness · CrossFit',
     lines: ['hombre', 'dama'],
     disciplines: ['running', 'fitness', 'crossfit'],
-    priceTBD: true,
+    priceTBD: false,
+    price: '40.000',
     bgNum: '03',
     badge: 'Camiseta', badgeStyle: 'light',
     short: 'Camiseta técnica de manga corta. Tela respirable que mantiene el cuerpo fresco entre kilómetros.',
@@ -115,7 +118,7 @@ const PRODUCTS = {
       'Cuidado': 'Lavado en agua fría'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Blanco', hex: '#ebebeb' }, { name: 'Gris', hex: '#6e6e6e' }],
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M60 50 L 80 38 L 120 38 L 140 50 L 165 75 L 152 95 L 140 88 L 140 170 L 60 170 L 60 88 L 48 95 L 35 75 Z"/></g><path d="M85 38 Q 100 50 115 38" fill="none" stroke="#0a0a0a" stroke-width="2"/><line x1="60" y1="120" x2="140" y2="120" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3"/></svg>`,
     related: ['esqueleto', 'pantaloneta', 'top', 'buso-compresion']
   },
@@ -127,7 +130,8 @@ const PRODUCTS = {
     tag: 'Esqueleto / Fitness · CrossFit · Running',
     lines: ['hombre'],
     disciplines: ['fitness', 'crossfit', 'running'],
-    priceTBD: true,
+    priceTBD: false,
+    price: '40.000',
     bgNum: '04',
     badge: 'Esqueleto', badgeStyle: 'dark',
     short: 'Esqueleto sin mangas con espalda abierta. Máxima ventilación para entrenamientos intensos.',
@@ -146,7 +150,7 @@ const PRODUCTS = {
       'Cuidado': 'Lavado en agua fría'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#6e6e6e' }],
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M75 50 L 95 35 L 105 35 L 125 50 L 130 70 L 145 75 L 145 170 L 55 170 L 55 75 L 70 70 Z"/></g><path d="M75 50 Q 100 70 125 50" fill="none" stroke="#0a0a0a" stroke-width="2"/><path d="M70 70 L 80 90 L 80 170 M 130 70 L 120 90 L 120 170" stroke="#0a0a0a" stroke-width="1" fill="none" opacity="0.4"/></svg>`,
     related: ['camiseta', 'pantaloneta', 'buso-compresion', 'visera']
   },
@@ -158,7 +162,8 @@ const PRODUCTS = {
     tag: 'Buso / Running · Fitness',
     lines: ['hombre', 'dama'],
     disciplines: ['running', 'fitness', 'cycling'],
-    priceTBD: true,
+    priceTBD: false,
+    price: '90.000',
     bgNum: '05',
     badge: 'Compresión', badgeStyle: 'light',
     short: 'Buso de compresión técnica de manga larga. Soporte muscular y protección para entrenamientos al aire libre.',
@@ -178,7 +183,7 @@ const PRODUCTS = {
       'Cuidado': 'Lavado en agua fría'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris oscuro', hex: '#2a2a2a' }],
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><path d="M65 45 L 80 32 L 120 32 L 135 45 L 165 78 L 168 175 L 152 178 L 148 95 L 145 95 L 145 170 L 55 170 L 55 95 L 52 95 L 48 178 L 32 175 L 35 78 Z"/></g><path d="M85 32 Q 100 44 115 32" fill="none" stroke="#0a0a0a" stroke-width="2"/><line x1="40" y1="170" x2="55" y2="170" stroke="#0a0a0a" stroke-width="3"/><line x1="145" y1="170" x2="160" y2="170" stroke="#0a0a0a" stroke-width="3"/><line x1="100" y1="40" x2="100" y2="170" stroke="#6e6e6e" stroke-width="0.5" opacity="0.4"/></svg>`,
     related: ['camiseta', 'licra', 'pantaloneta', 'visera']
   },
@@ -190,7 +195,8 @@ const PRODUCTS = {
     tag: 'Top / Running · Fitness · CrossFit',
     lines: ['dama'],
     disciplines: ['running', 'fitness', 'crossfit'],
-    priceTBD: true,
+    priceTBD: false,
+    price: '70.000',
     bgNum: '06',
     badge: 'Top', badgeStyle: 'light',
     short: 'Top deportivo con soporte real. Tirantes anchos, banda inferior reforzada, sin compromisos.',
@@ -222,7 +228,8 @@ const PRODUCTS = {
     tag: 'Crotop / Fitness · CrossFit',
     lines: ['dama'],
     disciplines: ['fitness', 'crossfit', 'running'],
-    priceTBD: true,
+    priceTBD: false,
+    price: '45.000',
     bgNum: '07',
     badge: 'Crotop', badgeStyle: 'dark',
     short: 'Crotop deportivo de cintura alta. Diseño favorecedor con tela técnica y soporte ligero.',
@@ -256,7 +263,8 @@ const PRODUCTS = {
     tag: 'Visera / Running · Cycling',
     lines: ['accesorios'],
     disciplines: ['running', 'cycling', 'fitness'],
-    priceTBD: true,
+    priceTBD: false,
+    price: '40.000',
     bgNum: '08',
     badge: 'Visera', badgeStyle: 'light',
     short: 'Visera ultraligera con banda absorbente. Protección solar para entrenar bajo el sol colombiano.',
@@ -274,7 +282,7 @@ const PRODUCTS = {
       'Origen': 'Hecho en Armenia, Colombia'
     },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#6e6e6e' }],
-    sizes: ['Único'],
+    sizes: ['Única'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M30 105 Q 100 70 170 105 L 168 120 Q 100 100 32 120 Z"/></g><path d="M55 100 Q 100 80 145 100 L 145 105 Q 100 88 55 105 Z" fill="#0a0a0a" opacity="0.4"/><rect x="78" y="95" width="44" height="6" fill="#6e6e6e"/><text x="100" y="100" fill="#ffffff" font-family="Arial Black" font-size="6" text-anchor="middle">DS</text></svg>`,
     related: ['canguro', 'cinturon-running', 'botella-silicona', 'pantaloneta']
   },
@@ -304,7 +312,7 @@ const PRODUCTS = {
       'Origen': 'Hecho en Armenia, Colombia'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }],
-    sizes: ['Único'],
+    sizes: ['Única'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><rect x="20" y="80" width="160" height="50" rx="14"/></g><rect x="30" y="92" width="60" height="26" rx="4" fill="#0a0a0a" stroke="#6e6e6e" stroke-width="0.5"/><rect x="110" y="92" width="60" height="26" rx="4" fill="#0a0a0a" stroke="#6e6e6e" stroke-width="0.5"/><line x1="35" y1="96" x2="85" y2="96" stroke="#6e6e6e" stroke-width="1" opacity="0.6"/><line x1="115" y1="96" x2="165" y2="96" stroke="#6e6e6e" stroke-width="1" opacity="0.6"/><line x1="0" y1="105" x2="20" y2="105" stroke="#1f1f1f" stroke-width="4"/><line x1="180" y1="105" x2="200" y2="105" stroke="#1f1f1f" stroke-width="4"/></svg>`,
     related: ['cinturon-running', 'botella-silicona', 'visera', 'pantaloneta']
   },
@@ -333,7 +341,7 @@ const PRODUCTS = {
       'Origen': 'Hecho en Armenia, Colombia'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }],
-    sizes: ['Único'],
+    sizes: ['Única'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><rect x="10" y="92" width="180" height="22" rx="3"/></g><rect x="80" y="92" width="40" height="22" fill="#0a0a0a" stroke="#6e6e6e" stroke-width="0.5"/><rect x="40" y="98" width="10" height="10" fill="#6e6e6e" opacity="0.6"/><rect x="55" y="98" width="10" height="10" fill="#6e6e6e" opacity="0.6"/><rect x="135" y="98" width="10" height="10" fill="#6e6e6e" opacity="0.6"/><rect x="150" y="98" width="10" height="10" fill="#6e6e6e" opacity="0.6"/><rect x="84" y="100" width="32" height="6" rx="1" fill="#6e6e6e" opacity="0.5"/></svg>`,
     related: ['canguro', 'botella-silicona', 'visera', 'pantaloneta']
   },
@@ -438,7 +446,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Producción local. Cada prenda cortada y cosida en Armenia, Quindío.',
     likes: 0,
-    url: 'https://www.instagram.com/display_sport',
+    url: 'https://www.instagram.com/Display_sportwear',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><linearGradient id="ig1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
       <rect width="400" height="400" fill="url(#ig1)"/>
@@ -451,7 +459,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Pantalonetas, licras y tops. Hombre, dama y accesorios.',
     likes: 0,
-    url: 'https://www.instagram.com/display_sport',
+    url: 'https://www.instagram.com/Display_sportwear',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><radialGradient id="ig2"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs>
       <rect width="400" height="400" fill="url(#ig2)"/>
@@ -469,7 +477,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Running, fitness, cycling y CrossFit. Ropa pensada para entrenar de verdad.',
     likes: 0,
-    url: 'https://www.instagram.com/display_sport',
+    url: 'https://www.instagram.com/Display_sportwear',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><linearGradient id="ig3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f1f1f"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
       <rect width="400" height="400" fill="url(#ig3)"/>
@@ -483,7 +491,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Accesorios técnicos. Viseras, canguros, cinturones de running y botellas.',
     likes: 0,
-    url: 'https://www.instagram.com/display_sport',
+    url: 'https://www.instagram.com/Display_sportwear',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><linearGradient id="ig4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#252525"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
       <rect width="400" height="400" fill="url(#ig4)"/>
@@ -497,9 +505,9 @@ const IG_POSTS = [
   },
   {
     img: 'assets/logo.jpg',
-    caption: 'Pedidos a todo Colombia. WhatsApp +57 301 665 8929.',
+    caption: 'Pedidos a todo Colombia. WhatsApp +57 318 589 9233.',
     likes: 0,
-    url: 'https://www.instagram.com/display_sport',
+    url: 'https://www.instagram.com/Display_sportwear',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><linearGradient id="ig5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
       <rect width="400" height="400" fill="url(#ig5)"/>
@@ -513,7 +521,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Hecho en Armenia, Quindío. Producción local, costura por costura.',
     likes: 0,
-    url: 'https://www.instagram.com/display_sport',
+    url: 'https://www.instagram.com/Display_sportwear',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><radialGradient id="ig6"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs>
       <rect width="400" height="400" fill="url(#ig6)"/>
@@ -539,7 +547,7 @@ function renderInstagramFeed(containerId) {
            onerror="this.remove();" />
       <div class="ig-overlay always-visible">
         <div class="ig-overlay-top">
-          <span class="ig-handle-mini">@display_sport</span>
+          <span class="ig-handle-mini">@Display_sportwear</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </div>
         <div class="ig-overlay-bottom">
