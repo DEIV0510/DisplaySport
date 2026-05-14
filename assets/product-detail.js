@@ -29,6 +29,63 @@
 
   document.title = `${product.name} — Display Sport · Armenia, Colombia`;
 
+  // Actualizar meta description con el producto
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.setAttribute('content', `${product.name}. ${product.short} Hecho en Armenia, Quindío. Envíos a toda Colombia.`);
+  }
+
+  // Inyectar JSON-LD de Product + Breadcrumb dinámico
+  const offerPrice = product.priceTBD
+    ? undefined
+    : Number(String(product.price).replace(/\./g, ''));
+  const productLD = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.description,
+    sku: product.id,
+    brand: { '@type': 'Brand', name: 'Display Sport' },
+    image: `https://display-sport.co/assets/products/${product.id}.jpg`,
+    category: product.category,
+    offers: offerPrice ? {
+      '@type': 'Offer',
+      priceCurrency: 'COP',
+      price: offerPrice,
+      availability: 'https://schema.org/InStock',
+      url: `https://display-sport.co/producto.html?p=${product.id}`,
+      seller: { '@type': 'Organization', name: 'Display Sport' }
+    } : {
+      '@type': 'Offer',
+      availability: 'https://schema.org/PreOrder',
+      url: `https://display-sport.co/producto.html?p=${product.id}`,
+      seller: { '@type': 'Organization', name: 'Display Sport' }
+    }
+  };
+  const breadcrumbLD = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://display-sport.co/' },
+      { '@type': 'ListItem', position: 2, name: 'Catálogo', item: 'https://display-sport.co/#catalogo' },
+      { '@type': 'ListItem', position: 3, name: product.category, item: 'https://display-sport.co/#catalogo' },
+      { '@type': 'ListItem', position: 4, name: product.name, item: `https://display-sport.co/producto.html?p=${product.id}` }
+    ]
+  };
+  const ldScript = document.createElement('script');
+  ldScript.type = 'application/ld+json';
+  ldScript.textContent = JSON.stringify([productLD, breadcrumbLD]);
+  document.head.appendChild(ldScript);
+
+  // Canonical
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.appendChild(canonical);
+  }
+  canonical.href = `https://display-sport.co/producto.html?p=${product.id}`;
+
   // ============ HTML builders ============
   const colorsHTML = product.colors.map((c, i) =>
     `<button class="swatch ${i === 0 ? 'active' : ''}" type="button" style="background:${c.hex}" data-name="${c.name}" aria-label="Color ${c.name}" aria-pressed="${i === 0}"></button>`
@@ -73,9 +130,13 @@
 
     <div class="product-main">
       <div class="product-gallery">
-        <div class="gallery-main" aria-hidden="true">
-          <div class="gallery-bg-text">${product.bgNum}</div>
-          ${product.svg}
+        <div class="gallery-main">
+          <div class="gallery-bg-text" aria-hidden="true">${product.bgNum}</div>
+          <div aria-hidden="true">${product.svg}</div>
+          <img src="assets/products/${product.id}.jpg" alt="${product.name} — Display Sport"
+               class="product-photo" fetchpriority="high"
+               onload="this.classList.add('is-loaded');"
+               onerror="this.remove();" />
         </div>
         <div class="gallery-thumbs" aria-hidden="true">
           <div class="thumb active">${product.svg}</div>

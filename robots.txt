@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/products/README.txt
+
+Sitemap: https://display-sport.co/sitemap.xml

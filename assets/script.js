@@ -16,6 +16,58 @@
   const supportsFinePointer = window.matchMedia('(pointer: fine)').matches;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ============ PRELOADER ============
+  // Animación de carga: cuenta hasta 100% al ritmo del documento.
+  // Se oculta cuando window.load() resuelve.
+  const preloader = document.getElementById('preloader');
+  const fill = document.getElementById('preloader-fill');
+  const counter = document.getElementById('preloader-counter');
+
+  if (preloader && fill && counter) {
+    let progress = 0;
+    let loaded = false;
+    const minDisplay = reducedMotion ? 400 : 1400; // ms mínimos visibles
+    const start = performance.now();
+
+    function setProgress(p) {
+      progress = Math.min(100, Math.max(progress, p));
+      fill.style.width = progress + '%';
+      counter.textContent = String(Math.round(progress)).padStart(2, '0') + '%';
+    }
+
+    function tick() {
+      const elapsed = performance.now() - start;
+      const target = loaded ? 100 : Math.min(85, (elapsed / minDisplay) * 85);
+      setProgress(progress + (target - progress) * 0.12);
+
+      if (progress < 99.5) {
+        requestAnimationFrame(tick);
+      } else if (loaded) {
+        setProgress(100);
+        setTimeout(() => {
+          preloader.classList.add('is-hidden');
+          document.body.classList.add('is-ready');
+        }, 180);
+      } else {
+        requestAnimationFrame(tick);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      loaded = true;
+      // Asegurar tiempo mínimo de exposición
+      const elapsed = performance.now() - start;
+      if (elapsed < minDisplay) {
+        setTimeout(() => { /* tick ya recoge la nueva meta */ }, minDisplay - elapsed);
+      }
+    });
+
+    // Failsafe: si window.load nunca dispara (poco probable), forzar a los 6s
+    setTimeout(() => { loaded = true; }, 6000);
+
+    requestAnimationFrame(tick);
+  }
+
   // ============ Cursor custom ============
   const cursor = document.getElementById('cursor');
   if (cursor && supportsFinePointer) {

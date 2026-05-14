@@ -1725,3 +1725,477 @@ a.view-all {
   width: 40%;
 }
 
+/* ============================================================
+   F-PRO ADDITIONS — preloader 3D, acentos naranja ampliados,
+   seccion Por que, badges de pago, REC indicator
+   ============================================================ */
+
+/* ============ PRELOADER ============ */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  perspective: 1200px;
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), visibility 0s linear 0.8s;
+}
+.preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Background grid + rings */
+.preloader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.preloader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 70%);
+  pointer-events: none;
+}
+
+.preloader-stage {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+
+.preloader-rings {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.preloader-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.preloader-ring.r1 { width: 180px; height: 180px; animation: preRing 2.4s ease-out infinite; }
+.preloader-ring.r2 { width: 220px; height: 220px; animation: preRing 2.4s ease-out infinite 0.4s; }
+.preloader-ring.r3 {
+  width: 260px; height: 260px;
+  border-color: rgba(255,94,20,0.35);
+  animation: preRing 2.4s ease-out infinite 0.8s;
+}
+@keyframes preRing {
+  0%   { transform: scale(0.6); opacity: 0; border-width: 2px; }
+  30%  { opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; border-width: 0.5px; }
+}
+
+/* 3D cube: 4 caras del mismo logo girando en Y */
+.preloader-cube {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  transform-style: preserve-3d;
+  animation: preCube 4.5s cubic-bezier(.6,.04,.4,1) infinite;
+}
+.preloader-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: grayscale(80%) brightness(1.1) drop-shadow(0 10px 30px rgba(255,94,20,0.2));
+  backface-visibility: visible;
+}
+.preloader-face.front  { transform: translateZ(80px); }
+.preloader-face.back   { transform: rotateY(180deg) translateZ(80px); }
+.preloader-face.right  { transform: rotateY(90deg)  translateZ(80px); }
+.preloader-face.left   { transform: rotateY(-90deg) translateZ(80px); }
+
+@keyframes preCube {
+  0%   { transform: rotateY(0deg)   rotateX(0deg); }
+  25%  { transform: rotateY(90deg)  rotateX(8deg); }
+  50%  { transform: rotateY(180deg) rotateX(-4deg); }
+  75%  { transform: rotateY(270deg) rotateX(8deg); }
+  100% { transform: rotateY(360deg) rotateX(0deg); }
+}
+
+.preloader-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.preloader-wordmark {
+  font-family: var(--font-display);
+  font-size: 38px;
+  letter-spacing: 8px;
+  color: var(--white);
+  animation: preFade 1s ease 0.3s backwards;
+}
+.preloader-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--gray-500);
+  animation: preFade 1s ease 0.5s backwards;
+}
+@keyframes preFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.preloader-progress {
+  position: relative;
+  z-index: 2;
+  width: 220px;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+.preloader-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--white) 0%, var(--accent) 100%);
+  transition: width 0.2s ease;
+  box-shadow: 0 0 12px rgba(255,94,20,0.6);
+}
+.preloader-counter {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  margin-top: -28px;
+}
+
+@media (max-width: 600px) {
+  .preloader-stage { width: 220px; height: 220px; }
+  .preloader-cube { width: 120px; height: 120px; }
+  .preloader-face.front  { transform: translateZ(60px); }
+  .preloader-face.back   { transform: rotateY(180deg) translateZ(60px); }
+  .preloader-face.right  { transform: rotateY(90deg)  translateZ(60px); }
+  .preloader-face.left   { transform: rotateY(-90deg) translateZ(60px); }
+  .preloader-wordmark { font-size: 26px; letter-spacing: 5px; }
+  .preloader-progress { width: 180px; }
+}
+
+/* Respeta reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .preloader-cube,
+  .preloader-ring { animation: none !important; }
+  .preloader-cube { transform: none; }
+}
+
+/* ============ ACENTOS NARANJA AMPLIADOS ============ */
+
+/* REC indicator en navbar (estilo broadcast) */
+.rec-indicator {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  padding: 5px 11px;
+  border: 1px solid rgba(255,94,20,0.35);
+  border-radius: 2px;
+  background: rgba(255,94,20,0.06);
+  pointer-events: none;
+  z-index: 99;
+}
+.rec-dot {
+  width: 7px; height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: recBlink 1.4s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255,94,20,0.7);
+}
+@keyframes recBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.35; transform: scale(0.8); }
+}
+@media (max-width: 700px) {
+  .rec-indicator { display: none; }
+}
+
+/* Top banner: estrellas naranja, accentos sutiles */
+.top-banner {
+  position: relative;
+}
+.top-banner::before,
+.top-banner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.6;
+}
+.top-banner::before { left: 0; transform: translateY(-50%); }
+.top-banner::after { right: 0; transform: translateY(-50%); }
+
+/* Marquee dots: cada tantos en naranja */
+.marquee-track .dot.dot-accent { color: var(--accent); }
+
+/* Filter button activo: borde naranja sutil */
+.filter-btn.active {
+  border-color: var(--accent) !important;
+  box-shadow: inset 0 -2px 0 0 var(--accent);
+}
+.filter-btn:hover { color: var(--white); }
+
+/* Product card: hover muestra una línea naranja inferior */
+.product {
+  position: relative;
+}
+.product::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.4s cubic-bezier(.2,.7,.2,1);
+}
+.product:hover::after { width: 100%; }
+
+/* Product badge "Nuevo" / etc: pequeño dot naranja al lado del label */
+.product-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.product-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* CTA principal: línea inferior naranja en hover */
+.btn-primary {
+  border-bottom: 2px solid transparent;
+  transition: color 0.4s, border-color 0.4s;
+}
+.btn-primary:hover { border-bottom-color: var(--accent); }
+
+/* nav-cta: glow naranja sutil al hover */
+.nav-cta:hover { box-shadow: inset 0 0 0 2px var(--white), 0 0 0 3px rgba(255,94,20,0.25); }
+
+/* Meta-tag: separador con naranja */
+.meta-tag-accent { color: var(--accent); margin-right: 6px; }
+
+/* Outline-text con acento naranja en sección Por qué */
+.section-title .outline-text {
+  position: relative;
+  display: inline-block;
+}
+
+/* ============ SECCIÓN POR QUÉ ============ */
+.why {
+  padding: 120px 40px;
+  background: var(--gray-900);
+  position: relative;
+  overflow: hidden;
+}
+.why::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.4;
+}
+.why-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.why-card {
+  background: var(--black);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 36px 28px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1), border-color 0.3s;
+}
+.why-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+}
+.why-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,94,20,0.4);
+}
+.why-card:hover::after { transform: scaleX(1); }
+.why-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: inline-block;
+}
+.why-icon {
+  width: 56px; height: 56px;
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  margin-bottom: 28px;
+  transition: border-color 0.3s, color 0.3s;
+}
+.why-card:hover .why-icon {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.why-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+.why-card p {
+  color: var(--gray-300);
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .why { padding: 80px 24px; }
+  .why-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 50px; }
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .why-card { padding: 28px 22px; }
+}
+@media (max-width: 520px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
+
+/* ============ BADGES DE PAGO ============ */
+.footer-payments {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 30px 0 24px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.payments-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+.payments-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pay-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--gray-100);
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.3s, color 0.3s, background 0.3s, transform 0.2s;
+  cursor: default;
+}
+.pay-badge:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(255,94,20,0.05);
+}
+
+/* Coloreado específico al hover (cuando aplica) */
+.pay-nequi:hover       { color: #DA0081; border-color: #DA0081; }
+.pay-daviplata:hover   { color: #ED1C27; border-color: #ED1C27; }
+.pay-bancolombia:hover { color: #FDDA24; border-color: #FDDA24; }
+.pay-pse:hover         { color: #2C9CDB; border-color: #2C9CDB; }
+.pay-visa:hover        { color: #1A1F71; border-color: #1A1F71; background: rgba(255,255,255,0.85); }
+.pay-cod:hover         { color: var(--accent); border-color: var(--accent); }
+
+/* ============ HERO TWEAKS PARA EL DOT NARANJA ============ */
+.dot-accent {
+  text-shadow: 0 0 24px rgba(255,94,20,0.55), 0 0 60px rgba(255,94,20,0.3);
+  animation: dotAccentPulse 2s ease-in-out infinite;
+}
+@keyframes dotAccentPulse {
+  0%, 100% { text-shadow: 0 0 24px rgba(255,94,20,0.55), 0 0 60px rgba(255,94,20,0.3); }
+  50%      { text-shadow: 0 0 40px rgba(255,94,20,0.85), 0 0 90px rgba(255,94,20,0.5); }
+}
+
+/* ============ SISTEMA DE FOTOS (placeholder svg + foto real) ============
+   Si existe assets/products/<id>.jpg, products.js la inyecta como .product-photo
+   sobre el SVG. Si falla la carga (onerror), se quita y queda el SVG. */
+.product-image .product-photo,
+.gallery-main .product-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+.product-image .product-photo.is-loaded,
+.gallery-main .product-photo.is-loaded { opacity: 1; }
+.product-image { position: relative; }
+.gallery-main  { position: relative; }
+

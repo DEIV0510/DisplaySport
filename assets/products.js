@@ -382,7 +382,9 @@ const PRODUCTS = {
    ============================================================ */
 
 /**
- * Devuelve el HTML de una tarjeta de producto.
+ * Devuelve el HTML de una tarjeta de producto. Incluye <img> que intenta
+ * cargar assets/products/<id>.jpg sobre el SVG; si la imagen no existe,
+ * onerror la oculta y queda el SVG visible.
  * @param {Object} p item de PRODUCTS
  * @returns {string}
  */
@@ -393,6 +395,7 @@ function renderProductCard(p) {
   const priceHTML = p.priceTBD
     ? `<div class="product-price product-price--tbd">Por definir</div>`
     : `<div class="product-price"><span class="currency">$</span>${p.price}</div>`;
+  const photoSrc = `assets/products/${p.id}.jpg`;
 
   return `
     <a class="product"
@@ -401,9 +404,13 @@ function renderProductCard(p) {
        href="producto.html?p=${p.id}"
        aria-label="Ver detalles de ${p.name}">
       <span class="product-badge ${badgeClass}">${p.badge}</span>
-      <div class="product-image" aria-hidden="true">
-        <span class="product-bg-num">${p.bgNum}</span>
-        ${p.svg}
+      <div class="product-image">
+        <span class="product-bg-num" aria-hidden="true">${p.bgNum}</span>
+        <div aria-hidden="true">${p.svg}</div>
+        <img src="${photoSrc}" alt="${p.name} — Display Sport"
+             class="product-photo" loading="lazy"
+             onload="this.classList.add('is-loaded');"
+             onerror="this.remove();" />
       </div>
       <div class="product-tag">${p.tag}</div>
       <div class="product-name">${p.name}</div>
