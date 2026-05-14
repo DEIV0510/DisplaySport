@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Producto — Display Sport Running</title>
+<title>Producto — Display Sport · Armenia, Colombia</title>
+<meta name="description" content="Detalle de producto Display Sport. Ropa deportiva técnica fabricada en Armenia, Quindío." />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="apple-touch-icon" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@200;300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@200;300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
 
-<div class="top-banner">
-  ★ Envío gratis en compras sobre $200.000 <span class="sep hide-mobile">/</span> <span class="hide-mobile">Pagas en efectivo, tarjeta o Nequi</span> <span class="sep">/</span> Hecho en Colombia ★
+<div class="top-banner" role="region" aria-label="Beneficios de la tienda">
+  ★ Envío gratis sobre $200.000 <span class="sep hide-mobile">/</span> <span class="hide-mobile">Pagas con Tarjeta, PSE, Nequi, Daviplata, Bancolombia o contraentrega</span> <span class="sep">/</span> Hecho en Armenia, Quindío ★
 </div>
 
-<div class="cursor" id="cursor"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 
-<nav>
-  <a href="index.html" class="logo">
-    <img src="assets/logo.jpg" alt="Display Sport Running" class="logo-img"
+<nav aria-label="Navegación principal">
+  <a href="index.html" class="logo" aria-label="Display Sport — Inicio">
+    <img src="assets/logo.jpg" alt="" class="logo-img"
          onload="this.style.display='block'; document.getElementById('logo-fallback').style.display='none';"
          onerror="this.style.display='none';" />
     <span class="logo-fallback" id="logo-fallback">
-      <span class="logo-dot"></span>
+      <span class="logo-dot" aria-hidden="true"></span>
       DISPLAY SPORT
     </span>
   </a>
@@ -34,268 +35,79 @@
     <li><a href="index.html#nosotros">Nosotros</a></li>
     <li><a href="index.html#instagram">Instagram</a></li>
   </ul>
-  <a class="nav-cta" href="index.html#catalogo" style="text-decoration:none;display:inline-flex;align-items:center;">Comprar →</a>
+  <a class="nav-cta" href="index.html#catalogo">Comprar →</a>
 </nav>
 
 <main class="product-page" id="page-content">
-  <!-- Content rendered by JS -->
+  <!-- Rendered by JS -->
 </main>
 
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <h2>Display<br>Sport.</h2>
-      <p>Equipamiento técnico para corredores reales. Hecho en Colombia.</p>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/display_sport" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="https://wa.me/573000000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg></a>
-        <a href="mailto:hola@displaysport.co" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+      <p>Ropa técnica deportiva fabricada en Armenia, Quindío.</p>
+      <div class="footer-social" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/display_sport" target="_blank" rel="noopener" aria-label="Instagram @display_sport"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://wa.me/573016658929" target="_blank" rel="noopener" aria-label="WhatsApp +57 301 665 8929"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg></a>
       </div>
       <div class="footer-contact">
-        <strong>Contacto</strong>
-        hola@displaysport.co<br>
-        WhatsApp: +57 300 000 0000
+        <strong>Tienda física</strong>
+        Cra 15 #10N-22, sector Uniquindío<br>
+        Armenia, Quindío, Colombia
+      </div>
+      <div class="footer-contact">
+        <strong>WhatsApp</strong>
+        <a href="https://wa.me/573016658929" target="_blank" rel="noopener">+57 301 665 8929</a>
       </div>
     </div>
+
     <div class="footer-col">
-      <h4>Tienda</h4>
-      <ul><li><a href="index.html#catalogo" style="color:inherit;text-decoration:none;">Pantalonetas</a></li><li><a href="index.html#catalogo" style="color:inherit;text-decoration:none;">Tops</a></li><li><a href="index.html#catalogo" style="color:inherit;text-decoration:none;">Viseras</a></li></ul>
+      <h4>Líneas</h4>
+      <ul>
+        <li><a href="index.html#catalogo">Hombre</a></li>
+        <li><a href="index.html#catalogo">Dama</a></li>
+        <li><a href="index.html#catalogo">Accesorios</a></li>
+      </ul>
     </div>
+
     <div class="footer-col">
-      <h4>Compañía</h4>
-      <ul><li>Sobre nosotros</li><li>Sostenibilidad</li><li>Prensa</li></ul>
+      <h4>Catálogo</h4>
+      <ul>
+        <li><a href="producto.html?p=pantaloneta">Pantalonetas</a></li>
+        <li><a href="producto.html?p=licra">Licras</a></li>
+        <li><a href="producto.html?p=camiseta">Camisetas</a></li>
+        <li><a href="producto.html?p=top">Tops</a></li>
+        <li><a href="producto.html?p=visera">Viseras</a></li>
+        <li><a href="producto.html?p=cinturon-running">Cinturones</a></li>
+      </ul>
     </div>
+
     <div class="footer-col">
-      <h4>Soporte</h4>
-      <ul><li>Envíos a toda Colombia</li><li>Devoluciones</li><li>Guía de tallas</li><li>Preguntas frecuentes</li></ul>
+      <h4>Información</h4>
+      <ul>
+        <li>Envíos a todo Colombia</li>
+        <li>Entrega 24–48 h en ciudades principales</li>
+        <li>Envío gratis sobre $200.000</li>
+        <li>Devolución 30 días</li>
+        <li>Hecho en Armenia, Quindío</li>
+      </ul>
     </div>
   </div>
+
   <div class="footer-bottom">
-    <span>© 2026 Display Sport Running Colombia. Todos los derechos reservados.</span>
-    <span>Hecho en Colombia 🇨🇴 para correr.</span>
+    <span>© <span id="year">2026</span> Display Sport · Armenia, Colombia. Todos los derechos reservados.</span>
+    <span>Hecho en Colombia 🇨🇴</span>
   </div>
 </footer>
 
-<a class="whatsapp-float" id="whatsapp-float" href="https://wa.me/573000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+<a class="whatsapp-float" id="whatsapp-float" href="https://wa.me/573016658929" target="_blank" rel="noopener" aria-label="Escribir a Display Sport por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
 </a>
 
+<script src="assets/config.js"></script>
 <script src="assets/products.js"></script>
-<script>
-/* ============ PRODUCT DETAIL PAGE LOGIC ============ */
-(function() {
-  const params = new URLSearchParams(window.location.search);
-  const productId = params.get('p');
-  const product = PRODUCTS[productId];
-  const container = document.getElementById('page-content');
-
-  if (!product) {
-    container.innerHTML = `
-      <div style="text-align:center;padding:120px 20px;">
-        <h1 style="font-family:Anton,sans-serif;font-size:80px;letter-spacing:-2px;">PRODUCTO NO ENCONTRADO</h1>
-        <p style="margin:30px 0 40px;color:var(--gray-300);">El producto que buscas ya no existe o el enlace está roto.</p>
-        <a href="index.html#catalogo" class="btn-buy-secondary" style="text-decoration:none;display:inline-block;">Volver al catálogo →</a>
-      </div>`;
-    return;
-  }
-
-  document.title = product.name + ' — Display Sport Running';
-
-  const discountPct = product.oldPrice
-    ? Math.round((1 - parseInt(product.price.replace(/\./g,'')) / parseInt(product.oldPrice.replace(/\./g,''))) * 100)
-    : 0;
-
-  const colorsHTML = product.colors.map((c, i) =>
-    `<button class="swatch ${i===0?'active':''}" style="background:${c.hex}" data-name="${c.name}" aria-label="${c.name}"></button>`
-  ).join('');
-
-  const sizesHTML = product.sizes.map((s, i) =>
-    `<button class="size-btn ${i===0?'active':''}" data-size="${s}">${s}</button>`
-  ).join('');
-
-  const featuresHTML = product.features.map(f => `<li>${f}</li>`).join('');
-
-  const specsHTML = Object.entries(product.specs)
-    .map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
-
-  const relatedHTML = product.related
-    .map(id => PRODUCTS[id])
-    .filter(Boolean)
-    .map(renderProductCard).join('');
-
-  const fullStars = Math.floor(product.rating);
-  const halfStar = product.rating % 1 >= 0.5;
-  const stars = '★'.repeat(fullStars) + (halfStar ? '½' : '') + '☆'.repeat(5-fullStars-(halfStar?1:0));
-
-  const wspMsg = encodeURIComponent(`Hola Display Sport, me interesa el ${product.name} ($${product.price}). ¿Tienen disponibilidad?`);
-
-  container.innerHTML = `
-    <nav class="breadcrumb">
-      <a href="index.html">Inicio</a>
-      <span class="sep">/</span>
-      <a href="index.html#catalogo">Catálogo</a>
-      <span class="sep">/</span>
-      <a href="index.html#catalogo">${product.category}</a>
-      <span class="sep">/</span>
-      <span class="current">${product.name}</span>
-    </nav>
-
-    <div class="product-main">
-      <div class="product-gallery">
-        <div class="gallery-main">
-          <div class="gallery-bg-text">${product.bgNum}</div>
-          ${product.svg}
-        </div>
-        <div class="gallery-thumbs">
-          <div class="thumb active">${product.svg}</div>
-          <div class="thumb" style="background:#1f1f1f">${product.svg}</div>
-          <div class="thumb" style="background:#0a0a0a">${product.svg}</div>
-          <div class="thumb" style="background:#2a2a2a">${product.svg}</div>
-        </div>
-      </div>
-
-      <div class="product-info">
-        <div class="pinfo-tag">${product.tag}</div>
-        <h1 class="pinfo-name">${product.name}</h1>
-        <div class="pinfo-rating">
-          <span class="stars">${stars}</span>
-          <span>${product.rating}/5</span>
-          <span style="color:var(--gray-700)">/</span>
-          <span>${product.reviews} reseñas</span>
-        </div>
-
-        <div class="pinfo-price-row">
-          <div class="pinfo-price"><span class="currency">$</span>${product.price}</div>
-          ${product.oldPrice ? `<div class="pinfo-old-price">$${product.oldPrice}</div><div class="pinfo-discount">-${discountPct}%</div>` : ''}
-        </div>
-
-        <p class="pinfo-short">${product.short}</p>
-
-        <div class="opt-section">
-          <div class="opt-label">Color <span class="selected" id="lbl-color">${product.colors[0].name}</span></div>
-          <div class="color-swatches">${colorsHTML}</div>
-        </div>
-
-        <div class="opt-section">
-          <div class="opt-label">Talla <span class="selected" id="lbl-size">${product.sizes[0]}</span></div>
-          <div class="size-options">${sizesHTML}</div>
-        </div>
-
-        <div class="opt-section">
-          <div class="opt-label">Cantidad</div>
-          <div class="qty-control">
-            <button id="qty-minus">−</button>
-            <div class="qty-val" id="qty-val">1</div>
-            <button id="qty-plus">+</button>
-          </div>
-        </div>
-
-        <div class="buy-actions">
-          <button class="btn-buy-main">Comprar ahora →</button>
-          <button class="btn-buy-secondary">Agregar al carrito</button>
-          <a class="btn-wsp" href="https://wa.me/573000000000?text=${wspMsg}" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-            Consultar por WhatsApp
-          </a>
-        </div>
-
-        <div class="shipping-info">
-          <div class="ship-row">
-            <div class="ship-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-            <div><strong>Envío Express</strong>Llega en 24–48 horas a las principales ciudades. Gratis sobre $200.000.</div>
-          </div>
-          <div class="ship-row">
-            <div class="ship-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></div>
-            <div><strong>Devolución gratis</strong>Tienes 30 días para cambiar o devolver tu prenda sin costo.</div>
-          </div>
-          <div class="ship-row">
-            <div class="ship-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-            <div><strong>Pago seguro</strong>Tarjeta, PSE, Nequi, Daviplata, Bancolombia o contraentrega.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section class="product-details">
-      <div class="details-tabs">
-        <button class="tab-btn active" data-tab="desc">Descripción</button>
-        <button class="tab-btn" data-tab="feat">Características</button>
-        <button class="tab-btn" data-tab="specs">Especificaciones</button>
-      </div>
-      <div class="tab-panel active" data-panel="desc">
-        <p>${product.description}</p>
-      </div>
-      <div class="tab-panel" data-panel="feat">
-        <ul class="feature-list">${featuresHTML}</ul>
-      </div>
-      <div class="tab-panel" data-panel="specs">
-        <table class="specs-table"><tbody>${specsHTML}</tbody></table>
-      </div>
-    </section>
-
-    <section class="recommended">
-      <h3>También te puede<br><span class="outline-text">interesar.</span></h3>
-      <div class="recommended-grid">${relatedHTML}</div>
-    </section>
-  `;
-
-  // ============ INTERACTIVITY ============
-  // Color swatches
-  document.querySelectorAll('.swatch').forEach(s => {
-    s.addEventListener('click', () => {
-      document.querySelectorAll('.swatch').forEach(x => x.classList.remove('active'));
-      s.classList.add('active');
-      document.getElementById('lbl-color').textContent = s.dataset.name;
-    });
-  });
-
-  // Size buttons
-  document.querySelectorAll('.size-btn').forEach(b => {
-    b.addEventListener('click', () => {
-      document.querySelectorAll('.size-btn').forEach(x => x.classList.remove('active'));
-      b.classList.add('active');
-      document.getElementById('lbl-size').textContent = b.dataset.size;
-    });
-  });
-
-  // Quantity
-  const qtyEl = document.getElementById('qty-val');
-  let qty = 1;
-  document.getElementById('qty-minus').addEventListener('click', () => {
-    if (qty > 1) qty--;
-    qtyEl.textContent = qty;
-  });
-  document.getElementById('qty-plus').addEventListener('click', () => {
-    if (qty < 10) qty++;
-    qtyEl.textContent = qty;
-  });
-
-  // Tabs
-  document.querySelectorAll('.tab-btn').forEach(t => {
-    t.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(x => x.classList.remove('active'));
-      t.classList.add('active');
-      document.querySelector(`.tab-panel[data-panel="${t.dataset.tab}"]`).classList.add('active');
-    });
-  });
-
-  // Buy buttons
-  document.querySelector('.btn-buy-main').addEventListener('click', () => {
-    const c = document.getElementById('lbl-color').textContent;
-    const s = document.getElementById('lbl-size').textContent;
-    const msg = encodeURIComponent(`Hola Display Sport, quiero comprar:\n${product.name}\nColor: ${c}\nTalla: ${s}\nCantidad: ${qty}\nPrecio: $${product.price}`);
-    window.open(`https://wa.me/573000000000?text=${msg}`, '_blank');
-  });
-  document.querySelector('.btn-buy-secondary').addEventListener('click', function() {
-    this.textContent = '¡Agregado al carrito ✓';
-    setTimeout(() => this.textContent = 'Agregar al carrito', 2500);
-  });
-
-  // Update WhatsApp float link to include product
-  document.getElementById('whatsapp-float').href = `https://wa.me/573000000000?text=${wspMsg}`;
-})();
-</script>
+<script src="assets/product-detail.js"></script>
 <script src="assets/script.js"></script>
 </body>
 </html>

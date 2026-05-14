@@ -131,13 +131,13 @@ nav {
   line-height: 0.85; letter-spacing: -0.04em; text-transform: uppercase;
 }
 .hero-title .line { display: block; overflow: hidden; }
-.hero-title .line span {
+.hero-title .line > span {
   display: inline-block;
   animation: rise 1s cubic-bezier(.2,.7,.2,1) backwards;
 }
-.hero-title .line:nth-child(1) span { animation-delay: 0.1s; }
-.hero-title .line:nth-child(2) span { animation-delay: 0.25s; }
-.hero-title .line:nth-child(3) span { animation-delay: 0.4s; }
+.hero-title .line:nth-child(1) > span { animation-delay: 0.1s; }
+.hero-title .line:nth-child(2) > span { animation-delay: 0.25s; }
+.hero-title .line:nth-child(3) > span { animation-delay: 0.4s; }
 @keyframes rise {
   from { transform: translateY(100%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
@@ -1554,3 +1554,174 @@ nav { top: 38px; }
   .pulse-ring.r1, .pulse-ring.r2, .pulse-ring.r3 { width: 150px; height: 150px; margin: -75px 0 0 -75px; }
   .corner-mark { font-size: 9px; }
 }
+
+/* ============================================================
+   F1 ADDITIONS — contenido real, dot naranja, precio TBD,
+   404 producto, focus visible, motion / pointer queries
+   ============================================================ */
+
+/* Único acento de color en el hero: el punto naranja al final de NOW */
+.dot-accent {
+  color: var(--accent);
+  display: inline-block;
+  margin-left: 0.05em;
+}
+
+/* Precio "Por definir" — más sobrio, sin currency $ */
+.product-price--tbd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-300);
+}
+.pinfo-price--tbd {
+  font-family: var(--font-display);
+  font-size: 52px;
+  letter-spacing: -1px;
+  color: var(--white);
+  line-height: 1;
+}
+.pinfo-price-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-300);
+  margin-top: 8px;
+}
+
+/* Producto 404 */
+.product-404 {
+  text-align: center;
+  padding: 160px 20px 120px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.product-404 h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.9;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.product-404 p {
+  color: var(--gray-300);
+  font-weight: 300;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+.product-404 .btn-buy-secondary {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* btn-buy-main ahora es <a> (apunta a WhatsApp) — asegurar alineación */
+a.btn-buy-main {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer: link de WhatsApp con estilo coherente */
+.footer-contact a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  transition: border-color 0.2s;
+}
+.footer-contact a:hover { border-color: var(--white); }
+
+/* Footer-col: los <a> mantienen el color del <li> */
+.footer-col li a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+.footer-col li:hover a { color: var(--white); }
+
+/* Skip-to-content para teclado / screen readers (visible solo al focus) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--white);
+  color: var(--black);
+  padding: 8px 16px;
+  z-index: 9999;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; }
+
+/* Focus visible global — el cursor: none oculta el outline default,
+   esta regla devuelve uno discreto para teclado */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+}
+.filter-btn:focus-visible,
+.swatch:focus-visible,
+.size-btn:focus-visible,
+.tab-btn:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
+}
+
+/* Reducir motion: respeta a usuarios con sensibilidad vestibular */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Pointer coarse (touch / móvil): devolver cursor del SO */
+@media (pointer: coarse) {
+  body { cursor: auto; }
+  button, a, input, textarea, .product, .feature, .swatch, .size-btn, .tab-btn, .thumb, .filter-btn,
+  .btn-primary, .btn-ghost, .nav-cta, .view-all, .btn-buy-main, .btn-buy-secondary, .btn-wsp {
+    cursor: pointer;
+  }
+  .qty-control button { cursor: pointer; }
+  .cursor { display: none !important; }
+}
+
+/* Catalog CTA: ahora es <a>, asegurar mismo estilo */
+a.view-all {
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Recommended: el h2 ahora reemplaza al h3 anterior */
+.recommended-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.recommended-title .outline-text { -webkit-text-stroke-width: 2px; }
+
+/* Specs table: mejorar accesibilidad con <th scope="row"> */
+.specs-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-300);
+  padding: 14px 20px 14px 0;
+  font-weight: 400;
+  width: 40%;
+}
+
