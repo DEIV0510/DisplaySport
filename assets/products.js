@@ -476,10 +476,8 @@ if (document.readyState === 'loading') {
 
 const IG_POSTS = [
   {
-    // ⚠️ DEMO TEMPORAL: post público verificable de Instagram para ver
-    // cómo se renderiza el embed real en el sitio. Reemplazar con un
-    // post tuyo cuando pases la URL (https://www.instagram.com/p/SHORTCODE/).
-    embedUrl: 'https://www.instagram.com/p/BsOGulcndj-/',
+    // Para activar el embed real: descomenta embedUrl con un post de @display_sport
+    // embedUrl: 'https://www.instagram.com/p/SHORTCODE/',
     img: 'assets/instagram/post-1.jpg',
     caption: 'Producción local. Cada prenda cortada y cosida en Armenia, Quindío.',
     likes: null,
