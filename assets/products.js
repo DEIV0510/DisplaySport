@@ -441,128 +441,165 @@ if (document.readyState === 'loading') {
 }
 
 /* ============================================================
-   INSTAGRAM FEED — placeholders con SVG decorativo.
-   Para usar fotos reales:
-     1) Guarda imágenes en assets/instagram/post-1.jpg, etc.
-     2) Cambia 'img' de cada entrada a la ruta nueva.
-   La imagen real reemplaza el SVG al cargar.
+   INSTAGRAM FEED — sistema híbrido
+   ------------------------------------------------------------
+   Cada entrada de IG_POSTS soporta tres modos, en este orden
+   de preferencia:
+
+   1) embedUrl (opcional)
+      URL completa de un post de Instagram, p.ej.
+        'https://www.instagram.com/p/CXXXXXXXX/'
+      Si está definida, el sitio carga el embed OFICIAL de
+      Instagram (blockquote + embed.js) y muestra el post real
+      con su foto/video, likes y comentarios actualizados en
+      tiempo real desde Instagram.
+
+   2) img (opcional)
+      Ruta a una foto local en assets/instagram/post-N.jpg.
+      Si la imagen carga, se muestra como card minimalista
+      (estilo coherente con el resto del sitio). Si falla, se
+      muestra el SVG decorativo.
+
+   3) svg + url
+      Fallback decorativo. La card linkea al perfil principal
+      (window.DSR_CONFIG.contact.instagramUrl) con caption real.
+
+   ----------------------------------------------------------
+   PARA ACTIVAR POSTS REALES (cliente):
+     A) Vas al post en Instagram, "Compartir > Copiar enlace"
+        y pegas la URL en `embedUrl` de la entrada que quieras.
+     B) Alternativa: descarga la foto del post (botón
+        "Descargar" o screenshot), guárdala como
+        assets/instagram/post-1.jpg (o post-2, post-3...)
+        y rellena `img: 'assets/instagram/post-1.jpg'`.
    ============================================================ */
 
 const IG_POSTS = [
   {
-    img: 'assets/logo.jpg',
+    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',  // ← activar para embed real
+    img: 'assets/instagram/post-1.jpg',
     caption: 'Producción local. Cada prenda cortada y cosida en Armenia, Quindío.',
-    likes: 0,
+    likes: null,
     url: 'https://www.instagram.com/display_sport/',
-    svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs><linearGradient id="ig1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
-      <rect width="400" height="400" fill="url(#ig1)"/>
-      <text x="200" y="220" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="56" letter-spacing="4">DISPLAY</text>
-      <text x="200" y="260" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="56" letter-spacing="4">SPORT</text>
-      <text x="200" y="370" text-anchor="middle" fill="#b8b8b8" font-family="Space Mono, monospace" font-size="10" letter-spacing="3">ARMENIA · QUINDÍO</text>
-    </svg>`
+    svg: igPlaceholder('PRODUCCIÓN LOCAL', 'ARMENIA · QUINDÍO', 'linearGradient', 'ig1')
   },
   {
-    img: 'assets/logo.jpg',
+    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
+    img: 'assets/instagram/post-2.jpg',
     caption: 'Pantalonetas, licras y tops. Hombre, dama y accesorios.',
-    likes: 0,
+    likes: null,
     url: 'https://www.instagram.com/display_sport/',
-    svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs><radialGradient id="ig2"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs>
-      <rect width="400" height="400" fill="url(#ig2)"/>
-      <g transform="translate(200,200) scale(1.8)">
-        <g fill="#ffffff" transform="translate(-50,-60)">
-          <path d="M50 55 L 150 55 L 155 75 L 158 165 L 108 165 L 105 100 L 95 100 L 92 165 L 42 165 L 45 75 Z"/>
-        </g>
-        <rect x="-52" y="-5" width="104" height="10" fill="#0a0a0a"/>
-        <path d="M0 5 L 0 105" stroke="#0a0a0a" stroke-width="2"/>
-      </g>
-      <text x="200" y="370" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="6">CATÁLOGO COMPLETO</text>
-    </svg>`
+    svg: igPlaceholder('CATÁLOGO', 'HOMBRE · DAMA · ACCESORIOS', 'radialGradient', 'ig2')
   },
   {
-    img: 'assets/logo.jpg',
+    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
+    img: 'assets/instagram/post-3.jpg',
     caption: 'Running, fitness, cycling y CrossFit. Ropa pensada para entrenar de verdad.',
-    likes: 0,
+    likes: null,
     url: 'https://www.instagram.com/display_sport/',
-    svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs><linearGradient id="ig3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f1f1f"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
-      <rect width="400" height="400" fill="url(#ig3)"/>
-      <text x="200" y="120" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="42" letter-spacing="3">RUNNING</text>
-      <text x="200" y="175" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="42" letter-spacing="3">FITNESS</text>
-      <text x="200" y="230" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="42" letter-spacing="3">CYCLING</text>
-      <text x="200" y="285" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="42" letter-spacing="3">CROSSFIT</text>
-    </svg>`
+    svg: igPlaceholder('DISCIPLINAS', 'RUN · FIT · CYCLE · CROSSFIT', 'linearGradient', 'ig3')
   },
   {
-    img: 'assets/logo.jpg',
-    caption: 'Accesorios técnicos. Viseras, canguros, cinturones de running y botellas.',
-    likes: 0,
+    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
+    img: 'assets/instagram/post-4.jpg',
+    caption: 'Accesorios técnicos. Viseras, canguros, cinturones y botellas.',
+    likes: null,
     url: 'https://www.instagram.com/display_sport/',
-    svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs><linearGradient id="ig4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#252525"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
-      <rect width="400" height="400" fill="url(#ig4)"/>
-      <g transform="translate(200,200) scale(1.6)">
-        <g fill="#ffffff" transform="translate(-100,-15)">
-          <path d="M30 105 Q 100 70 170 105 L 168 120 Q 100 100 32 120 Z"/>
-        </g>
-      </g>
-      <text x="200" y="370" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="6">ACCESORIOS</text>
-    </svg>`
+    svg: igPlaceholder('ACCESORIOS', 'TÉCNICOS', 'linearGradient', 'ig4')
   },
   {
-    img: 'assets/logo.jpg',
-    caption: 'Pedidos a todo Colombia. WhatsApp +57 301 665 8929.',
-    likes: 0,
+    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
+    img: 'assets/instagram/post-5.jpg',
+    caption: 'Envíos a todo Colombia en 24–48 h. Pedidos por WhatsApp.',
+    likes: null,
     url: 'https://www.instagram.com/display_sport/',
-    svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs><linearGradient id="ig5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
-      <rect width="400" height="400" fill="url(#ig5)"/>
-      <text x="200" y="160" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="3">ENVÍOS</text>
-      <text x="200" y="210" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="3">A TODO</text>
-      <text x="200" y="260" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="3">COLOMBIA</text>
-      <text x="200" y="320" text-anchor="middle" fill="#b8b8b8" font-family="Space Mono, monospace" font-size="11" letter-spacing="3">24–48 HORAS</text>
-    </svg>`
+    svg: igPlaceholder('ENVÍOS A COLOMBIA', '24 – 48 HORAS', 'linearGradient', 'ig5')
   },
   {
-    img: 'assets/logo.jpg',
+    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
+    img: 'assets/instagram/post-6.jpg',
     caption: 'Hecho en Armenia, Quindío. Producción local, costura por costura.',
-    likes: 0,
+    likes: null,
     url: 'https://www.instagram.com/display_sport/',
-    svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs><radialGradient id="ig6"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs>
-      <rect width="400" height="400" fill="url(#ig6)"/>
-      <text x="200" y="180" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="80" letter-spacing="2">MADE</text>
-      <text x="200" y="240" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="80" letter-spacing="2">IN</text>
-      <text x="200" y="300" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="46" letter-spacing="3">ARMENIA · QUINDÍO</text>
-    </svg>`
+    svg: igPlaceholder('MADE IN', 'ARMENIA · QUINDÍO', 'radialGradient', 'ig6')
   }
 ];
 
 /**
- * Renderiza el feed de Instagram.
+ * Genera un SVG decorativo placeholder para un post de IG.
+ * @param {string} bigText texto grande superior
+ * @param {string} smallText texto chico inferior
+ * @param {'linearGradient'|'radialGradient'} gradType tipo de fondo
+ * @param {string} id id único del gradient
+ * @returns {string} SVG markup
+ */
+function igPlaceholder(bigText, smallText, gradType, id) {
+  const gradDef = gradType === 'radialGradient'
+    ? `<radialGradient id="${id}"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient>`
+    : `<linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient>`;
+  return `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>${gradDef}</defs>
+    <rect width="400" height="400" fill="url(#${id})"/>
+    <text x="200" y="200" text-anchor="middle" fill="#ffffff" font-family="Bebas Neue, sans-serif" font-size="42" letter-spacing="3">${bigText}</text>
+    <text x="200" y="240" text-anchor="middle" fill="#FF5E14" font-family="Space Mono, monospace" font-size="11" letter-spacing="4">${smallText}</text>
+  </svg>`;
+}
+
+/**
+ * Renderiza el feed de Instagram con sistema híbrido.
+ * Si algún post tiene embedUrl, carga el script embed.js de Instagram.
  * @param {string} containerId
  */
 function renderInstagramFeed(containerId) {
   const grid = document.getElementById(containerId);
   if (!grid) return;
-  grid.innerHTML = IG_POSTS.map(post => `
-    <a class="ig-post" href="${post.url}" target="_blank" rel="noopener" aria-label="Ver en Instagram: ${post.caption}">
+
+  const handle = (window.DSR_CONFIG && window.DSR_CONFIG.contact.instagram) || 'display_sport';
+  let hasEmbeds = false;
+
+  grid.innerHTML = IG_POSTS.map(post => {
+    // Modo 1: embed oficial
+    if (post.embedUrl && post.embedUrl.startsWith('https://www.instagram.com/p/')) {
+      hasEmbeds = true;
+      return `<div class="ig-post ig-post--embed">
+        <blockquote class="instagram-media" data-instgrm-permalink="${post.embedUrl}" data-instgrm-version="14">
+          <a href="${post.embedUrl}" target="_blank" rel="noopener">Cargando post de Instagram…</a>
+        </blockquote>
+      </div>`;
+    }
+
+    // Modo 2 + 3: foto local con fallback al SVG
+    const likesHTML = post.likes ? `
+      <div class="ig-likes">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        ${Number(post.likes).toLocaleString('es-CO')}
+      </div>` : '';
+
+    return `<a class="ig-post" href="${post.url}" target="_blank" rel="noopener" aria-label="Ver en Instagram: ${post.caption}">
       <div class="ig-svg-bg">${post.svg}</div>
-      <img src="${post.img}" alt="" class="ig-img" loading="lazy"
-           onload="this.style.opacity='1';"
+      <img src="${post.img}" alt="${post.caption}" class="ig-img" loading="lazy"
+           onload="this.classList.add('is-loaded');"
            onerror="this.remove();" />
       <div class="ig-overlay always-visible">
         <div class="ig-overlay-top">
-          <span class="ig-handle-mini">@display_sport</span>
+          <span class="ig-handle-mini">@${handle}</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </div>
         <div class="ig-overlay-bottom">
+          ${likesHTML}
           <p class="ig-caption">${post.caption}</p>
         </div>
       </div>
-    </a>
-  `).join('');
+    </a>`;
+  }).join('');
+
+  // Cargar el script oficial de Instagram una sola vez si hay embeds
+  if (hasEmbeds && !document.querySelector('script[src*="instagram.com/embed.js"]')) {
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.instagram.com/embed.js';
+    document.body.appendChild(s);
+  }
 }
 
 if (document.readyState === 'loading') {

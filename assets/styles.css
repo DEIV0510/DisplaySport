@@ -865,7 +865,9 @@ body { padding-top: 0; }
 
 /* ============ PRODUCT DETAIL PAGE ============ */
 .product-page {
-  padding: 60px 40px 100px;
+  /* padding-top alto para que el contenido respire del navbar fixed
+     (top-banner 32 + nav 72 = 104px ocupados) */
+  padding: 140px 40px 100px;
   min-height: 80vh;
 }
 .breadcrumb {
@@ -892,9 +894,14 @@ body { padding-top: 0; }
 }
 
 .product-gallery {
-  position: sticky; top: 180px;
+  position: sticky;
+  /* Aire sobre el navbar: 72 (nav) + 32 (banner) + 16 holgura = 120 */
+  top: 120px;
   height: fit-content;
+  transition: top 0.3s ease;
 }
+/* Cuando el nav se compacta, la galeria se mueve con el */
+.is-scrolled-page .product-gallery { top: 76px; }
 .gallery-main {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -1225,7 +1232,7 @@ body { padding-top: 0; }
 
 /* RESPONSIVE PRODUCT PAGE */
 @media (max-width: 900px) {
-  .product-page { padding: 40px 20px 60px; }
+  .product-page { padding: 110px 20px 60px; }
   .product-main { grid-template-columns: 1fr; gap: 30px; margin-bottom: 60px; }
   .product-gallery { position: static; }
   .gallery-bg-text { font-size: 220px; }
@@ -1718,6 +1725,40 @@ a.btn-buy-main {
 a.view-all {
   text-decoration: none;
   display: inline-block;
+}
+
+/* ============ INSTAGRAM EMBEDS OFICIALES ============
+   Cuando un post tiene embedUrl, se renderiza un <blockquote>
+   que Instagram convierte en iframe. Le damos un contenedor
+   fluido para que se integre con el grid. */
+.ig-post--embed {
+  position: relative;
+  overflow: hidden;
+  background: var(--gray-900);
+  border: 1px solid rgba(255,255,255,0.08);
+  min-height: 320px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.ig-post--embed .instagram-media {
+  margin: 0 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.ig-post--embed blockquote a {
+  color: var(--gray-500);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  align-self: center;
+  margin: auto;
+  padding: 40px 20px;
 }
 
 /* Recommended: el h2 ahora reemplaza al h3 anterior */

@@ -151,8 +151,24 @@ del SVG placeholder. Si no existe, queda el SVG. Ver
 
 ### 5. Cambiar las fotos del feed de Instagram
 
-Edita el array `IG_POSTS` al final de `assets/products.js`. Cada
-post acepta `img` con la ruta a un JPG en `assets/instagram/`.
+Tres modos disponibles (por orden de preferencia), todos editables
+en `assets/products.js > IG_POSTS`:
+
+**Modo A — Embed oficial en vivo (mejor)**: en cada entrada,
+descomenta y rellena la línea `embedUrl` con la URL del post
+(Instagram → ⋯ → Copiar enlace, ej. `https://www.instagram.com/p/ABC123/`).
+El sitio carga automáticamente el embed oficial con foto, video,
+likes y comentarios sincronizados.
+
+**Modo B — Foto local**: descarga la imagen del post y guárdala
+como `assets/instagram/post-1.jpg` (numerada 1–6). Edita `caption`
+y `url` (link al post) en la entrada correspondiente.
+
+**Modo C — Decorativo**: si no hay `embedUrl` ni foto en
+`assets/instagram/`, se muestra un SVG placeholder con el branding.
+No necesita configuración.
+
+Ver `assets/instagram/README.txt` para detalles paso a paso.
 
 ---
 
