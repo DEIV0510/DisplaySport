@@ -70,8 +70,7 @@ nav.is-scrolled {
   display: none;
   height: 44px; width: auto; max-width: 220px;
   object-fit: contain;
-  /* Quita el fondo negro del JPG: los negros se vuelven transparentes */
-  mix-blend-mode: screen;
+  /* SVG con fondo transparente: el color del logo viene del propio archivo */
   transition: transform 0.3s ease, height 0.3s ease;
 }
 nav.is-scrolled .logo-img { height: 36px; }
@@ -1504,20 +1503,20 @@ body { padding-top: 0; }
   100% { transform: scale(3.2); opacity: 0; border-width: 0.5px; }
 }
 
-/* Main logo: gray, large, with float animation */
+/* Main logo del hero: SVG transparente, glow blanco con tint naranja */
 .hero-logo-main {
   position: relative;
   width: 78%;
   max-width: 460px;
   height: auto;
   z-index: 3;
-  mix-blend-mode: screen;
-  filter: grayscale(100%) brightness(1.05) contrast(1.1) drop-shadow(0 12px 40px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 12px 40px rgba(0,0,0,0.6)) drop-shadow(0 0 30px rgba(255,255,255,0.06));
   animation: logoFloat 6s ease-in-out infinite, logoEnter 1.2s cubic-bezier(.2,.7,.2,1) 0.3s backwards;
   transition: filter 0.4s ease, transform 0.4s ease;
 }
 .hero-logo-main:hover {
-  filter: grayscale(0%) brightness(1.1) contrast(1.15) drop-shadow(0 14px 50px rgba(255,255,255,0.18));
+  filter: drop-shadow(0 14px 50px rgba(255,255,255,0.18)) drop-shadow(0 0 40px rgba(255,94,20,0.25));
+  transform: scale(1.02);
 }
 @keyframes logoFloat {
   0%, 100% { transform: translateY(0); }
@@ -1833,8 +1832,9 @@ a.view-all {
    se vea espejada en ningún momento. */
 .preloader-logo-3d {
   position: relative;
-  width: 280px;
-  height: 190px;
+  /* Respeta el aspect ratio del SVG real (631x393 = 1.605:1) */
+  width: 380px;
+  height: 237px;
   transform-style: preserve-3d;
   animation: preSpin 3.6s cubic-bezier(.55,.05,.45,1) infinite;
   filter: drop-shadow(0 0 30px rgba(255,94,20,0.35)) drop-shadow(0 14px 40px rgba(0,0,0,0.7));
@@ -1950,8 +1950,8 @@ a.view-all {
 }
 
 @media (max-width: 600px) {
-  .preloader-stage { width: 240px; height: 240px; }
-  .preloader-logo-3d { width: 200px; height: 135px; }
+  .preloader-stage { width: 260px; height: 260px; }
+  .preloader-logo-3d { width: 240px; height: 150px; }
   .preloader-wordmark { font-size: 26px; letter-spacing: 5px; }
   .preloader-progress { width: 180px; }
   .preloader-corner { width: 20px; height: 20px; }
