@@ -4,13 +4,17 @@ Todos los cambios notables del sitio quedan registrados aquí.
 
 ---
 
-## [fix] — WhatsApp corregido + logo en dos variantes
+## [fix] — Contacto definitivo (WhatsApp + Instagram) + logo dos variantes
 
 ### Cambiado
 - **WhatsApp activo definitivo**: `+57 301 665 8929` (`wa.me/573016658929`).
   El número del PDF (`+57 318 589 9233`) era una versión desactualizada;
   el contacto vigente es el del brief inicial. Actualizado en
   `config.js`, `index.html`, `producto.html`, `products.js`, `README.md`.
+- **Instagram definitivo**: [@display_sport](https://www.instagram.com/display_sport/).
+  El handle del PDF (`@Display_sportwear`) era una versión desactualizada;
+  el handle vigente es el del brief inicial. Actualizado en los mismos
+  5 archivos (config + 2 HTMLs + products.js + README).
 - **Logo** ahora en dos variantes alternadas (path central en negro
   para mostrar la D + slash como "perforación" del logo):
   - `assets/logo.svg` — naranja, usado en el preloader.

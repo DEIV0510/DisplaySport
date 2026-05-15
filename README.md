@@ -65,8 +65,8 @@ Edita **`assets/config.js`**. Todo está en un único objeto `DSR_CONFIG`:
 contact: {
   whatsapp: '573016658929',           // solo dígitos para wa.me
   whatsappDisplay: '+57 301 665 8929', // formato legible
-  instagram: 'Display_sportwear',
-  instagramUrl: 'https://www.instagram.com/Display_sportwear',
+  instagram: 'display_sport',
+  instagramUrl: 'https://www.instagram.com/display_sport/',
   email: ''
 }
 ```

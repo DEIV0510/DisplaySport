@@ -453,7 +453,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Producción local. Cada prenda cortada y cosida en Armenia, Quindío.',
     likes: 0,
-    url: 'https://www.instagram.com/Display_sportwear',
+    url: 'https://www.instagram.com/display_sport/',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><linearGradient id="ig1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
       <rect width="400" height="400" fill="url(#ig1)"/>
@@ -466,7 +466,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Pantalonetas, licras y tops. Hombre, dama y accesorios.',
     likes: 0,
-    url: 'https://www.instagram.com/Display_sportwear',
+    url: 'https://www.instagram.com/display_sport/',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><radialGradient id="ig2"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs>
       <rect width="400" height="400" fill="url(#ig2)"/>
@@ -484,7 +484,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Running, fitness, cycling y CrossFit. Ropa pensada para entrenar de verdad.',
     likes: 0,
-    url: 'https://www.instagram.com/Display_sportwear',
+    url: 'https://www.instagram.com/display_sport/',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><linearGradient id="ig3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f1f1f"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
       <rect width="400" height="400" fill="url(#ig3)"/>
@@ -498,7 +498,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Accesorios técnicos. Viseras, canguros, cinturones de running y botellas.',
     likes: 0,
-    url: 'https://www.instagram.com/Display_sportwear',
+    url: 'https://www.instagram.com/display_sport/',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><linearGradient id="ig4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#252525"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
       <rect width="400" height="400" fill="url(#ig4)"/>
@@ -514,7 +514,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Pedidos a todo Colombia. WhatsApp +57 301 665 8929.',
     likes: 0,
-    url: 'https://www.instagram.com/Display_sportwear',
+    url: 'https://www.instagram.com/display_sport/',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><linearGradient id="ig5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
       <rect width="400" height="400" fill="url(#ig5)"/>
@@ -528,7 +528,7 @@ const IG_POSTS = [
     img: 'assets/logo.jpg',
     caption: 'Hecho en Armenia, Quindío. Producción local, costura por costura.',
     likes: 0,
-    url: 'https://www.instagram.com/Display_sportwear',
+    url: 'https://www.instagram.com/display_sport/',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs><radialGradient id="ig6"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs>
       <rect width="400" height="400" fill="url(#ig6)"/>
@@ -554,7 +554,7 @@ function renderInstagramFeed(containerId) {
            onerror="this.remove();" />
       <div class="ig-overlay always-visible">
         <div class="ig-overlay-top">
-          <span class="ig-handle-mini">@Display_sportwear</span>
+          <span class="ig-handle-mini">@display_sport</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </div>
         <div class="ig-overlay-bottom">

@@ -25,8 +25,8 @@ window.DSR_CONFIG = {
     // Solo dígitos, sin '+', para construir wa.me URLs
     whatsapp: '573016658929',
     whatsappDisplay: '+57 301 665 8929',
-    instagram: 'Display_sportwear',
-    instagramUrl: 'https://www.instagram.com/Display_sportwear',
+    instagram: 'display_sport',
+    instagramUrl: 'https://www.instagram.com/display_sport/',
     // Email no provisto aún; dejar vacío hasta tenerlo.
     email: ''
   },
