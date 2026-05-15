@@ -102,19 +102,28 @@
 
 <!-- ============ PRELOADER 3D ============ -->
 <div class="preloader" id="preloader" aria-hidden="true">
+  <span class="preloader-corner tl" aria-hidden="true"></span>
+  <span class="preloader-corner tr" aria-hidden="true"></span>
+  <span class="preloader-corner bl" aria-hidden="true"></span>
+  <span class="preloader-corner br" aria-hidden="true"></span>
+
   <div class="preloader-stage">
     <div class="preloader-rings" aria-hidden="true">
       <div class="preloader-ring r1"></div>
       <div class="preloader-ring r2"></div>
       <div class="preloader-ring r3"></div>
     </div>
-    <div class="preloader-cube">
-      <img src="assets/logo.jpg" alt="" class="preloader-logo preloader-face front" />
-      <img src="assets/logo.jpg" alt="" class="preloader-logo preloader-face back" />
-      <img src="assets/logo.jpg" alt="" class="preloader-logo preloader-face right" />
-      <img src="assets/logo.jpg" alt="" class="preloader-logo preloader-face left" />
+
+    <div class="preloader-logo-3d" aria-hidden="true">
+      <div class="preloader-face preloader-face-front">
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><use href="assets/logo-mark.svg#logo" /><path fill="currentColor" fill-rule="evenodd" d="M 85 200 C 85 95, 220 38, 380 38 C 515 38, 585 120, 585 210 C 585 300, 485 362, 360 362 C 195 362, 85 308, 85 200 Z M 145 200 C 145 125, 250 100, 372 102 C 472 105, 530 158, 530 218 C 530 282, 460 312, 358 312 C 245 312, 145 278, 145 200 Z"/><path fill="currentColor" d="M 210 130 L 305 130 C 380 130, 425 152, 440 180 L 425 198 L 230 198 L 230 158 L 290 158 C 335 158, 365 168, 380 178 L 380 180 L 220 180 Z M 230 222 L 425 222 L 440 240 C 425 268, 380 290, 305 290 L 210 290 L 220 240 L 380 240 L 380 242 C 365 252, 335 262, 290 262 L 230 262 Z"/><path fill="currentColor" d="M 195 200 L 445 195 L 450 218 L 200 222 Z"/></svg>
+      </div>
+      <div class="preloader-face preloader-face-back">
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M 85 200 C 85 95, 220 38, 380 38 C 515 38, 585 120, 585 210 C 585 300, 485 362, 360 362 C 195 362, 85 308, 85 200 Z M 145 200 C 145 125, 250 100, 372 102 C 472 105, 530 158, 530 218 C 530 282, 460 312, 358 312 C 245 312, 145 278, 145 200 Z"/><path fill="currentColor" d="M 210 130 L 305 130 C 380 130, 425 152, 440 180 L 425 198 L 230 198 L 230 158 L 290 158 C 335 158, 365 168, 380 178 L 380 180 L 220 180 Z M 230 222 L 425 222 L 440 240 C 425 268, 380 290, 305 290 L 210 290 L 220 240 L 380 240 L 380 242 C 365 252, 335 262, 290 262 L 230 262 Z"/><path fill="currentColor" d="M 195 200 L 445 195 L 450 218 L 200 222 Z"/></svg>
+      </div>
     </div>
   </div>
+
   <div class="preloader-text">
     <span class="preloader-wordmark">DISPLAY SPORT</span>
     <span class="preloader-meta">ARMENIA · QUINDÍO · COLOMBIA</span>
