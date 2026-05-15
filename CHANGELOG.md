@@ -4,6 +4,23 @@ Todos los cambios notables del sitio quedan registrados aquí.
 
 ---
 
+## [fix] — WhatsApp corregido + logo en dos variantes
+
+### Cambiado
+- **WhatsApp activo definitivo**: `+57 301 665 8929` (`wa.me/573016658929`).
+  El número del PDF (`+57 318 589 9233`) era una versión desactualizada;
+  el contacto vigente es el del brief inicial. Actualizado en
+  `config.js`, `index.html`, `producto.html`, `products.js`, `README.md`.
+- **Logo** ahora en dos variantes alternadas (path central en negro
+  para mostrar la D + slash como "perforación" del logo):
+  - `assets/logo.svg` — naranja, usado en el preloader.
+  - `assets/logo-white.svg` — blanco, usado en navbar, hero y footer.
+  - `assets/logo-black.svg` — backup del original (todo negro).
+- Preloader vuelve a usar `<img>` directos en lugar de `mask-image`,
+  preservando los colores internos del SVG.
+
+---
+
 ## [F-Pro] — Preloader 3D, naranja extendido, secciones nuevas, SEO
 
 ### Añadido

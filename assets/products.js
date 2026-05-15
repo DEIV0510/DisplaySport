@@ -512,7 +512,7 @@ const IG_POSTS = [
   },
   {
     img: 'assets/logo.jpg',
-    caption: 'Pedidos a todo Colombia. WhatsApp +57 318 589 9233.',
+    caption: 'Pedidos a todo Colombia. WhatsApp +57 301 665 8929.',
     likes: 0,
     url: 'https://www.instagram.com/Display_sportwear',
     svg: `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">

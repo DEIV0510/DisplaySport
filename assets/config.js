@@ -23,8 +23,8 @@ window.DSR_CONFIG = {
 
   contact: {
     // Solo dígitos, sin '+', para construir wa.me URLs
-    whatsapp: '573185899233',
-    whatsappDisplay: '+57 318 589 9233',
+    whatsapp: '573016658929',
+    whatsappDisplay: '+57 301 665 8929',
     instagram: 'Display_sportwear',
     instagramUrl: 'https://www.instagram.com/Display_sportwear',
     // Email no provisto aún; dejar vacío hasta tenerlo.
