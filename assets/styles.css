@@ -42,14 +42,23 @@ body {
 
 /* NAV */
 nav {
-  position: fixed; top: 0; left: 0; right: 0;
+  position: fixed; top: 32px; left: 0; right: 0;
   z-index: 100;
-  padding: 12px 40px;
+  padding: 0 40px;
   display: flex; justify-content: space-between; align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: rgba(10,10,10,0.92);
-  backdrop-filter: blur(20px);
-  min-height: 160px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(10,10,10,0.78);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  height: 72px;
+  transition: height 0.3s ease, background 0.3s ease, border-color 0.3s ease, top 0.3s ease;
+}
+nav.is-scrolled {
+  height: 60px;
+  top: 0; /* al hacer scroll se pega arriba, ocultando el top-banner */
+  background: rgba(10,10,10,0.94);
+  border-bottom-color: rgba(255,94,20,0.25);
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
 }
 .logo {
   font-family: var(--font-display);
@@ -59,12 +68,13 @@ nav {
 }
 .logo-img {
   display: none;
-  height: 130px; width: auto; max-width: 600px;
+  height: 44px; width: auto; max-width: 220px;
   object-fit: contain;
   /* Quita el fondo negro del JPG: los negros se vuelven transparentes */
   mix-blend-mode: screen;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, height 0.3s ease;
 }
+nav.is-scrolled .logo-img { height: 36px; }
 .logo:hover .logo-img { transform: scale(1.04); }
 .logo-fallback { display: flex; align-items: center; gap: 10px; }
 .logo-dot {
@@ -104,7 +114,7 @@ nav {
 /* HERO */
 .hero {
   min-height: 100vh; position: relative;
-  padding: 220px 40px 60px;
+  padding: 160px 40px 60px;
   display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
   overflow: hidden;
 }
@@ -385,8 +395,10 @@ footer { background: var(--black); padding: 80px 40px 30px; border-top: 1px soli
 @media (max-width: 900px) {
   body { cursor: auto; }
   .cursor { display: none; }
-  nav { padding: 10px 20px; min-height: 100px; }
-  .logo-img { height: 80px; max-width: 320px; }
+  nav { padding: 0 20px; height: 60px; }
+  nav.is-scrolled { height: 54px; }
+  .logo-img { height: 36px; max-width: 160px; }
+  nav.is-scrolled .logo-img { height: 32px; }
   .nav-links { display: none; }
   .hero { grid-template-columns: 1fr; padding: 120px 24px 40px; }
   .runner-card { height: 480px; }
@@ -799,22 +811,30 @@ footer { background: var(--black); padding: 80px 40px 30px; border-top: 1px soli
 
 /* ============ FREE SHIPPING BANNER ============ */
 .top-banner {
-  background: var(--white);
-  color: var(--black);
-  padding: 10px 40px;
+  background: var(--gray-900);
+  color: var(--gray-300);
+  padding: 9px 40px;
   text-align: center;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 500;
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 101;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 .top-banner .sep { color: var(--gray-500); margin: 0 14px; }
-body { padding-top: 38px; }
-nav { top: 38px; }
+body { padding-top: 0; }
+
+/* Top-banner se esconde al scrollear (el nav lo cubre) */
+.is-scrolled-page .top-banner { transform: translateY(-100%); }
 
 /* ============ RESPONSIVE ADDITIONS ============ */
 @media (max-width: 900px) {
@@ -1911,12 +1931,12 @@ a.view-all {
 
 /* ============ ACENTOS NARANJA AMPLIADOS ============ */
 
-/* REC indicator en navbar (estilo broadcast) */
+/* REC indicator en navbar (estilo broadcast) — centrado vertical en el nav */
 .rec-indicator {
   position: absolute;
-  top: 28px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   display: inline-flex;
   align-items: center;
   gap: 8px;

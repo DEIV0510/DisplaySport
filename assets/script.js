@@ -68,6 +68,34 @@
     requestAnimationFrame(tick);
   }
 
+  // ============ Navbar scroll state ============
+  // Al hacer scroll > 40px, el navbar se compacta, sube al top y
+  // el top-banner se oculta (translateY). El JS solo añade/quita
+  // las clases — todo el resto vive en CSS.
+  const navEl = document.querySelector('nav');
+  if (navEl) {
+    let ticking = false;
+    const SCROLL_THRESHOLD = 40;
+
+    function updateNavState() {
+      const scrolled = window.scrollY > SCROLL_THRESHOLD;
+      navEl.classList.toggle('is-scrolled', scrolled);
+      document.body.classList.toggle('is-scrolled-page', scrolled);
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateNavState);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Estado inicial (por si la página carga ya con scroll, p.ej. al
+    // volver con anchor #catalogo desde producto.html)
+    updateNavState();
+  }
+
   // ============ Cursor custom ============
   const cursor = document.getElementById('cursor');
   if (cursor && supportsFinePointer) {
