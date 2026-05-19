@@ -2046,11 +2046,34 @@ body.menu-open { overflow: hidden; }
   }
 }
 
-/* En pantallas muy chicas, 1 columna (ya estaba, refuerzo y mejoro) */
+/* Pantallas chicas: mantener 2 columnas (estándar e-commerce moderno).
+   Solo a 1 col en pantallas muy estrechas <360px (iPhone SE antiguo). */
 @media (max-width: 480px) {
-  .catalog-grid { grid-template-columns: 1fr; gap: 14px; }
-  .product { min-height: auto; padding: 18px 16px; }
-  .product-image { aspect-ratio: 4/3; max-height: 260px; }
+  .catalog { padding: 50px 12px 70px; }
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .product { padding: 12px 10px; min-height: 240px; }
+  .product-image { aspect-ratio: 1/1; margin-bottom: 10px; }
+  .product-image svg { width: 70%; height: 70%; }
+  .product-bg-num { font-size: 56px; }
+  .product-badge {
+    font-size: 8px;
+    padding: 3px 6px;
+    letter-spacing: 1px;
+  }
+  .product-tag { font-size: 8px; letter-spacing: 1px; margin-bottom: 4px; }
+  .product-name { font-size: 12px; line-height: 1.15; margin-bottom: 8px; }
+  .product-bottom { padding-top: 10px; }
+  .product-price { font-size: 16px; letter-spacing: -0.3px; }
+  .product-price .currency { font-size: 10px; }
+  .product-price--tbd { font-size: 8px; letter-spacing: 1px; }
+  .product-cta { width: 24px; height: 24px; }
+  .product-cta svg { width: 11px; height: 11px; }
+}
+
+/* Móviles muy estrechos (<= 360px): 1 columna como fallback */
+@media (max-width: 360px) {
+  .catalog-grid { grid-template-columns: 1fr; gap: 12px; }
+  .product { min-height: auto; padding: 16px 14px; }
 }
 
 /* ============ POR QUÉ MOBILE — más aire ============ */
