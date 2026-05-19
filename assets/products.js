@@ -485,46 +485,51 @@ if (document.readyState === 'loading') {
 
 const IG_POSTS = [
   {
-    // embedUrl: 'https://www.instagram.com/p/SHORTCODE/',  // cliente: pegar URL real para activar embed oficial
+    embedUrl: 'https://www.instagram.com/p/DYXVf__ggqm/',
+    url: 'https://www.instagram.com/p/DYXVf__ggqm/',
     caption: 'Producción local. Cada prenda cortada y cosida en Armenia, Quindío. 🏭✨',
     likes: 142,
     date: 'hace 2 días',
-    url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('PRODUCCIÓN LOCAL', 'ARMENIA · QUINDÍO', 'linearGradient', 'ig1')
   },
   {
+    embedUrl: 'https://www.instagram.com/p/DXR5YAfEZ0b/',
+    url: 'https://www.instagram.com/p/DXR5YAfEZ0b/',
     caption: 'Pantalonetas, licras y tops listos. Hombre, dama y accesorios — todo hecho a mano. #DisplaySport',
     likes: 218,
     date: 'hace 5 días',
-    url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('CATÁLOGO', 'HOMBRE · DAMA · ACCESORIOS', 'radialGradient', 'ig2')
   },
   {
+    embedUrl: 'https://www.instagram.com/p/DV997hajcqg/',
+    url: 'https://www.instagram.com/p/DV997hajcqg/?img_index=1',
     caption: 'Running, fitness, cycling y CrossFit 🏃‍♂️🚴‍♀️ Ropa pensada para entrenar de verdad.',
     likes: 305,
     date: 'hace 1 semana',
-    url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('DISCIPLINAS', 'RUN · FIT · CYCLE · CROSSFIT', 'linearGradient', 'ig3')
   },
   {
+    embedUrl: 'https://www.instagram.com/p/DLKepjSAku3/',
+    url: 'https://www.instagram.com/p/DLKepjSAku3/',
     caption: 'Accesorios técnicos disponibles: viseras, canguros, cinturones de running y botellas en silicona.',
     likes: 89,
     date: 'hace 1 semana',
-    url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('ACCESORIOS', 'TÉCNICOS', 'linearGradient', 'ig4')
   },
   {
+    embedUrl: 'https://www.instagram.com/p/DYDRw33zC9O/',
+    url: 'https://www.instagram.com/p/DYDRw33zC9O/',
     caption: 'Envíos a todo Colombia en 24–48 h 🚚 Pedidos por WhatsApp: +57 301 665 8929',
     likes: 167,
     date: 'hace 2 semanas',
-    url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('ENVÍOS A COLOMBIA', '24 – 48 HORAS', 'linearGradient', 'ig5')
   },
   {
+    embedUrl: 'https://www.instagram.com/p/C_OxPVIyedF/',
+    url: 'https://www.instagram.com/p/C_OxPVIyedF/?img_index=1',
     caption: 'Hecho en Armenia, Quindío 🇨🇴 Producción local, costura por costura.',
     likes: 412,
     date: 'hace 3 semanas',
-    url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('MADE IN', 'ARMENIA · QUINDÍO', 'radialGradient', 'ig6')
   }
 ];
