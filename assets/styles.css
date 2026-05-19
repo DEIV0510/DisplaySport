@@ -651,8 +651,12 @@ footer { background: var(--black); padding: 80px 40px 30px; border-top: 1px soli
 .ig-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
   align-items: start;
+  /* Más estrecho para que cada embed quepa bien en su columna,
+     evitando que las cards de Instagram aparezcan comprimidas. */
+  max-width: 1280px;
+  margin: 0 auto;
 }
 .ig-tile {
   aspect-ratio: 1 / 1;
@@ -1928,27 +1932,24 @@ a.view-all {
 }
 
 /* ============ INSTAGRAM EMBEDS OFICIALES ============
-   Cuando un post tiene embedUrl, se renderiza un <blockquote>
-   que Instagram convierte en iframe. Le damos un contenedor
-   fluido para que se integre con el grid. */
+   Wrapper transparente: el iframe oficial de Instagram ya trae
+   su propio card con fondo blanco, bordes y sombra. Solo
+   centramos y le damos respiración. */
 .ig-post--embed {
   position: relative;
-  overflow: hidden;
-  background: var(--gray-900);
-  border: 1px solid rgba(255,255,255,0.08);
-  min-height: 320px;
+  background: transparent;
+  border: 0;
   display: flex;
-  align-items: stretch;
-  justify-content: stretch;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4)) drop-shadow(0 0 0 1px rgba(255,255,255,0.05));
 }
 .ig-post--embed .instagram-media {
   margin: 0 !important;
   width: 100% !important;
+  max-width: 100% !important;
   min-width: 0 !important;
-  max-width: none !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  background: transparent !important;
 }
 .ig-post--embed blockquote a {
   color: var(--gray-500);
@@ -1958,7 +1959,22 @@ a.view-all {
   text-decoration: none;
   align-self: center;
   margin: auto;
-  padding: 40px 20px;
+  padding: 60px 20px;
+  display: block;
+  text-align: center;
+}
+
+/* Mobile: 1 columna con max-width para que el embed no se estire
+   demasiado en tablets en landscape */
+@media (max-width: 1100px) {
+  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+@media (max-width: 700px) {
+  .ig-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    gap: 24px;
+  }
 }
 
 /* Recommended: el h2 ahora reemplaza al h3 anterior */
