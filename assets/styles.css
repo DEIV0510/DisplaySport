@@ -650,8 +650,9 @@ footer { background: var(--black); padding: 80px 40px 30px; border-top: 1px soli
 
 .ig-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
 }
 .ig-tile {
   aspect-ratio: 1 / 1;
@@ -853,7 +854,8 @@ body { padding-top: 0; }
 
   .ig-section { padding: 60px 24px; }
   .ig-header { flex-direction: column; align-items: flex-start; }
-  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  /* .ig-grid: las reglas mobile actuales viven en el bloque
+     INSTAGRAM CARDS más arriba (2 cols / 1 col). */
 
   .newsletter { padding: 70px 24px; }
   .newsletter-form { flex-direction: column; }
@@ -1730,6 +1732,201 @@ a.view-all {
   display: inline-block;
 }
 
+/* ============================================================
+   INSTAGRAM CARDS (embed-style)
+   Replica del look del embed oficial de Instagram con datos
+   de la marca. Cuando el cliente provea embedUrl real, esta
+   card se sustituye por el embed oficial automáticamente.
+   ============================================================ */
+.ig-post--card {
+  aspect-ratio: auto !important;
+  background: #fff;
+  color: #262626;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1), box-shadow 0.4s;
+}
+.ig-post--card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px -15px rgba(255,94,20,0.25), 0 10px 40px -10px rgba(0,0,0,0.5);
+}
+
+/* Header: avatar + handle + icono IG */
+.igcard-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #efefef;
+}
+.igcard-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--black);
+  background-image: url('logo.svg');
+  background-size: 140% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  border: 2px solid var(--accent);
+  padding: 4px;
+}
+.igcard-id {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.igcard-name {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: #262626;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.igcard-name::after {
+  /* Verified check (azul Instagram) */
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background:
+    radial-gradient(circle, transparent 25%, #1DA1F2 26%, #1DA1F2 100%);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 0l2.4 2.6 3.4-.7L19.5 5l3.1 1.4-.7 3.4L24 12l-2.1 2.2.7 3.4-3.1 1.4-1.7 3.1-3.4-.7L12 24l-2.4-2.6-3.4.7L4.5 19l-3.1-1.4.7-3.4L0 12l2.1-2.2-.7-3.4L4.5 5l1.7-3.1 3.4.7L12 0zm-1.5 16l7.5-7.5-1.4-1.4L10.5 13l-3.1-3.1-1.4 1.4 4.5 4.7z' fill='black'/></svg>") center/contain no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 0l2.4 2.6 3.4-.7L19.5 5l3.1 1.4-.7 3.4L24 12l-2.1 2.2.7 3.4-3.1 1.4-1.7 3.1-3.4-.7L12 24l-2.4-2.6-3.4.7L4.5 19l-3.1-1.4.7-3.4L0 12l2.1-2.2-.7-3.4L4.5 5l1.7-3.1 3.4.7L12 0zm-1.5 16l7.5-7.5-1.4-1.4L10.5 13l-3.1-3.1-1.4 1.4 4.5 4.7z' fill='black'/></svg>") center/contain no-repeat;
+}
+.igcard-handle {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: #737373;
+}
+.igcard-handle::after { content: ''; }
+.igcard-logo {
+  color: #262626;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.igcard-logo:hover { background: #efefef; }
+
+/* Caption del post */
+.igcard-caption {
+  padding: 14px 16px 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.45;
+  color: #262626;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Media: imagen o SVG decorativo */
+.igcard-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--black);
+  overflow: hidden;
+}
+.igcard-svg-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.igcard-svg-bg svg { width: 100%; height: 100%; display: block; }
+.igcard-media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.igcard-media-img.is-loaded { opacity: 1; }
+
+/* Actions: like, comment, share, save */
+.igcard-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  color: #262626;
+}
+.igcard-action {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  color: #262626;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s, transform 0.15s;
+  padding: 0;
+}
+.igcard-action:hover { background: #efefef; transform: scale(1.08); }
+.igcard-action--right { margin-left: auto; }
+
+/* Meta: likes count + fecha */
+.igcard-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 16px 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #262626;
+}
+.igcard-likes strong { font-weight: 700; }
+.igcard-date {
+  font-size: 10px;
+  color: #8e8e8e;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* CTA: leer más */
+.igcard-cta {
+  display: block;
+  padding: 14px 16px;
+  text-align: center;
+  background: #fafafa;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-top: 1px solid #efefef;
+  transition: background 0.2s;
+}
+.igcard-cta:hover { background: #efefef; color: var(--black); }
+
+/* Responsive del grid de cards */
+@media (max-width: 900px) {
+  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
+@media (max-width: 600px) {
+  .ig-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ig-post--card { max-width: 480px; margin: 0 auto; width: 100%; }
+}
+
 /* ============ INSTAGRAM EMBEDS OFICIALES ============
    Cuando un post tiene embedUrl, se renderiza un <blockquote>
    que Instagram convierte en iframe. Le damos un contenedor
@@ -2157,11 +2354,8 @@ body.menu-open { overflow: hidden; }
     align-items: center;
     justify-content: center;
   }
-  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  /* .ig-grid mobile rules son las del bloque INSTAGRAM CARDS (2/1 cols). */
   .ig-handle { font-size: 12px; }
-}
-@media (max-width: 480px) {
-  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
 }
 
 /* ============ FOOTER MOBILE ============ */

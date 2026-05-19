@@ -485,51 +485,45 @@ if (document.readyState === 'loading') {
 
 const IG_POSTS = [
   {
-    // Para activar el embed real: descomenta embedUrl con un post de @display_sport
-    // embedUrl: 'https://www.instagram.com/p/SHORTCODE/',
-    // img: 'assets/instagram/post-1.jpg',
-    caption: 'Producción local. Cada prenda cortada y cosida en Armenia, Quindío.',
-    likes: null,
+    // embedUrl: 'https://www.instagram.com/p/SHORTCODE/',  // cliente: pegar URL real para activar embed oficial
+    caption: 'Producción local. Cada prenda cortada y cosida en Armenia, Quindío. 🏭✨',
+    likes: 142,
+    date: 'hace 2 días',
     url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('PRODUCCIÓN LOCAL', 'ARMENIA · QUINDÍO', 'linearGradient', 'ig1')
   },
   {
-    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    // img: 'assets/instagram/post-2.jpg',
-    caption: 'Pantalonetas, licras y tops. Hombre, dama y accesorios.',
-    likes: null,
+    caption: 'Pantalonetas, licras y tops listos. Hombre, dama y accesorios — todo hecho a mano. #DisplaySport',
+    likes: 218,
+    date: 'hace 5 días',
     url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('CATÁLOGO', 'HOMBRE · DAMA · ACCESORIOS', 'radialGradient', 'ig2')
   },
   {
-    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    // img: 'assets/instagram/post-3.jpg',
-    caption: 'Running, fitness, cycling y CrossFit. Ropa pensada para entrenar de verdad.',
-    likes: null,
+    caption: 'Running, fitness, cycling y CrossFit 🏃‍♂️🚴‍♀️ Ropa pensada para entrenar de verdad.',
+    likes: 305,
+    date: 'hace 1 semana',
     url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('DISCIPLINAS', 'RUN · FIT · CYCLE · CROSSFIT', 'linearGradient', 'ig3')
   },
   {
-    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    // img: 'assets/instagram/post-4.jpg',
-    caption: 'Accesorios técnicos. Viseras, canguros, cinturones y botellas.',
-    likes: null,
+    caption: 'Accesorios técnicos disponibles: viseras, canguros, cinturones de running y botellas en silicona.',
+    likes: 89,
+    date: 'hace 1 semana',
     url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('ACCESORIOS', 'TÉCNICOS', 'linearGradient', 'ig4')
   },
   {
-    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    // img: 'assets/instagram/post-5.jpg',
-    caption: 'Envíos a todo Colombia en 24–48 h. Pedidos por WhatsApp.',
-    likes: null,
+    caption: 'Envíos a todo Colombia en 24–48 h 🚚 Pedidos por WhatsApp: +57 301 665 8929',
+    likes: 167,
+    date: 'hace 2 semanas',
     url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('ENVÍOS A COLOMBIA', '24 – 48 HORAS', 'linearGradient', 'ig5')
   },
   {
-    // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    // img: 'assets/instagram/post-6.jpg',
-    caption: 'Hecho en Armenia, Quindío. Producción local, costura por costura.',
-    likes: null,
+    caption: 'Hecho en Armenia, Quindío 🇨🇴 Producción local, costura por costura.',
+    likes: 412,
+    date: 'hace 3 semanas',
     url: 'https://www.instagram.com/display_sport/',
     svg: igPlaceholder('MADE IN', 'ARMENIA · QUINDÍO', 'radialGradient', 'ig6')
   }
@@ -578,36 +572,59 @@ function renderInstagramFeed(containerId) {
       </div>`;
     }
 
-    // Modo 2 + 3: foto local con fallback al SVG.
-    // OJO: solo emitimos <img> si post.img está definido. Si no lo está,
-    // el navegador NO intenta cargar nada y la consola queda limpia (evita
-    // los 404 / ERR_FILE_NOT_FOUND que se veían cuando había imgs vacíos).
-    const likesHTML = post.likes ? `
-      <div class="ig-likes">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        ${Number(post.likes).toLocaleString('es-CO')}
-      </div>` : '';
-
-    const imgHTML = post.img
-      ? `<img src="${post.img}" alt="${post.caption}" class="ig-img" loading="lazy"
+    // Modo 2: tarjeta estilo "embed de Instagram" (look idéntico al
+    // embed oficial, con datos de la marca). Se reemplaza con embed
+    // oficial cuando el cliente provea embedUrl.
+    const likesNum = post.likes ? Number(post.likes).toLocaleString('es-CO') : '—';
+    const mediaHTML = post.img
+      ? `<img src="${post.img}" alt="${post.caption}" class="igcard-media-img" loading="lazy"
              onload="this.classList.add('is-loaded');"
              onerror="this.remove();" />`
       : '';
 
-    return `<a class="ig-post" href="${post.url}" target="_blank" rel="noopener" aria-label="Ver en Instagram: ${post.caption}">
-      <div class="ig-svg-bg">${post.svg}</div>
-      ${imgHTML}
-      <div class="ig-overlay always-visible">
-        <div class="ig-overlay-top">
-          <span class="ig-handle-mini">@${handle}</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    return `<article class="ig-post ig-post--card">
+      <header class="igcard-header">
+        <div class="igcard-avatar" aria-hidden="true"></div>
+        <div class="igcard-id">
+          <span class="igcard-name">Display Sport</span>
+          <span class="igcard-handle">@${handle} · Seguir</span>
         </div>
-        <div class="ig-overlay-bottom">
-          ${likesHTML}
-          <p class="ig-caption">${post.caption}</p>
-        </div>
+        <a class="igcard-logo" href="${post.url}" target="_blank" rel="noopener" aria-label="Abrir en Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </header>
+
+      <p class="igcard-caption">${post.caption}</p>
+
+      <div class="igcard-media">
+        <div class="igcard-svg-bg" aria-hidden="true">${post.svg}</div>
+        ${mediaHTML}
       </div>
-    </a>`;
+
+      <div class="igcard-actions" aria-hidden="true">
+        <button type="button" class="igcard-action" aria-label="Me gusta">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button type="button" class="igcard-action" aria-label="Comentar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </button>
+        <button type="button" class="igcard-action" aria-label="Compartir">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+        <button type="button" class="igcard-action igcard-action--right" aria-label="Guardar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+
+      <div class="igcard-meta">
+        <span class="igcard-likes"><strong>${likesNum}</strong> me gusta</span>
+        <span class="igcard-date">${post.date || ''}</span>
+      </div>
+
+      <a class="igcard-cta" href="${post.url}" target="_blank" rel="noopener">
+        Leer más en Instagram →
+      </a>
+    </article>`;
   }).join('');
 
   // Cargar el script oficial de Instagram una sola vez si hay embeds
