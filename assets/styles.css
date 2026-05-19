@@ -2076,17 +2076,66 @@ body.menu-open { overflow: hidden; }
   .product { min-height: auto; padding: 16px 14px; }
 }
 
-/* ============ POR QUÉ MOBILE — más aire ============ */
+/* ============ POR QUÉ MOBILE — carrusel horizontal con scroll-snap ============
+   En lugar de 4 cards apiladas verticalmente (consume mucho scroll),
+   se convierte en un scroll horizontal nativo con snap por card.
+   Indicador visual "DESLIZA →" abajo. Sin JS, solo CSS. */
 @media (max-width: 900px) {
-  .why { padding: 70px 20px; }
-  .why-header { gap: 18px; margin-bottom: 40px; }
+  .why { padding: 70px 0 60px; }
+  .why-header { gap: 18px; margin-bottom: 32px; padding: 0 20px; }
   .why-header .section-title { font-size: clamp(40px, 10vw, 60px); }
-  .why-grid { gap: 12px; }
-  .why-card { padding: 26px 20px 22px; }
+
+  .why-grid {
+    /* Carrusel horizontal */
+    display: flex;
+    flex-wrap: nowrap;
+    grid-template-columns: none;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 20px 4px 20px;
+    /* Cada card visible al ~85% del viewport, la siguiente asoma 15% */
+  }
+  .why-grid::-webkit-scrollbar { display: none; }
+
+  .why-card {
+    flex: 0 0 78%;
+    max-width: 320px;
+    min-width: 240px;
+    scroll-snap-align: start;
+    padding: 28px 22px 24px;
+  }
   .why-num { margin-bottom: 24px; font-size: 10px; }
-  .why-icon { width: 48px; height: 48px; margin-bottom: 22px; }
-  .why-card h3 { font-size: 18px; margin-bottom: 10px; }
-  .why-card p { font-size: 12px; }
+  .why-icon { width: 50px; height: 50px; margin-bottom: 22px; }
+  .why-card h3 { font-size: 19px; margin-bottom: 10px; }
+  .why-card p { font-size: 13px; line-height: 1.55; }
+
+  /* Hint visual de swipe debajo del carrusel */
+  .why::after {
+    content: '← DESLIZA →';
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gray-500);
+    animation: whySwipeHint 2.5s ease-in-out infinite;
+  }
+}
+@keyframes whySwipeHint {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50%      { opacity: 1; transform: translateX(4px); }
+}
+
+/* Más estrechos: cards toman casi todo el ancho */
+@media (max-width: 480px) {
+  .why-card { flex: 0 0 84%; min-width: 220px; }
+  .why-grid { gap: 10px; padding: 4px 16px; scroll-padding-left: 16px; }
 }
 
 /* ============ INSTAGRAM MOBILE — grid 2 cols ============ */
@@ -2664,15 +2713,8 @@ body.menu-open { overflow: hidden; }
   font-weight: 300;
 }
 
-@media (max-width: 900px) {
-  .why { padding: 80px 24px; }
-  .why-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 50px; }
-  .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-  .why-card { padding: 28px 22px; }
-}
-@media (max-width: 520px) {
-  .why-grid { grid-template-columns: 1fr; }
-}
+/* (Las reglas mobile de .why-grid se movieron al bloque F-MOBILE
+   más arriba — ahora es carrusel horizontal con scroll-snap.) */
 
 /* ============ BADGES DE PAGO ============ */
 .footer-payments {
