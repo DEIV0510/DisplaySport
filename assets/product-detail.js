@@ -46,7 +46,9 @@
     description: product.description,
     sku: product.id,
     brand: { '@type': 'Brand', name: 'Display Sport' },
-    image: `https://display-sport.co/assets/products/${product.id}.jpg`,
+    image: product.photo
+      ? `https://display-sport.co/${product.photo}`
+      : 'https://display-sport.co/assets/logo.svg',
     category: product.category,
     offers: offerPrice ? {
       '@type': 'Offer',
@@ -133,10 +135,10 @@
         <div class="gallery-main">
           <div class="gallery-bg-text" aria-hidden="true">${product.bgNum}</div>
           <div aria-hidden="true">${product.svg}</div>
-          <img src="assets/products/${product.id}.jpg" alt="${product.name} — Display Sport"
+          ${product.photo ? `<img src="${product.photo}" alt="${product.name} — Display Sport"
                class="product-photo" fetchpriority="high"
                onload="this.classList.add('is-loaded');"
-               onerror="this.remove();" />
+               onerror="this.remove();" />` : ''}
         </div>
         <div class="gallery-thumbs" aria-hidden="true">
           <div class="thumb active">${product.svg}</div>

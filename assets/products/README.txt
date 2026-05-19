@@ -3,10 +3,10 @@ FOTOS DEL CATÁLOGO — DISPLAY SPORT
 
 Guarda aquí las fotos REALES de cada producto.
 
-NOMBRE DEL ARCHIVO
-------------------
-Debe coincidir EXACTAMENTE con el ID del producto en
-assets/products.js, en .jpg minúsculas, sin tildes ni espacios.
+NOMBRE RECOMENDADO DEL ARCHIVO
+------------------------------
+Usa el ID del producto como nombre (más fácil de mantener).
+En .jpg minúsculas, sin tildes ni espacios.
 
 IDs ACTUALES (11 productos):
 
@@ -29,12 +29,29 @@ FORMATO RECOMENDADO
 - Fondo neutro/oscuro coherente con la marca
 - Menor a 200 KB cada una (usa squoosh.app o tinypng.com)
 
-CÓMO FUNCIONA
--------------
-El sitio intenta cargar assets/products/<id>.jpg al renderizar
-la tarjeta. Si la foto existe, se muestra encima del SVG
-placeholder. Si no existe (404), el navegador la quita
-automáticamente y se sigue viendo el SVG. Cero configuración.
+CÓMO ACTIVAR LA FOTO EN UN PRODUCTO
+-----------------------------------
+1. Guarda la imagen aquí (ej. pantaloneta.jpg).
+2. Abre assets/products.js y dentro del objeto del producto
+   añade una línea con `photo:` apuntando al archivo:
 
-Cuando subas una foto nueva, basta con recargar el navegador
-(Ctrl+F5) — el sitio la detecta automáticamente.
+      'pantaloneta': {
+        id: 'pantaloneta',
+        ...
+        photo: 'assets/products/pantaloneta.jpg',   ← AÑADE ESTA
+        ...
+      }
+
+3. Guarda y recarga el navegador con Ctrl+F5. La foto reemplaza
+   al SVG decorativo.
+
+SI NO TIENES FOTO TODAVÍA
+-------------------------
+No pongas el campo `photo:` o déjalo comentado. El sitio NO
+intenta cargar nada — queda el SVG y la consola limpia, sin
+errores 404.
+
+PARA QUITAR UNA FOTO
+--------------------
+Borra (o comenta) la línea `photo:` en products.js. El archivo
+.jpg puedes dejarlo aquí o borrarlo.

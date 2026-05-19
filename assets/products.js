@@ -382,9 +382,16 @@ const PRODUCTS = {
    ============================================================ */
 
 /**
- * Devuelve el HTML de una tarjeta de producto. Incluye <img> que intenta
- * cargar assets/products/<id>.jpg sobre el SVG; si la imagen no existe,
- * onerror la oculta y queda el SVG visible.
+ * Devuelve el HTML de una tarjeta de producto.
+ *
+ * Sistema de fotos: solo emite el <img> si el producto tiene la
+ * propiedad `photo: 'assets/products/<archivo>.jpg'` definida. Si no
+ * está, queda solo el SVG decorativo (sin intentar cargar nada, sin
+ * generar 404 en consola).
+ *
+ * Para activar foto real en un producto: añade `photo: 'assets/products/pantaloneta.jpg'`
+ * al objeto correspondiente en PRODUCTS y guarda la imagen con ese nombre.
+ *
  * @param {Object} p item de PRODUCTS
  * @returns {string}
  */
@@ -395,7 +402,12 @@ function renderProductCard(p) {
   const priceHTML = p.priceTBD
     ? `<div class="product-price product-price--tbd">Por definir</div>`
     : `<div class="product-price"><span class="currency">$</span>${p.price}</div>`;
-  const photoSrc = `assets/products/${p.id}.jpg`;
+  const photoHTML = p.photo
+    ? `<img src="${p.photo}" alt="${p.name} — Display Sport"
+             class="product-photo" loading="lazy"
+             onload="this.classList.add('is-loaded');"
+             onerror="this.remove();" />`
+    : '';
 
   return `
     <a class="product"
@@ -407,10 +419,7 @@ function renderProductCard(p) {
       <div class="product-image">
         <span class="product-bg-num" aria-hidden="true">${p.bgNum}</span>
         <div aria-hidden="true">${p.svg}</div>
-        <img src="${photoSrc}" alt="${p.name} — Display Sport"
-             class="product-photo" loading="lazy"
-             onload="this.classList.add('is-loaded');"
-             onerror="this.remove();" />
+        ${photoHTML}
       </div>
       <div class="product-tag">${p.tag}</div>
       <div class="product-name">${p.name}</div>
@@ -478,7 +487,7 @@ const IG_POSTS = [
   {
     // Para activar el embed real: descomenta embedUrl con un post de @display_sport
     // embedUrl: 'https://www.instagram.com/p/SHORTCODE/',
-    img: 'assets/instagram/post-1.jpg',
+    // img: 'assets/instagram/post-1.jpg',
     caption: 'Producción local. Cada prenda cortada y cosida en Armenia, Quindío.',
     likes: null,
     url: 'https://www.instagram.com/display_sport/',
@@ -486,7 +495,7 @@ const IG_POSTS = [
   },
   {
     // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    img: 'assets/instagram/post-2.jpg',
+    // img: 'assets/instagram/post-2.jpg',
     caption: 'Pantalonetas, licras y tops. Hombre, dama y accesorios.',
     likes: null,
     url: 'https://www.instagram.com/display_sport/',
@@ -494,7 +503,7 @@ const IG_POSTS = [
   },
   {
     // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    img: 'assets/instagram/post-3.jpg',
+    // img: 'assets/instagram/post-3.jpg',
     caption: 'Running, fitness, cycling y CrossFit. Ropa pensada para entrenar de verdad.',
     likes: null,
     url: 'https://www.instagram.com/display_sport/',
@@ -502,7 +511,7 @@ const IG_POSTS = [
   },
   {
     // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    img: 'assets/instagram/post-4.jpg',
+    // img: 'assets/instagram/post-4.jpg',
     caption: 'Accesorios técnicos. Viseras, canguros, cinturones y botellas.',
     likes: null,
     url: 'https://www.instagram.com/display_sport/',
@@ -510,7 +519,7 @@ const IG_POSTS = [
   },
   {
     // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    img: 'assets/instagram/post-5.jpg',
+    // img: 'assets/instagram/post-5.jpg',
     caption: 'Envíos a todo Colombia en 24–48 h. Pedidos por WhatsApp.',
     likes: null,
     url: 'https://www.instagram.com/display_sport/',
@@ -518,7 +527,7 @@ const IG_POSTS = [
   },
   {
     // embedUrl: 'https://www.instagram.com/p/PEGAR_AQUI/',
-    img: 'assets/instagram/post-6.jpg',
+    // img: 'assets/instagram/post-6.jpg',
     caption: 'Hecho en Armenia, Quindío. Producción local, costura por costura.',
     likes: null,
     url: 'https://www.instagram.com/display_sport/',
@@ -569,18 +578,25 @@ function renderInstagramFeed(containerId) {
       </div>`;
     }
 
-    // Modo 2 + 3: foto local con fallback al SVG
+    // Modo 2 + 3: foto local con fallback al SVG.
+    // OJO: solo emitimos <img> si post.img está definido. Si no lo está,
+    // el navegador NO intenta cargar nada y la consola queda limpia (evita
+    // los 404 / ERR_FILE_NOT_FOUND que se veían cuando había imgs vacíos).
     const likesHTML = post.likes ? `
       <div class="ig-likes">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         ${Number(post.likes).toLocaleString('es-CO')}
       </div>` : '';
 
+    const imgHTML = post.img
+      ? `<img src="${post.img}" alt="${post.caption}" class="ig-img" loading="lazy"
+             onload="this.classList.add('is-loaded');"
+             onerror="this.remove();" />`
+      : '';
+
     return `<a class="ig-post" href="${post.url}" target="_blank" rel="noopener" aria-label="Ver en Instagram: ${post.caption}">
       <div class="ig-svg-bg">${post.svg}</div>
-      <img src="${post.img}" alt="${post.caption}" class="ig-img" loading="lazy"
-           onload="this.classList.add('is-loaded');"
-           onerror="this.remove();" />
+      ${imgHTML}
       <div class="ig-overlay always-visible">
         <div class="ig-overlay-top">
           <span class="ig-handle-mini">@${handle}</span>
