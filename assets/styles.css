@@ -1934,7 +1934,11 @@ a.view-all {
 /* ============ INSTAGRAM EMBEDS OFICIALES ============
    Wrapper transparente: el iframe oficial de Instagram ya trae
    su propio card con fondo blanco, bordes y sombra. Solo
-   centramos y le damos respiración. */
+   centramos y le damos respiración.
+
+   Cada embed limita su ancho a 360px (compacto pero respeta
+   aspect-ratio nativo de la imagen — se ve completa sin
+   recortes). El iframe interno se ajusta a ese ancho. */
 .ig-post--embed {
   position: relative;
   background: transparent;
@@ -1946,10 +1950,13 @@ a.view-all {
   filter: drop-shadow(0 10px 30px rgba(0,0,0,0.4)) drop-shadow(0 0 0 1px rgba(255,255,255,0.05));
 }
 .ig-post--embed .instagram-media {
-  margin: 0 !important;
+  margin: 0 auto !important;
   width: 100% !important;
-  max-width: 100% !important;
+  max-width: 360px !important;
   min-width: 0 !important;
+}
+.ig-post--embed iframe {
+  max-width: 360px !important;
 }
 .ig-post--embed blockquote a {
   color: var(--gray-500);
