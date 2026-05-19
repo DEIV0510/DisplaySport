@@ -1789,6 +1789,437 @@ a.view-all {
 }
 
 /* ============================================================
+   F-MOBILE — Optimización mobile completa
+   ============================================================ */
+
+/* Botón hamburguesa (visible solo en mobile) */
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 102;
+  transition: border-color 0.3s;
+}
+.menu-toggle:hover { border-color: var(--accent); }
+.menu-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), opacity 0.2s;
+  transform-origin: center;
+}
+.menu-toggle.is-active {
+  border-color: var(--accent);
+  background: rgba(255,94,20,0.08);
+}
+.menu-toggle.is-active .menu-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle.is-active .menu-toggle-bar:nth-child(2) { opacity: 0; }
+.menu-toggle.is-active .menu-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Overlay del menú mobile */
+.mobile-menu {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 99;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 110px 32px 40px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s ease;
+}
+.mobile-menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.mobile-menu-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+.mobile-menu-links a {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 9vw, 52px);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.3s, padding-left 0.3s;
+  min-height: 60px; /* touch target */
+}
+.mobile-menu-links a::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  margin-right: 0;
+  vertical-align: middle;
+  transition: width 0.3s, margin-right 0.3s;
+}
+.mobile-menu-links a:active,
+.mobile-menu-links a:hover {
+  color: var(--accent);
+  padding-left: 4px;
+}
+.mobile-menu-links a:hover::before { width: 24px; margin-right: 14px; }
+
+.mobile-menu-foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 24px;
+}
+.mobile-menu-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: var(--white);
+  color: var(--black);
+  padding: 18px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  min-height: 56px;
+  transition: background 0.2s, color 0.2s;
+}
+.mobile-menu-cta:hover,
+.mobile-menu-cta:active { background: var(--accent); color: var(--white); }
+.mobile-menu-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gray-500);
+  text-transform: uppercase;
+}
+
+/* Bloquear scroll del body cuando menú abierto */
+body.menu-open { overflow: hidden; }
+
+/* ============ ACTIVAR HAMBURGUESA EN MOBILE ============ */
+@media (max-width: 900px) {
+  .menu-toggle { display: inline-flex; }
+  .hide-mobile-cta { display: none; }
+  .nav-links { display: none; } /* ya estaba pero refuerzo */
+}
+
+/* ============ HERO MOBILE — pulir copy y card ============ */
+@media (max-width: 900px) {
+  .hero {
+    padding: 110px 20px 60px;
+    gap: 30px;
+    min-height: auto;
+  }
+  .hero-title { font-size: clamp(56px, 16vw, 88px); }
+  .hero-desc {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .hero-actions {
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 18px 24px;
+    min-height: 54px;
+  }
+  .hero-actions .btn-primary span { justify-content: center; width: 100%; }
+  .hero-right { display: none; } /* en mobile el hero card no aporta — espacio para copy */
+  .meta-tag { font-size: 11px; gap: 8px; margin-bottom: 20px; }
+  .meta-tag::before { width: 20px; }
+}
+
+/* ============ MARQUEE MOBILE ============ */
+@media (max-width: 900px) {
+  .marquee {
+    padding: 18px 0;
+  }
+  .marquee-track {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+}
+
+/* ============ CATÁLOGO MOBILE ============ */
+@media (max-width: 900px) {
+  .catalog { padding: 60px 20px 80px; }
+  .catalog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    margin-bottom: 36px;
+  }
+  .catalog-header .section-title { font-size: clamp(46px, 11vw, 72px); }
+  .catalog-filters {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 8px;
+    padding-bottom: 4px;
+  }
+  .catalog-filters::-webkit-scrollbar { display: none; }
+  .filter-btn {
+    flex-shrink: 0;
+    padding: 12px 18px;
+    font-size: 11px;
+    min-height: 44px;
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .product {
+    padding: 16px 14px;
+    min-height: 280px;
+  }
+  .product-badge { font-size: 9px; padding: 4px 8px; }
+  .product-image { aspect-ratio: 1/1; margin-bottom: 12px; }
+  .product-bg-num { font-size: 80px; }
+  .product-tag { font-size: 9px; letter-spacing: 1.5px; }
+  .product-name { font-size: 14px; line-height: 1.2; }
+  .product-price { font-size: 18px; }
+  .product-price .currency { font-size: 11px; }
+  .product-price--tbd { font-size: 9px; letter-spacing: 1.5px; }
+  .product-cta { width: 26px; height: 26px; }
+  .catalog-footer { margin-top: 36px; }
+  .view-all {
+    width: 100%;
+    text-align: center;
+    padding: 18px 20px;
+    font-size: 11px;
+    min-height: 54px;
+  }
+}
+
+/* En pantallas muy chicas, 1 columna (ya estaba, refuerzo y mejoro) */
+@media (max-width: 480px) {
+  .catalog-grid { grid-template-columns: 1fr; gap: 14px; }
+  .product { min-height: auto; padding: 18px 16px; }
+  .product-image { aspect-ratio: 4/3; max-height: 260px; }
+}
+
+/* ============ POR QUÉ MOBILE — más aire ============ */
+@media (max-width: 900px) {
+  .why { padding: 70px 20px; }
+  .why-header { gap: 18px; margin-bottom: 40px; }
+  .why-header .section-title { font-size: clamp(40px, 10vw, 60px); }
+  .why-grid { gap: 12px; }
+  .why-card { padding: 26px 20px 22px; }
+  .why-num { margin-bottom: 24px; font-size: 10px; }
+  .why-icon { width: 48px; height: 48px; margin-bottom: 22px; }
+  .why-card h3 { font-size: 18px; margin-bottom: 10px; }
+  .why-card p { font-size: 12px; }
+}
+
+/* ============ INSTAGRAM MOBILE — grid 2 cols ============ */
+@media (max-width: 900px) {
+  .ig-section { padding: 60px 20px 70px; }
+  .ig-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .ig-header h2 { font-size: clamp(40px, 10vw, 60px); }
+  .ig-cta {
+    width: 100%;
+    text-align: center;
+    padding: 16px 20px;
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .ig-handle { font-size: 12px; }
+}
+@media (max-width: 480px) {
+  .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
+}
+
+/* ============ FOOTER MOBILE ============ */
+@media (max-width: 900px) {
+  footer { padding: 60px 20px 30px; }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
+    margin-bottom: 36px;
+  }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand h2 { font-size: 36px; }
+  .footer-brand p { font-size: 13px; max-width: 100%; }
+  .footer-col h4 { font-size: 10px; margin-bottom: 14px; }
+  .footer-col li { font-size: 13px; margin-bottom: 10px; min-height: 24px; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    font-size: 9px;
+  }
+  .footer-payments {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 22px 0 16px;
+  }
+  .payments-grid { gap: 6px; }
+  .pay-badge { font-size: 9px; padding: 7px 10px; letter-spacing: 1px; }
+  .footer-contact { font-size: 12px; }
+  .footer-contact a { min-height: 24px; display: inline-block; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-brand { grid-column: auto; }
+}
+
+/* ============ PRODUCTO MOBILE — sticky CTA + tipografía ============ */
+@media (max-width: 900px) {
+  .product-page { padding: 100px 18px 100px; }
+  .breadcrumb { font-size: 10px; gap: 6px; margin-bottom: 22px; }
+  .breadcrumb a, .breadcrumb .current { padding: 4px 0; }
+  .pinfo-name { font-size: clamp(32px, 9vw, 48px); }
+  .pinfo-short { font-size: 14px; }
+  .pinfo-price-row { padding: 18px 0; margin-bottom: 24px; }
+  .pinfo-price { font-size: 38px; }
+  .pinfo-price--tbd { font-size: 32px; }
+  .pinfo-price-note { font-size: 10px; }
+  .opt-label { font-size: 10px; }
+  .swatch { width: 38px; height: 38px; }
+  .size-btn { padding: 11px 14px; font-size: 11px; min-height: 44px; min-width: 44px; }
+  .qty-control button { width: 44px; height: 44px; font-size: 18px; }
+  .qty-control .qty-val { min-width: 50px; font-size: 16px; }
+  .buy-actions { gap: 10px; }
+  .btn-buy-main {
+    padding: 18px 20px;
+    font-size: 12px;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-wsp {
+    padding: 16px 20px;
+    font-size: 11px;
+    min-height: 52px;
+  }
+  .ship-row { font-size: 12px; gap: 12px; }
+  .ship-row strong { font-size: 11px; }
+  .tab-btn { padding: 13px 16px; font-size: 10px; min-height: 44px; }
+  .tab-panel p { font-size: 14px; line-height: 1.6; }
+  .feature-list li { font-size: 13px; padding-left: 24px; }
+  .specs-table td { font-size: 12px; padding: 12px 0; }
+  .specs-table th { font-size: 10px; padding: 12px 14px 12px 0; }
+  .recommended { padding-top: 30px; }
+  .recommended-title { font-size: clamp(30px, 8vw, 48px); margin-bottom: 24px; }
+  .recommended-grid { gap: 12px; }
+  .gallery-thumbs { gap: 6px; margin-top: 10px; }
+  .thumb { min-height: 50px; }
+}
+
+/* ============ TOP-BANNER MOBILE — compacto ============ */
+@media (max-width: 900px) {
+  .top-banner {
+    height: 28px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 0 12px;
+  }
+  .top-banner .sep,
+  .top-banner .hide-mobile { display: none; }
+}
+
+/* ============ PRELOADER MOBILE — más respiro ============ */
+@media (max-width: 600px) {
+  .preloader { gap: 28px; padding: 20px; }
+  .preloader-progress { width: 200px; }
+  .preloader-meta { font-size: 9px; letter-spacing: 3px; }
+}
+
+/* ============ WHATSAPP FLOAT MOBILE ============ */
+@media (max-width: 900px) {
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
+/* ============ ABOUT MOBILE ============ */
+@media (max-width: 900px) {
+  .about { padding: 70px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-text h2 { font-size: clamp(44px, 11vw, 68px); margin-bottom: 26px; }
+  .about-text p { font-size: 15px; line-height: 1.6; margin-bottom: 18px; }
+  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 28px; margin-top: 28px; }
+  .about-stat .num { font-size: 28px; }
+  .about-stat .lbl { font-size: 9px; letter-spacing: 1.5px; }
+  .about-visual { height: 280px; }
+}
+
+/* ============ TESTIMONIOS / NEWSLETTER MOBILE (si vuelven) ============ */
+@media (max-width: 900px) {
+  .testimonials { padding: 60px 20px; }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+  .testi { padding: 28px 22px; }
+}
+
+/* ============================================================
    F-PRO ADDITIONS — preloader 3D, acentos naranja ampliados,
    seccion Por que, badges de pago, REC indicator
    ============================================================ */

@@ -96,6 +96,46 @@
     updateNavState();
   }
 
+  // ============ Mobile hamburger menu ============
+  // Botón hamburguesa + overlay con links. Se cierra al click en link,
+  // ESC, o click en el overlay. Bloquea scroll del body mientras abierto.
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuToggle && mobileMenu) {
+    function setMenuOpen(open) {
+      menuToggle.classList.toggle('is-active', open);
+      mobileMenu.classList.toggle('is-open', open);
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      document.body.classList.toggle('menu-open', open);
+    }
+
+    menuToggle.addEventListener('click', () => {
+      setMenuOpen(!mobileMenu.classList.contains('is-open'));
+    });
+
+    // Cierra al click en cualquier link/CTA marcado
+    mobileMenu.querySelectorAll('[data-menu-close]').forEach(el => {
+      el.addEventListener('click', () => setMenuOpen(false));
+    });
+
+    // ESC cierra
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+        setMenuOpen(false);
+      }
+    });
+
+    // Cerrar si la ventana se hace ancha (rotación a landscape / desktop)
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && mobileMenu.classList.contains('is-open')) {
+        setMenuOpen(false);
+      }
+    });
+  }
+
   // ============ Cursor custom ============
   const cursor = document.getElementById('cursor');
   if (cursor && supportsFinePointer) {
