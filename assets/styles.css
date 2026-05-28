@@ -2213,19 +2213,47 @@ body.menu-open { overflow: hidden; }
 
 /* ============ HERO MOBILE — pulir copy y card ============ */
 @media (max-width: 900px) {
+  /* Hero a 1 columna con el video full-bleed y altura adaptada a la
+     pantalla del celular (svh excluye la barra URL del browser). */
   .hero {
-    padding: 110px 20px 60px;
-    gap: 30px;
-    min-height: auto;
+    grid-template-columns: 1fr;
+    padding: 100px 20px 50px;
+    gap: 28px;
+    min-height: 92svh;
+    min-height: 92vh; /* fallback navegadores antiguos */
   }
+
+  /* Video: el sujeto suele estar arriba-centro de la imagen.
+     object-position ajustada para que en aspect-ratio vertical
+     se vea el corredor, no espacio vacio arriba o abajo. */
+  .hero-bg-video {
+    object-position: 50% 35%;
+  }
+
+  /* Overlay mas oscuro en mobile arriba: el texto va sobre el video,
+     y en pantalla vertical la zona del copy es mas amplia. */
+  .hero-bg-overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(10,10,10,0.92) 0%,
+        rgba(10,10,10,0.70) 30%,
+        rgba(10,10,10,0.55) 55%,
+        rgba(10,10,10,0.85) 90%,
+        rgba(10,10,10,1) 100%);
+  }
+
   .hero-title { font-size: clamp(56px, 16vw, 88px); }
   .hero-desc {
-    margin-top: 24px;
+    margin-top: 22px;
     font-size: 15px;
     line-height: 1.55;
+    /* En mobile, el texto va sobre el video — un text-shadow muy sutil
+       refuerza la legibilidad si el video tiene un frame muy claro */
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
   }
+  .hero-title { text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
   .hero-actions {
-    margin-top: 30px;
+    margin-top: 26px;
     flex-direction: column;
     gap: 12px;
     width: 100%;
@@ -2239,16 +2267,44 @@ body.menu-open { overflow: hidden; }
     min-height: 54px;
   }
   .hero-actions .btn-primary span { justify-content: center; width: 100%; }
-  /* En mobile mostramos el card con el video — aporta cuando es video, no logo estatico */
-  .hero-right { display: flex; margin-top: 30px; }
-  .runner-card { height: 360px; max-height: 50vh; }
-  .pulse-ring.r1, .pulse-ring.r2, .pulse-ring.r3 {
-    width: 130px; height: 130px; margin: -65px 0 0 -65px;
+
+  /* Card del logo: glassmorphism mas sutil + dimensiones compactas
+     para que no se sienta enorme en mobile. */
+  .hero-right { display: flex; margin-top: 20px; }
+  .runner-card {
+    height: 300px;
+    max-height: 42vh;
+    backdrop-filter: blur(6px) saturate(115%);
+    -webkit-backdrop-filter: blur(6px) saturate(115%);
+    background: linear-gradient(135deg, rgba(31,31,31,0.42) 0%, rgba(10,10,10,0.68) 100%);
   }
-  .hero-logo-main { max-width: 280px; }
+  .pulse-ring.r1, .pulse-ring.r2, .pulse-ring.r3 {
+    width: 110px; height: 110px; margin: -55px 0 0 -55px;
+  }
+  .hero-logo-main { max-width: 240px; }
   .corner-mark { font-size: 9px; }
-  .meta-tag { font-size: 11px; gap: 8px; margin-bottom: 20px; }
+  .corner-mark.tl { top: 16px; left: 16px; }
+  .corner-mark.br { bottom: 16px; right: 16px; }
+  .meta-tag {
+    font-size: 11px;
+    gap: 8px;
+    margin-bottom: 18px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  }
   .meta-tag::before { width: 20px; }
+}
+
+/* Móviles estrechos: card aún más compacto */
+@media (max-width: 480px) {
+  .hero {
+    padding: 90px 16px 40px;
+    gap: 24px;
+  }
+  .runner-card { height: 260px; max-height: 38vh; }
+  .pulse-ring.r1, .pulse-ring.r2, .pulse-ring.r3 {
+    width: 90px; height: 90px; margin: -45px 0 0 -45px;
+  }
+  .hero-logo-main { max-width: 200px; }
 }
 
 /* ============ MARQUEE MOBILE ============ */
