@@ -40,8 +40,9 @@ const PRODUCTS = {
     price: '70.000',
     bgNum: '01',
     badge: 'Carioca', badgeStyle: 'light',
-    photo: 'assets/products/pantaloneta.png',
+    photo: 'assets/products/pantaloneta-colores.jpg',
     photos: [
+      'assets/products/pantaloneta-colores.jpg',
       'assets/products/pantaloneta.png',
       'assets/products/pantaloneta-2.png'
     ],
@@ -62,7 +63,15 @@ const PRODUCTS = {
       'Origen': 'Hecho en Armenia, Colombia',
       'Cuidado': 'Lavado en agua fría, no usar suavizante'
     },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#6e6e6e' }],
+    colors: [
+      { name: 'Negro', hex: '#0a0a0a' },
+      { name: 'Azul marino', hex: '#1a2742' },
+      { name: 'Azul royal', hex: '#4a7eb0' },
+      { name: 'Celeste', hex: '#93c4e3' },
+      { name: 'Turquesa', hex: '#5cb8b8' },
+      { name: 'Beige', hex: '#c9b88a' },
+      { name: 'Blanco', hex: '#f0f0f0' }
+    ],
     sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M50 55 L 150 55 L 155 75 L 158 165 L 108 165 L 105 100 L 95 100 L 92 165 L 42 165 L 45 75 Z"/></g><rect x="48" y="55" width="104" height="10" fill="#0a0a0a"/><path d="M100 65 L 100 165" stroke="#0a0a0a" stroke-width="2"/><path d="M55 100 L 90 105" stroke="#6e6e6e" stroke-width="1.5" fill="none" opacity="0.6"/><path d="M145 100 L 110 105" stroke="#6e6e6e" stroke-width="1.5" fill="none" opacity="0.6"/><rect x="65" y="80" width="14" height="3" fill="#0a0a0a" opacity="0.5"/></svg>`,
     related: ['licra', 'camiseta', 'esqueleto', 'visera']
