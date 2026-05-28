@@ -186,7 +186,7 @@
         <div class="shipping-info">
           <div class="ship-row">
             <div class="ship-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-            <div><strong>Envío rápido</strong>Llega en 24–48 horas a las principales ciudades. Gratis sobre $200.000.</div>
+            <div><strong>Envío rápido</strong>Llega en 24–48 horas a las principales ciudades. Gratis en compras superiores a $200.000.</div>
           </div>
           <div class="ship-row">
             <div class="ship-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></div>
