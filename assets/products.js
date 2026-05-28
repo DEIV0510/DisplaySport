@@ -88,7 +88,7 @@ const PRODUCTS = {
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris oscuro', hex: '#2a2a2a' }],
     sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><path d="M58 30 L 142 30 L 148 60 L 152 180 L 108 180 L 105 90 L 95 90 L 92 180 L 48 180 L 52 60 Z"/></g><rect x="56" y="30" width="88" height="8" fill="#0a0a0a"/><path d="M100 38 L 100 180" stroke="#6e6e6e" stroke-width="1" opacity="0.6"/><path d="M62 80 L 90 80 M 110 80 L 138 80" stroke="#6e6e6e" stroke-width="0.8" opacity="0.4"/><path d="M62 130 L 90 130 M 110 130 L 138 130" stroke="#6e6e6e" stroke-width="0.8" opacity="0.4"/></svg>`,
-    related: ['pantaloneta', 'top', 'buso-compresion', 'cinturon-running']
+    related: ['pantaloneta', 'top', 'buzo-compresion', 'cinturon-running']
   },
 
   'camiseta': {
@@ -120,7 +120,7 @@ const PRODUCTS = {
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Blanco', hex: '#ebebeb' }, { name: 'Gris', hex: '#6e6e6e' }],
     sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M60 50 L 80 38 L 120 38 L 140 50 L 165 75 L 152 95 L 140 88 L 140 170 L 60 170 L 60 88 L 48 95 L 35 75 Z"/></g><path d="M85 38 Q 100 50 115 38" fill="none" stroke="#0a0a0a" stroke-width="2"/><line x1="60" y1="120" x2="140" y2="120" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3"/></svg>`,
-    related: ['esqueleto', 'pantaloneta', 'top', 'buso-compresion']
+    related: ['esqueleto', 'pantaloneta', 'top', 'buzo-compresion']
   },
 
   'esqueleto': {
@@ -152,22 +152,22 @@ const PRODUCTS = {
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#6e6e6e' }],
     sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M75 50 L 95 35 L 105 35 L 125 50 L 130 70 L 145 75 L 145 170 L 55 170 L 55 75 L 70 70 Z"/></g><path d="M75 50 Q 100 70 125 50" fill="none" stroke="#0a0a0a" stroke-width="2"/><path d="M70 70 L 80 90 L 80 170 M 130 70 L 120 90 L 120 170" stroke="#0a0a0a" stroke-width="1" fill="none" opacity="0.4"/></svg>`,
-    related: ['camiseta', 'pantaloneta', 'buso-compresion', 'visera']
+    related: ['camiseta', 'pantaloneta', 'buzo-compresion', 'visera']
   },
 
-  'buso-compresion': {
-    id: 'buso-compresion',
-    name: 'Buso de compresión',
+  'buzo-compresion': {
+    id: 'buzo-compresion',
+    name: 'Buzo de compresión',
     category: 'Ropa',
-    tag: 'Buso / Running · Fitness',
+    tag: 'Buzo / Running · Fitness',
     lines: ['hombre', 'dama'],
     disciplines: ['running', 'fitness', 'cycling'],
     priceTBD: false,
     price: '90.000',
     bgNum: '05',
     badge: 'Compresión', badgeStyle: 'light',
-    short: 'Buso de compresión técnica de manga larga. Soporte muscular y protección para entrenamientos al aire libre.',
-    description: 'Buso con tela de compresión que acelera la recuperación y mantiene el cuerpo caliente en mañanas frías. Cuello redondo, puños elásticos y costuras planas. Ideal para correr en altura, ciclismo y entrenamientos de fondo.',
+    short: 'Buzo de compresión técnica de manga larga. Soporte muscular y protección para entrenamientos al aire libre.',
+    description: 'Buzo con tela de compresión que acelera la recuperación y mantiene el cuerpo caliente en mañanas frías. Cuello redondo, puños elásticos y costuras planas. Ideal para correr en altura, ciclismo y entrenamientos de fondo.',
     features: [
       'Compresión técnica',
       'Manga larga con puños elásticos',

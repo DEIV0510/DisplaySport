@@ -14,7 +14,7 @@ IDs ACTUALES (11 productos):
   licra.jpg
   camiseta.jpg
   esqueleto.jpg
-  buso-compresion.jpg
+  buzo-compresion.jpg
   top.jpg
   crotop.jpg
   visera.jpg
