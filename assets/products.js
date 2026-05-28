@@ -511,31 +511,8 @@ const IG_POSTS = [
     likes: 305,
     date: 'hace 1 semana',
     svg: igPlaceholder('DISCIPLINAS', 'RUN · FIT · CYCLE · CROSSFIT', 'linearGradient', 'ig3')
-  },
-  {
-    embedUrl: 'https://www.instagram.com/p/DLKepjSAku3/',
-    url: 'https://www.instagram.com/p/DLKepjSAku3/',
-    caption: 'Accesorios técnicos disponibles: viseras, canguros, cinturones de running y botellas en silicona.',
-    likes: 89,
-    date: 'hace 1 semana',
-    svg: igPlaceholder('ACCESORIOS', 'TÉCNICOS', 'linearGradient', 'ig4')
-  },
-  {
-    embedUrl: 'https://www.instagram.com/p/DYDRw33zC9O/',
-    url: 'https://www.instagram.com/p/DYDRw33zC9O/',
-    caption: 'Envíos a todo Colombia en 24–48 h 🚚 Pedidos por WhatsApp: +57 301 665 8929',
-    likes: 167,
-    date: 'hace 2 semanas',
-    svg: igPlaceholder('ENVÍOS A COLOMBIA', '24 – 48 HORAS', 'linearGradient', 'ig5')
-  },
-  {
-    embedUrl: 'https://www.instagram.com/p/C_OxPVIyedF/',
-    url: 'https://www.instagram.com/p/C_OxPVIyedF/?img_index=1',
-    caption: 'Hecho en Armenia, Quindío 🇨🇴 Producción local, costura por costura.',
-    likes: 412,
-    date: 'hace 3 semanas',
-    svg: igPlaceholder('MADE IN', 'ARMENIA · QUINDÍO', 'radialGradient', 'ig6')
   }
+  // Para añadir más posts: copia un objeto de arriba y pega su URL en embedUrl.
 ];
 
 /**
