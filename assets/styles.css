@@ -3098,28 +3098,31 @@ body.menu-open { overflow: hidden; }
 }
 
 /* ============ SISTEMA DE FOTOS (placeholder svg + foto real) ============
-   Si existe assets/products/<id>.jpg, products.js la inyecta como .product-photo
-   sobre el SVG. Si falla la carga (onerror), se quita y queda el SVG. */
+   Si el producto tiene 'photo' / 'photos', products.js la inyecta como
+   <img.product-photo> sobre el SVG decorativo. */
 .product-image .product-photo,
 .gallery-main .product-photo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* contain en lugar de cover -> la foto se ve COMPLETA, sin recortes.
+     Si la foto es vertical y el contenedor es cuadrado, queda espacio
+     arriba/abajo (relleno por el SVG decorativo de fondo). */
+  object-fit: contain;
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 2;
+  padding: 6px; /* respiro entre la foto y el borde del contenedor */
 }
 .product-image .product-photo.is-loaded,
 .gallery-main .product-photo.is-loaded { opacity: 1; }
 .product-image { position: relative; }
 .gallery-main  { position: relative; }
 
-/* Galería con múltiples fotos: solo la activa visible.
-   Sin .is-active queda transparente, lo cual evita que las fotos
-   no-primarias tapen la activa al cargar. */
+/* En el detalle del producto: foto más grande con margen mayor */
 .gallery-main .product-photo {
+  padding: 14px;
   opacity: 0;
   pointer-events: none;
 }
@@ -3129,19 +3132,35 @@ body.menu-open { overflow: hidden; }
 /* Thumbs clickables (cuando hay fotos reales) */
 .thumb--photo {
   padding: 0;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.12);
   background: var(--gray-900);
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 .thumb--photo img {
   width: 100%;
   height: 100%;
+  /* En thumbs sí queda mejor cover (son cuadritos chicos) */
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
 }
-.thumb--photo:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
-.thumb--photo.active { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.thumb--photo:hover {
+  border-color: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+.thumb--photo:hover img { transform: scale(1.05); }
+.thumb--photo.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 20px -8px rgba(255,94,20,0.4);
+}
+.thumb--photo.active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,94,20,0.08);
+  pointer-events: none;
+}
 
