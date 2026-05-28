@@ -137,7 +137,7 @@
             ? product.photos
             : (product.photo ? [product.photo] : []);
 
-          // Sin fotos: solo el SVG decorativo grande
+          // Sin fotos: solo el SVG decorativo
           if (!photos.length) {
             return `
               <div class="gallery-stage gallery-stage--svg">
@@ -146,20 +146,43 @@
               </div>`;
           }
 
-          // Con fotos: stack vertical estilo catálogo (todas visibles)
-          return photos.map((src, i) => `
-            <figure class="gallery-stage gallery-stage--photo">
+          // Con fotos: slider con flechas + dots
+          const total = photos.length;
+          const slides = photos.map((src, i) => `
+            <div class="gallery-slide" data-slide-index="${i}">
               <img src="${src}"
                    alt="${product.name} — Vista ${i+1}"
-                   class="gallery-photo"
+                   class="gallery-slide-img"
                    ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}
                    onload="this.classList.add('is-loaded');"
                    onerror="this.parentElement.remove();" />
-              <figcaption class="gallery-photo-caption" aria-hidden="true">
-                <span class="gallery-photo-num">0${i+1}</span>
-                <span class="gallery-photo-label">${product.name}</span>
-              </figcaption>
-            </figure>`).join('');
+            </div>`).join('');
+
+          const dots = photos.map((_, i) => `
+            <button type="button" class="gallery-dot${i === 0 ? ' is-active' : ''}"
+                    data-dot-index="${i}" aria-label="Ver imagen ${i+1} de ${total}"></button>
+          `).join('');
+
+          const arrows = total > 1 ? `
+            <button type="button" class="gallery-arrow gallery-arrow--prev" id="gallery-prev" aria-label="Imagen anterior">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button type="button" class="gallery-arrow gallery-arrow--next" id="gallery-next" aria-label="Imagen siguiente">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>` : '';
+
+          const counter = total > 1 ? `
+            <div class="gallery-counter" id="gallery-counter" aria-hidden="true">
+              <span id="gallery-counter-current">1</span> / ${total}
+            </div>` : '';
+
+          return `
+            <div class="gallery-slider" id="gallery-slider" data-total="${total}">
+              <div class="gallery-track" id="gallery-track">${slides}</div>
+              ${arrows}
+              ${counter}
+              ${total > 1 ? `<div class="gallery-dots">${dots}</div>` : ''}
+            </div>`;
         })()}
       </div>
 
@@ -277,9 +300,55 @@
     if (qty < 10) { qty++; qtyEl.textContent = qty; }
   });
 
-  // Gallery: ya no hay thumbs clickeables. Todas las fotos se ven en
-  // stack vertical (catálogo estilo lookbook). Si en el futuro se quiere
-  // volver a thumb-switcher, ver versión previa del archivo.
+  // ============ Gallery slider (flechas + dots + swipe + teclado) ============
+  const slider = document.getElementById('gallery-slider');
+  if (slider) {
+    const track = document.getElementById('gallery-track');
+    const total = parseInt(slider.dataset.total, 10) || 1;
+    const dots = slider.querySelectorAll('.gallery-dot');
+    const counterCurrent = document.getElementById('gallery-counter-current');
+    let current = 0;
+
+    function goTo(idx) {
+      current = ((idx % total) + total) % total; // loop circular
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+      if (counterCurrent) counterCurrent.textContent = String(current + 1);
+    }
+
+    // Flechas
+    const prev = document.getElementById('gallery-prev');
+    const next = document.getElementById('gallery-next');
+    if (prev) prev.addEventListener('click', () => goTo(current - 1));
+    if (next) next.addEventListener('click', () => goTo(current + 1));
+
+    // Dots
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => goTo(parseInt(dot.dataset.dotIndex, 10)));
+    });
+
+    // Teclado: ← / → cuando el slider está focuseado
+    slider.tabIndex = 0;
+    slider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    });
+
+    // Swipe táctil
+    let touchStartX = 0;
+    let touchEndX = 0;
+    slider.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    slider.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goTo(current + 1); // swipe izquierda = siguiente
+        else goTo(current - 1);
+      }
+    }, { passive: true });
+  }
 
   // Tabs
   document.querySelectorAll('.tab-btn').forEach(t => {
