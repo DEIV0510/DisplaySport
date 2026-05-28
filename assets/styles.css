@@ -53,11 +53,11 @@ body > nav {
   background: rgba(10,10,10,0.78);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
-  height: 72px;
+  height: 80px;
   transition: height 0.3s ease, background 0.3s ease, border-color 0.3s ease, top 0.3s ease;
 }
 body > nav.is-scrolled {
-  height: 60px;
+  height: 68px;
   top: 0; /* al hacer scroll se pega arriba, ocultando el top-banner */
   background: rgba(10,10,10,0.94);
   border-bottom-color: rgba(255,94,20,0.25);
@@ -71,12 +71,12 @@ body > nav.is-scrolled {
 }
 .logo-img {
   display: none;
-  height: 44px; width: auto; max-width: 220px;
+  height: 56px; width: auto; max-width: 280px;
   object-fit: contain;
   /* SVG con fondo transparente: el color del logo viene del propio archivo */
   transition: transform 0.3s ease, height 0.3s ease;
 }
-body > nav.is-scrolled .logo-img { height: 36px; }
+body > nav.is-scrolled .logo-img { height: 46px; }
 .logo:hover .logo-img { transform: scale(1.04); }
 .logo-fallback { display: flex; align-items: center; gap: 10px; }
 .logo-dot {
@@ -401,10 +401,10 @@ footer { background: var(--black); padding: 80px 40px 30px; border-top: 1px soli
 @media (max-width: 900px) {
   body { cursor: auto; }
   .cursor { display: none; }
-  body > nav { padding: 0 20px; height: 60px; }
-  body > nav.is-scrolled { height: 54px; }
-  .logo-img { height: 36px; max-width: 160px; }
-  body > nav.is-scrolled .logo-img { height: 32px; }
+  body > nav { padding: 0 20px; height: 68px; }
+  body > nav.is-scrolled { height: 60px; }
+  .logo-img { height: 46px; max-width: 200px; }
+  body > nav.is-scrolled .logo-img { height: 40px; }
   .nav-links { display: none; }
   .hero { grid-template-columns: 1fr; padding: 120px 24px 40px; }
   .runner-card { height: 480px; }
