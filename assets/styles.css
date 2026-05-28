@@ -195,8 +195,12 @@ body > nav.is-scrolled .logo-img { height: 36px; }
 .hero-right { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; }
 .runner-card {
   width: 100%; height: 600px; max-height: 70vh;
-  background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
-  border: 1px solid rgba(255,255,255,0.1);
+  /* Glassmorphism: deja ver el video de fondo del hero sutilmente
+     a traves del card. */
+  background: linear-gradient(135deg, rgba(31,31,31,0.55) 0%, rgba(10,10,10,0.78) 100%);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.12);
   position: relative; overflow: hidden;
   animation: cardIn 1.2s cubic-bezier(.2,.7,.2,1) 0.3s backwards;
 }
@@ -1482,11 +1486,15 @@ body { padding-top: 0; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: radial-gradient(ellipse at center, #1f1f1f 0%, #0a0a0a 70%);
+  /* Stage transparente: el .runner-card padre ya provee el fondo
+     glassmorphism. */
+  background: transparent;
 }
 
-/* ============ HERO VIDEO BACKGROUND ============ */
-.hero-video {
+/* ============ HERO BACKGROUND VIDEO (full section) ============
+   El video llena el fondo del <section class='hero'> entero.
+   Texto izquierdo y card del logo derecho quedan encima. */
+.hero-bg-video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1494,25 +1502,27 @@ body { padding-top: 0; }
   object-fit: cover;
   object-position: center;
   z-index: 0;
-  /* Sin pointer-events para no interferir con clicks */
   pointer-events: none;
-  /* Le quitamos los controles si por algun motivo el browser los muestra */
 }
-.hero-video::-webkit-media-controls { display: none !important; }
-.hero-video::-webkit-media-controls-enclosure { display: none !important; }
+.hero-bg-video::-webkit-media-controls { display: none !important; }
+.hero-bg-video::-webkit-media-controls-enclosure { display: none !important; }
 
-/* Overlay oscuro encima del video para que el logo + texto destaquen.
-   Gradiente radial: mas oscuro en bordes, semi-transparente al centro
-   donde esta el logo (que tiene su propio glow). */
-.hero-video-overlay {
+/* Overlay sobre el video para legibilidad del copy + integrarse
+   con el fondo negro del sitio (top y bottom mas oscuros). */
+.hero-bg-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    radial-gradient(ellipse at center, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.78) 75%, rgba(10,10,10,0.92) 100%),
-    linear-gradient(180deg, rgba(10,10,10,0.15) 0%, transparent 30%, transparent 70%, rgba(10,10,10,0.25) 100%);
   pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 18%, rgba(10,10,10,0.45) 50%, rgba(10,10,10,0.75) 92%, rgba(10,10,10,1) 100%),
+    linear-gradient(90deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.35) 40%, rgba(10,10,10,0.2) 60%, rgba(10,10,10,0.45) 100%);
 }
+
+/* El grid-bg, hero-left y hero-right deben quedar encima del video */
+.hero .grid-bg { z-index: 2; opacity: 0.6; }
+.hero-left { z-index: 3 !important; }
+.hero-right { z-index: 3 !important; }
 
 /* Animated grid pattern background */
 .grid-pattern {
