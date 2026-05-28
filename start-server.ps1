@@ -39,6 +39,14 @@ $mime = @{
     '.txt'  = 'text/plain; charset=utf-8'
     '.md'   = 'text/markdown; charset=utf-8'
     '.xml'  = 'application/xml; charset=utf-8'
+    '.mp4'  = 'video/mp4'
+    '.webm' = 'video/webm'
+    '.mov'  = 'video/quicktime'
+    '.m4v'  = 'video/mp4'
+    '.mp3'  = 'audio/mpeg'
+    '.wav'  = 'audio/wav'
+    '.ogg'  = 'audio/ogg'
+    '.pdf'  = 'application/pdf'
 }
 
 $listener = New-Object System.Net.HttpListener
