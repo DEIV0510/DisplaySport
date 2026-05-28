@@ -40,8 +40,9 @@ const PRODUCTS = {
     price: '70.000',
     bgNum: '01',
     badge: 'Carioca', badgeStyle: 'light',
-    photo: 'assets/products/pantaloneta-colores.jpg',
+    photo: 'assets/products/pantaloneta-detalle.png',
     photos: [
+      'assets/products/pantaloneta-detalle.png',
       'assets/products/pantaloneta-colores.jpg',
       'assets/products/pantaloneta.png',
       'assets/products/pantaloneta-2.png'
