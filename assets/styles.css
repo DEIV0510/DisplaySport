@@ -906,15 +906,86 @@ body { padding-top: 0; }
   margin-bottom: 100px;
 }
 
+/* Galería estilo CATÁLOGO: stack vertical de todas las fotos.
+   Ya no es sticky porque todas las fotos se ven al scrollear. */
 .product-gallery {
-  position: sticky;
-  /* Aire sobre el navbar: 72 (nav) + 32 (banner) + 16 holgura = 120 */
-  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   height: fit-content;
-  transition: top 0.3s ease;
 }
-/* Cuando el nav se compacta, la galeria se mueve con el */
-.is-scrolled-page .product-gallery { top: 76px; }
+
+/* Cada "stage" = una foto del catálogo o el placeholder SVG */
+.gallery-stage {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Cuando es SVG decorativo (sin foto real): mantener aspect 1:1 */
+.gallery-stage--svg {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-stage--svg svg { width: 70%; height: 70%; }
+
+/* Cuando es foto real: aspect ratio del contenido (4:5 vertical
+   estilo lookbook). La imagen se ve completa con padding. */
+.gallery-stage--photo {
+  aspect-ratio: 4 / 5;
+  background:
+    radial-gradient(ellipse at center, var(--gray-800) 0%, var(--gray-900) 70%);
+  transition: border-color 0.3s, transform 0.4s cubic-bezier(.2,.7,.2,1);
+}
+.gallery-stage--photo:hover {
+  border-color: rgba(255,94,20,0.3);
+}
+.gallery-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(.2,.7,.2,1);
+}
+.gallery-photo.is-loaded { opacity: 1; }
+.gallery-stage--photo:hover .gallery-photo { transform: scale(1.02); }
+
+/* Caption de cada foto (estilo magazine) */
+.gallery-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray-300);
+  background: linear-gradient(180deg, transparent, rgba(10,10,10,0.85));
+  pointer-events: none;
+}
+.gallery-photo-num {
+  color: var(--accent);
+  font-weight: 700;
+}
+.gallery-photo-label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--white);
+}
 .gallery-main {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -952,7 +1023,21 @@ body { padding-top: 0; }
 .thumb.active, .thumb:hover { border-color: var(--white); background: var(--gray-800); }
 .thumb svg { width: 65%; height: 65%; }
 
-.product-info { padding-top: 10px; }
+.product-info {
+  padding-top: 10px;
+  /* Sticky: como la galería ahora es un stack vertical largo,
+     la info se queda fija mientras el usuario scrollea las fotos. */
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+  align-self: start;
+  transition: top 0.3s ease;
+}
+.is-scrolled-page .product-info { top: 76px; }
+/* En mobile sí flujo natural (no sticky) */
+@media (max-width: 900px) {
+  .product-info { position: static; top: auto; }
+}
 .pinfo-tag {
   font-family: var(--font-mono);
   font-size: 11px;

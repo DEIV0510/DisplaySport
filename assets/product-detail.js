@@ -132,45 +132,35 @@
 
     <div class="product-main">
       <div class="product-gallery">
-        <div class="gallery-main" id="gallery-main">
-          <div class="gallery-bg-text" aria-hidden="true">${product.bgNum}</div>
-          <div aria-hidden="true">${product.svg}</div>
-          ${(() => {
-            // Lista unificada de fotos. product.photos es preferido (array),
-            // product.photo es fallback (single).
-            const photos = (product.photos && product.photos.length)
-              ? product.photos
-              : (product.photo ? [product.photo] : []);
-            return photos.map((src, i) => `<img src="${src}"
-                 alt="${product.name} — Vista ${i+1}"
-                 class="product-photo${i === 0 ? ' is-active' : ''}"
-                 data-photo-index="${i}"
-                 ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}
-                 onload="this.classList.add('is-loaded');"
-                 onerror="this.remove();" />`).join('');
-          })()}
-        </div>
-        <div class="gallery-thumbs">
-          ${(() => {
-            const photos = (product.photos && product.photos.length)
-              ? product.photos
-              : (product.photo ? [product.photo] : []);
-            if (!photos.length) {
-              // Sin fotos: 4 thumbs decorativas con el SVG
-              return `
-                <div class="thumb active" aria-hidden="true">${product.svg}</div>
-                <div class="thumb" style="background:#1f1f1f" aria-hidden="true">${product.svg}</div>
-                <div class="thumb" style="background:#0a0a0a" aria-hidden="true">${product.svg}</div>
-                <div class="thumb" style="background:#2a2a2a" aria-hidden="true">${product.svg}</div>`;
-            }
-            // Con fotos: una thumb por foto, clickables
-            return photos.map((src, i) => `
-              <button type="button" class="thumb thumb--photo${i === 0 ? ' active' : ''}"
-                      data-thumb-index="${i}" aria-label="Vista ${i+1}">
-                <img src="${src}" alt="" loading="lazy" />
-              </button>`).join('');
-          })()}
-        </div>
+        ${(() => {
+          const photos = (product.photos && product.photos.length)
+            ? product.photos
+            : (product.photo ? [product.photo] : []);
+
+          // Sin fotos: solo el SVG decorativo grande
+          if (!photos.length) {
+            return `
+              <div class="gallery-stage gallery-stage--svg">
+                <div class="gallery-bg-text" aria-hidden="true">${product.bgNum}</div>
+                <div aria-hidden="true">${product.svg}</div>
+              </div>`;
+          }
+
+          // Con fotos: stack vertical estilo catálogo (todas visibles)
+          return photos.map((src, i) => `
+            <figure class="gallery-stage gallery-stage--photo">
+              <img src="${src}"
+                   alt="${product.name} — Vista ${i+1}"
+                   class="gallery-photo"
+                   ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}
+                   onload="this.classList.add('is-loaded');"
+                   onerror="this.parentElement.remove();" />
+              <figcaption class="gallery-photo-caption" aria-hidden="true">
+                <span class="gallery-photo-num">0${i+1}</span>
+                <span class="gallery-photo-label">${product.name}</span>
+              </figcaption>
+            </figure>`).join('');
+        })()}
       </div>
 
       <div class="product-info">
@@ -287,19 +277,9 @@
     if (qty < 10) { qty++; qtyEl.textContent = qty; }
   });
 
-  // Gallery thumbs: click cambia la foto activa en .gallery-main
-  document.querySelectorAll('.thumb--photo').forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const idx = thumb.dataset.thumbIndex;
-      // Activar la thumb clickeada, desactivar las demás
-      document.querySelectorAll('.thumb--photo').forEach(t => t.classList.remove('active'));
-      thumb.classList.add('active');
-      // Activar la foto principal correspondiente
-      document.querySelectorAll('#gallery-main .product-photo').forEach(p => {
-        p.classList.toggle('is-active', p.dataset.photoIndex === idx);
-      });
-    });
-  });
+  // Gallery: ya no hay thumbs clickeables. Todas las fotos se ven en
+  // stack vertical (catálogo estilo lookbook). Si en el futuro se quiere
+  // volver a thumb-switcher, ver versión previa del archivo.
 
   // Tabs
   document.querySelectorAll('.tab-btn').forEach(t => {
