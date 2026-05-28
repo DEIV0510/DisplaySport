@@ -30,7 +30,8 @@ const PRODUCTS = {
 
   'pantaloneta': {
     id: 'pantaloneta',
-    name: 'Pantaloneta',
+    name: 'Pantaloneta Carioca',
+    reference: 'Carioca',
     category: 'Ropa',
     tag: 'Pantaloneta / Running · Fitness',
     lines: ['hombre'],
@@ -38,18 +39,21 @@ const PRODUCTS = {
     priceTBD: false,
     price: '70.000',
     bgNum: '01',
-    badge: 'Pantaloneta', badgeStyle: 'light',
-    short: 'Pantaloneta técnica con tela liviana, cordón ajustable y bolsillo interno. Para correr, entrenar y moverte sin restricciones.',
-    description: 'Pantaloneta diseñada y producida en Armenia, Quindío. Tela técnica de secado rápido, costuras planas que eliminan rozaduras y un fit anatómico que se mueve contigo. Pensada para entrenar a fondo en cualquier clima del país.',
+    badge: 'Carioca', badgeStyle: 'light',
+    short: 'Pantaloneta Carioca con tela liviana, calzón interno, resorte confortable y dos bolsillos internos para geles.',
+    description: 'Pantaloneta referencia Carioca, diseñada y producida en Armenia, Quindío. Tela liviana que apenas se siente, calzón interno integrado para mayor comodidad y dos bolsillos internos pequeños perfectos para llevar geles energéticos en tiradas largas. Resorte confortable que no aprieta ni se desliza.',
     features: [
-      'Tela técnica de secado rápido',
-      'Costuras planas anti-rozadura',
-      'Bolsillo interno',
-      'Cordón ajustable',
-      'Pensada para clima cálido'
+      'Tela liviana',
+      'Calzón interno integrado',
+      'Dos bolsillos internos para geles',
+      'Resorte confortable',
+      'Referencia: Carioca'
     ],
     specs: {
-      'Material': 'Poliéster técnico + Elastano',
+      'Referencia': 'Carioca',
+      'Material': 'Tela liviana técnica',
+      'Calzón interno': 'Sí',
+      'Bolsillos': 'Dos internos para geles',
       'Origen': 'Hecho en Armenia, Colombia',
       'Cuidado': 'Lavado en agua fría, no usar suavizante'
     },
