@@ -218,22 +218,22 @@ const PRODUCTS = {
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#6e6e6e' }],
     sizes: ['XS', 'S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M55 60 Q 70 45 100 45 Q 130 45 145 60 L 155 90 L 152 140 Q 130 152 100 152 Q 70 152 48 140 L 45 90 Z"/></g><path d="M70 50 L 80 70" stroke="#0a0a0a" stroke-width="3" fill="none"/><path d="M130 50 L 120 70" stroke="#0a0a0a" stroke-width="3" fill="none"/><path d="M100 45 L 100 152" stroke="#0a0a0a" stroke-width="1.5" opacity="0.4"/><ellipse cx="100" cy="90" rx="22" ry="14" fill="none" stroke="#0a0a0a" stroke-width="1.5" opacity="0.5"/></svg>`,
-    related: ['crotop', 'licra', 'pantaloneta', 'visera']
+    related: ['croptop', 'licra', 'pantaloneta', 'visera']
   },
 
-  'crotop': {
-    id: 'crotop',
-    name: 'Crotop',
+  'croptop': {
+    id: 'croptop',
+    name: 'Croptop',
     category: 'Ropa',
-    tag: 'Crotop / Fitness · CrossFit',
+    tag: 'Croptop / Fitness · CrossFit',
     lines: ['dama'],
     disciplines: ['fitness', 'crossfit', 'running'],
     priceTBD: false,
     price: '45.000',
     bgNum: '07',
-    badge: 'Crotop', badgeStyle: 'dark',
-    short: 'Crotop deportivo de cintura alta. Diseño favorecedor con tela técnica y soporte ligero.',
-    description: 'Crotop diseñado para combinar dentro y fuera del gimnasio. Tela suave touch, soporte de bajo a medio impacto y un corte favorecedor que se ve tan bien como funciona. Versátil para yoga, gym y entrenamiento funcional.',
+    badge: 'Croptop', badgeStyle: 'dark',
+    short: 'Croptop deportivo de cintura alta. Diseño favorecedor con tela técnica y soporte ligero.',
+    description: 'Croptop diseñado para combinar dentro y fuera del gimnasio. Tela suave touch, soporte de bajo a medio impacto y un corte favorecedor que se ve tan bien como funciona. Versátil para yoga, gym y entrenamiento funcional.',
     features: [
       'Soporte bajo-medio impacto',
       'Tela suave touch',

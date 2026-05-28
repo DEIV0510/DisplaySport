@@ -16,7 +16,7 @@ IDs ACTUALES (11 productos):
   esqueleto.jpg
   buzo-compresion.jpg
   top.jpg
-  crotop.jpg
+  croptop.jpg
   visera.jpg
   canguro.jpg
   cinturon-running.jpg

@@ -83,7 +83,7 @@ Todos los cambios notables del sitio quedan registrados aquí.
   (`DSR.whatsappUrl`, `DSR.trackEvent`, `DSR.formatPrice`).
 - `assets/product-detail.js` extraído del IIFE inline en `producto.html`.
 - 11 productos reales: pantaloneta, licra, camiseta, esqueleto,
-  buzo de compresión, top, crotop, visera, canguro, cinturón de
+  buzo de compresión, top, croptop, visera, canguro, cinturón de
   running, botella en silicona. SVGs minimalistas para cada uno.
 - Filtros por línea: Todos / Hombre / Dama / Accesorios.
 - `:focus-visible` global, `prefers-reduced-motion`, `pointer: coarse`
