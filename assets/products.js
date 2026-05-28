@@ -48,7 +48,7 @@ const PRODUCTS = {
       'assets/products/pantaloneta-2.png'
     ],
     short: 'Pantaloneta Carioca con tela liviana, calzón interno, resorte confortable y dos bolsillos internos para geles.',
-    description: 'Pantaloneta referencia Carioca, diseñada y producida en el Eje Cafetero. Tela liviana que apenas se siente, calzón interno integrado para mayor comodidad y dos bolsillos internos pequeños perfectos para llevar geles energéticos en tiradas largas. Resorte confortable que no aprieta ni se desliza.',
+    description: 'Pantaloneta referencia Carioca, diseñada y producida en Colombia. Tela liviana que apenas se siente, calzón interno integrado para mayor comodidad y dos bolsillos internos pequeños perfectos para llevar geles energéticos en tiradas largas. Resorte confortable que no aprieta ni se desliza.',
     features: [
       'Tela liviana',
       'Calzón interno integrado',
@@ -61,7 +61,7 @@ const PRODUCTS = {
       'Material': 'Tela liviana técnica',
       'Calzón interno': 'Sí',
       'Bolsillos': 'Dos internos para geles',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia',
+      'Origen': 'Hecho en Colombia',
       'Cuidado': 'Lavado en agua fría, no usar suavizante'
     },
     colors: [
@@ -90,7 +90,7 @@ const PRODUCTS = {
     bgNum: '02',
     badge: 'Licra', badgeStyle: 'dark',
     short: 'Licra de compresión técnica para máxima libertad de movimiento. Soporte muscular sin restringir el paso.',
-    description: 'Licra fabricada en el Eje Cafetero con tela de compresión técnica. Recuperación muscular acelerada, manejo inteligente de humedad y un fit que no se desliza. Ideal para entrenamientos largos, ciclismo y running.',
+    description: 'Licra fabricada en Colombia con tela de compresión técnica. Recuperación muscular acelerada, manejo inteligente de humedad y un fit que no se desliza. Ideal para entrenamientos largos, ciclismo y running.',
     features: [
       'Tela de compresión técnica',
       'Manejo de humedad',
@@ -101,7 +101,7 @@ const PRODUCTS = {
     specs: {
       'Material': 'Poliamida + Elastano',
       'Soporte': 'Compresión media',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia',
+      'Origen': 'Hecho en Colombia',
       'Cuidado': 'Lavado en agua fría'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris oscuro', hex: '#2a2a2a' }],
@@ -133,7 +133,7 @@ const PRODUCTS = {
     specs: {
       'Material': 'Poliéster técnico',
       'Manga': 'Corta',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia',
+      'Origen': 'Hecho en Colombia',
       'Cuidado': 'Lavado en agua fría'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Blanco', hex: '#ebebeb' }, { name: 'Gris', hex: '#6e6e6e' }],
@@ -165,7 +165,7 @@ const PRODUCTS = {
     specs: {
       'Material': 'Poliéster técnico',
       'Tipo': 'Sin mangas / Espalda abierta',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia',
+      'Origen': 'Hecho en Colombia',
       'Cuidado': 'Lavado en agua fría'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#6e6e6e' }],
@@ -198,7 +198,7 @@ const PRODUCTS = {
       'Material': 'Poliamida + Elastano',
       'Soporte': 'Compresión media',
       'Manga': 'Larga',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia',
+      'Origen': 'Hecho en Colombia',
       'Cuidado': 'Lavado en agua fría'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris oscuro', hex: '#2a2a2a' }],
@@ -219,7 +219,7 @@ const PRODUCTS = {
     bgNum: '06',
     badge: 'Top', badgeStyle: 'light',
     short: 'Top deportivo con soporte real. Tirantes anchos, banda inferior reforzada, sin compromisos.',
-    description: 'Top diseñado para mujeres que entrenan en serio. Soporte para alta intensidad, tela suave con tratamiento antibacterial y espalda nadadora para libertad de hombros. Hecho en el Eje Cafetero.',
+    description: 'Top diseñado para mujeres que entrenan en serio. Soporte para alta intensidad, tela suave con tratamiento antibacterial y espalda nadadora para libertad de hombros. Hecho en Colombia.',
     features: [
       'Soporte alto impacto',
       'Tirantes anchos ergonómicos',
@@ -231,7 +231,7 @@ const PRODUCTS = {
       'Material': 'Poliamida + Elastano',
       'Soporte': 'Alto impacto',
       'Copa': 'Removible',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia',
+      'Origen': 'Hecho en Colombia',
       'Cuidado': 'Lavado a mano'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#6e6e6e' }],
@@ -264,7 +264,7 @@ const PRODUCTS = {
       'Material': 'Poliéster + Elastano',
       'Soporte': 'Bajo-medio impacto',
       'Largo': 'Crop',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia',
+      'Origen': 'Hecho en Colombia',
       'Cuidado': 'Lavado a mano'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#b8b8b8' }],
@@ -298,7 +298,7 @@ const PRODUCTS = {
     specs: {
       'Material': 'Poliéster técnico',
       'Ajuste': 'Velcro reforzado',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia'
+      'Origen': 'Hecho en Colombia'
     },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#6e6e6e' }],
     sizes: ['Única'],
@@ -317,7 +317,7 @@ const PRODUCTS = {
     bgNum: '09',
     badge: 'Canguro', badgeStyle: 'dark',
     short: 'Canguro técnico con compartimientos para llaves, celular y geles. Ajuste anti-rebote.',
-    description: 'Canguro hecho en el Eje Cafetero para cargar lo esencial sin que se mueva. Banda elástica que se ajusta a la cadera, dos compartimientos con cremallera y tela impermeable. Cabe celular grande, llaves, tarjetas y un par de geles.',
+    description: 'Canguro hecho en Colombia para cargar lo esencial sin que se mueva. Banda elástica que se ajusta a la cadera, dos compartimientos con cremallera y tela impermeable. Cabe celular grande, llaves, tarjetas y un par de geles.',
     features: [
       'Dos compartimientos con cremallera',
       'Banda elástica anti-rebote',
@@ -328,7 +328,7 @@ const PRODUCTS = {
     specs: {
       'Material': 'Nylon impermeable + Elastano',
       'Compartimientos': '2 con cremallera',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia'
+      'Origen': 'Hecho en Colombia'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }],
     sizes: ['Única'],
@@ -357,7 +357,7 @@ const PRODUCTS = {
     ],
     specs: {
       'Material': 'Nylon ripstop + Elastano',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia'
+      'Origen': 'Hecho en Colombia'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }],
     sizes: ['Única'],
@@ -387,7 +387,7 @@ const PRODUCTS = {
     specs: {
       'Material': 'Silicona alimentaria',
       'Capacidad': '500 ml',
-      'Origen': 'Hecho en el Eje Cafetero, Colombia'
+      'Origen': 'Hecho en Colombia'
     },
     colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Blanco', hex: '#ebebeb' }],
     sizes: ['500 ml'],
@@ -506,7 +506,7 @@ const IG_POSTS = [
   {
     embedUrl: 'https://www.instagram.com/p/DYXVf__ggqm/',
     url: 'https://www.instagram.com/p/DYXVf__ggqm/',
-    caption: 'Producción local. Cada prenda cortada y cosida en el Eje Cafetero. 🏭✨',
+    caption: 'Producción local. Cada prenda cortada y cosida en Colombia. 🏭✨',
     likes: 142,
     date: 'hace 2 días',
     svg: igPlaceholder('PRODUCCIÓN LOCAL', 'ARMENIA · QUINDÍO', 'linearGradient', 'ig1')

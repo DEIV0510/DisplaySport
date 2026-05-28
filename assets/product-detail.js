@@ -27,12 +27,12 @@
     return;
   }
 
-  document.title = `${product.name} — Display Sport · Eje Cafetero, Colombia`;
+  document.title = `${product.name} — Display Sport · Colombia`;
 
   // Actualizar meta description con el producto
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) {
-    metaDesc.setAttribute('content', `${product.name}. ${product.short} Hecho en el Eje Cafetero, Colombia. Envíos a toda Colombia.`);
+    metaDesc.setAttribute('content', `${product.name}. ${product.short} Hecho en el Colombia. Envíos a toda Colombia.`);
   }
 
   // Inyectar JSON-LD de Product + Breadcrumb dinámico
