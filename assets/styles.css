@@ -1745,7 +1745,51 @@ body { padding-top: 0; }
   100% { transform: scale(3.2); opacity: 0; border-width: 0.5px; }
 }
 
-/* Main logo del hero: SVG transparente, glow blanco con tint naranja */
+/* ============ HERO MODELS — cross-fade automatico ============
+   Las 2 fotos de modelos rotan automaticamente cada ~5s con
+   transicion suave. Reemplaza al logo grande del hero card. */
+.hero-models {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-model {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 24px;
+  opacity: 0;
+  filter: drop-shadow(0 12px 30px rgba(0,0,0,0.5)) drop-shadow(0 0 30px rgba(255,94,20,0.15));
+}
+.hero-model--1 { animation: heroModelFade1 10s ease-in-out infinite; }
+.hero-model--2 { animation: heroModelFade2 10s ease-in-out infinite; }
+
+@keyframes heroModelFade1 {
+  0%, 40%  { opacity: 1; transform: scale(1); }
+  50%, 90% { opacity: 0; transform: scale(1.04); }
+  100%     { opacity: 1; transform: scale(1); }
+}
+@keyframes heroModelFade2 {
+  0%, 40%  { opacity: 0; transform: scale(1.04); }
+  50%, 90% { opacity: 1; transform: scale(1); }
+  100%     { opacity: 0; transform: scale(1.04); }
+}
+
+/* Respeto reduced-motion: sin transiciones, mostrar la primera fija */
+@media (prefers-reduced-motion: reduce) {
+  .hero-model--1 { opacity: 1 !important; animation: none !important; }
+  .hero-model--2 { opacity: 0 !important; animation: none !important; }
+}
+
+/* ============================================================ */
+
+/* Main logo del hero: SVG transparente, glow blanco con tint naranja
+   (mantenido por si en el futuro se vuelve a usar, ya no se renderiza). */
 .hero-logo-main {
   position: relative;
   width: 78%;
@@ -2467,6 +2511,7 @@ body.menu-open { overflow: hidden; }
     width: 110px; height: 110px; margin: -55px 0 0 -55px;
   }
   .hero-logo-main { max-width: 240px; }
+  .hero-model { padding: 14px; }
   .corner-mark { font-size: 9px; }
   .corner-mark.tl { top: 16px; left: 16px; }
   .corner-mark.br { bottom: 16px; right: 16px; }
