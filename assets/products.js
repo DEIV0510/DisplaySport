@@ -40,6 +40,11 @@ const PRODUCTS = {
     price: '70.000',
     bgNum: '01',
     badge: 'Carioca', badgeStyle: 'light',
+    photo: 'assets/products/pantaloneta.png',
+    photos: [
+      'assets/products/pantaloneta.png',
+      'assets/products/pantaloneta-2.png'
+    ],
     short: 'Pantaloneta Carioca con tela liviana, calzón interno, resorte confortable y dos bolsillos internos para geles.',
     description: 'Pantaloneta referencia Carioca, diseñada y producida en Armenia, Quindío. Tela liviana que apenas se siente, calzón interno integrado para mayor comodidad y dos bolsillos internos pequeños perfectos para llevar geles energéticos en tiradas largas. Resorte confortable que no aprieta ni se desliza.',
     features: [

@@ -3116,3 +3116,32 @@ body.menu-open { overflow: hidden; }
 .product-image { position: relative; }
 .gallery-main  { position: relative; }
 
+/* Galería con múltiples fotos: solo la activa visible.
+   Sin .is-active queda transparente, lo cual evita que las fotos
+   no-primarias tapen la activa al cargar. */
+.gallery-main .product-photo {
+  opacity: 0;
+  pointer-events: none;
+}
+.gallery-main .product-photo.is-active.is-loaded { opacity: 1; pointer-events: auto; }
+.gallery-main .product-photo.is-active:not(.is-loaded) { opacity: 0; }
+
+/* Thumbs clickables (cuando hay fotos reales) */
+.thumb--photo {
+  padding: 0;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--gray-900);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.thumb--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.thumb--photo:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+.thumb--photo.active { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+
