@@ -33,7 +33,7 @@ window.DSR_CONFIG = {
 
   hero: {
     phrase: 'THE TIME IS NOW',
-    description: 'Fabricamos ropa técnica para running, fitness, cycling y CrossFit. Hombre, dama y accesorios — diseñados y producidos en Armenia, Quindío.'
+    description: 'Fabricamos ropa técnica para running, fitness, cycling y CrossFit. Hombre, dama y accesorios — diseñados y producidos en el Eje Cafetero.'
   },
 
   commerce: {
