@@ -238,6 +238,11 @@ function renderProductCard(p) {
              onerror="this.remove();" />`
     : '';
 
+  // SVG decorativo (borrador de la prenda) solo si NO hay foto real.
+  // Cuando el producto tiene `photo`, mostrar el dibujo SVG debajo de
+  // la foto se nota en los bordes/transparencias y se ve "sucio".
+  const svgPlaceholder = p.photo ? '' : `<div aria-hidden="true">${p.svg}</div>`;
+
   return `
     <a class="product"
        data-lines="${dataLines}"
@@ -247,7 +252,7 @@ function renderProductCard(p) {
       <span class="product-badge ${badgeClass}">${p.badge}</span>
       <div class="product-image">
         <span class="product-bg-num" aria-hidden="true">${p.bgNum}</span>
-        <div aria-hidden="true">${p.svg}</div>
+        ${svgPlaceholder}
         ${photoHTML}
       </div>
       <div class="product-tag">${p.tag}</div>
