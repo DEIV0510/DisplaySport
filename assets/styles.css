@@ -195,16 +195,19 @@ body > nav.is-scrolled .logo-img { height: 46px; }
 .hero-right { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; }
 .runner-card {
   width: 100%; height: 600px; max-height: 70vh;
-  /* Card transparente: los productos flotan sobre el video del hero
-     directamente, sin contenedor visible. */
-  background: transparent;
-  border: 0;
+  /* Card totalmente invisible — sin background, sin border, sin
+     box-shadow, sin animacion. Solo actua como contenedor de
+     posicionamiento para los productos flotantes. */
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   position: relative;
-  /* overflow visible para que los productos puedan extenderse fuera
-     del area del card original (mas dispersos). */
   overflow: visible;
-  animation: cardIn 1.2s cubic-bezier(.2,.7,.2,1) 0.3s backwards;
 }
+/* Pseudo-elementos del card eliminados por si alguno tenia background */
+.runner-card::before, .runner-card::after { display: none !important; }
 @keyframes cardIn {
   from { transform: translateX(80px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
@@ -1674,8 +1677,10 @@ body { padding-top: 0; }
   /* Overflow visible — los productos pueden salir del card para
      un layout mas disperso. */
   overflow: visible;
-  background: transparent;
+  background: transparent !important;
+  border: 0 !important;
 }
+.hero-logo-stage::before, .hero-logo-stage::after { display: none !important; }
 
 /* Ocultar la decoracion interna del card (grid-pattern, pulse-rings,
    shimmer, logo) cuando el card es transparente — solo dejamos las
