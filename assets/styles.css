@@ -1745,6 +1745,215 @@ body { padding-top: 0; }
   100% { transform: scale(3.2); opacity: 0; border-width: 0.5px; }
 }
 
+/* ============================================================
+   SHOWCASE — productos flotantes con animacion individual
+   Cada foto tiene su propia animacion floatY con delay distinto
+   para que se vean como si flotaran libremente en el aire.
+   ============================================================ */
+.showcase {
+  padding: 110px 40px 100px;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.showcase::before {
+  /* Linea horizontal naranja sutil arriba */
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,94,20,0.3), transparent);
+}
+.showcase::after {
+  /* Texto BG decorativo */
+  content: 'DISPLAY';
+  position: absolute;
+  right: -40px;
+  bottom: -30px;
+  font-family: var(--font-display);
+  font-size: 220px;
+  line-height: 0.85;
+  color: rgba(255,255,255,0.025);
+  letter-spacing: -6px;
+  pointer-events: none;
+  z-index: 0;
+}
+.showcase-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 70px;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.showcase-item {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
+}
+.showcase-item:hover { transform: translateY(-6px); }
+
+/* Card de la foto: contenedor cuadrado con gradient y borde */
+.showcase-photo-wrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background:
+    radial-gradient(ellipse at center, var(--gray-800) 0%, var(--gray-900) 70%);
+  border: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s;
+}
+.showcase-item:hover .showcase-photo-wrap {
+  border-color: rgba(255,94,20,0.4);
+}
+
+/* Numero grande decorativo de fondo */
+.showcase-num {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--gray-500);
+  z-index: 2;
+}
+
+/* La foto que flota */
+.showcase-photo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 24px;
+  z-index: 1;
+  filter: drop-shadow(0 20px 35px rgba(0,0,0,0.6)) drop-shadow(0 0 25px rgba(255,94,20,0.12));
+  animation: showcaseFloat 5s ease-in-out infinite;
+  will-change: transform;
+}
+/* Delays escalonados para que cada foto flote en su propio ritmo */
+.showcase-item:nth-child(1) .showcase-photo { animation-delay: 0s;    animation-duration: 5s; }
+.showcase-item:nth-child(2) .showcase-photo { animation-delay: 0.7s;  animation-duration: 5.5s; }
+.showcase-item:nth-child(3) .showcase-photo { animation-delay: 1.4s;  animation-duration: 4.8s; }
+.showcase-item:nth-child(4) .showcase-photo { animation-delay: 2.1s;  animation-duration: 5.2s; }
+
+@keyframes showcaseFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-14px) rotate(-1deg); }
+}
+
+/* Sombra que pulsa en el "piso" debajo de cada producto */
+.showcase-photo-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 18px;
+  left: 28%;
+  width: 44%;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.55), transparent 70%);
+  filter: blur(6px);
+  animation: showcaseShadow 5s ease-in-out infinite;
+}
+.showcase-item:nth-child(1) .showcase-photo-wrap::after { animation-delay: 0s; }
+.showcase-item:nth-child(2) .showcase-photo-wrap::after { animation-delay: 0.7s; }
+.showcase-item:nth-child(3) .showcase-photo-wrap::after { animation-delay: 1.4s; }
+.showcase-item:nth-child(4) .showcase-photo-wrap::after { animation-delay: 2.1s; }
+
+@keyframes showcaseShadow {
+  0%, 100% { opacity: 0.6; transform: scaleX(1); }
+  50%      { opacity: 0.3; transform: scaleX(0.78); }
+}
+
+/* Hover: el item entero sube + glow naranja en la sombra */
+.showcase-item:hover .showcase-photo {
+  animation-play-state: paused;
+  transform: translateY(-18px) scale(1.04);
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
+  filter: drop-shadow(0 28px 45px rgba(0,0,0,0.7)) drop-shadow(0 0 38px rgba(255,94,20,0.3));
+}
+
+/* Info debajo de la foto */
+.showcase-info {
+  padding: 16px 6px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.showcase-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+.showcase-name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 2px 0;
+  transition: color 0.3s;
+}
+.showcase-item:hover .showcase-name { color: var(--accent); }
+.showcase-price {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+.showcase-price--tbd {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-300);
+}
+
+/* Respeta reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .showcase-photo { animation: none !important; }
+  .showcase-photo-wrap::after { animation: none !important; }
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .showcase-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+@media (max-width: 900px) {
+  .showcase { padding: 70px 24px 80px; }
+  .showcase-header { grid-template-columns: 1fr; gap: 18px; margin-bottom: 40px; }
+  .showcase-photo { padding: 18px; }
+  .showcase-name { font-size: 22px; }
+  .showcase-price { font-size: 18px; }
+  .showcase::after { font-size: 140px; bottom: -20px; right: -20px; }
+}
+@media (max-width: 480px) {
+  .showcase { padding: 60px 18px 70px; }
+  .showcase-grid { grid-template-columns: 1fr; gap: 16px; max-width: 440px; }
+  .showcase-photo { padding: 22px; }
+}
+
 /* ============ HERO PRODUCTS — slideshow automatico ============
    4 fotos hero (una por producto) que rotan en bucle con
    cross-fade. Reemplaza al logo grande del hero card.
