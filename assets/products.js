@@ -89,6 +89,13 @@ const PRODUCTS = {
     priceTBD: true,
     bgNum: '02',
     badge: 'Boston', badgeStyle: 'dark',
+    photo: 'assets/products/boston1.png',
+    photos: [
+      'assets/products/boston1.png',
+      'assets/products/boston2.png',
+      'assets/products/boston3.png',
+      'assets/products/boston4.png'
+    ],
     short: 'Pantaloneta Boston: corte clásico, tela técnica liviana y resorte cómodo para entrenar sin pensar.',
     description: 'Pantaloneta referencia Boston, diseñada y producida en Colombia. Tela técnica liviana de secado rápido, costuras planas anti-rozadura y un fit anatómico que se mueve con el cuerpo. Ideal para running, fitness y entrenamientos diarios.',
     features: [
