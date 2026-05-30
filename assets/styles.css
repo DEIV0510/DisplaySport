@@ -1682,13 +1682,9 @@ body { padding-top: 0; }
 }
 .hero-logo-stage::before, .hero-logo-stage::after { display: none !important; }
 
-/* Ocultar la decoracion interna del card (grid-pattern, pulse-rings,
-   shimmer, logo) cuando el card es transparente — solo dejamos las
-   fotos de productos flotantes con sus halos, particulas y lineas. */
-.hero-logo-stage .grid-pattern,
-.hero-logo-stage .pulse-ring,
-.hero-logo-stage .shimmer,
-.hero-logo-stage .hero-logo-main { display: none; }
+/* (Las reglas que ocultaban grid-pattern, pulse-ring, shimmer y
+   hero-logo-main quedaron eliminadas — ahora son visibles otra
+   vez porque el card no contiene las imagenes flotantes.) */
 
 /* ============ HERO BACKGROUND VIDEO (full section) ============
    El video llena el fondo del <section class='hero'> entero.
@@ -2936,8 +2932,8 @@ body.menu-open { overflow: hidden; }
     min-height: 92svh;
     min-height: 92vh; /* fallback navegadores antiguos */
   }
-  .hero-left  { order: 2; }
-  .hero-right { order: 1; margin-top: 0 !important; }
+  .hero-left  { order: 1; }
+  .hero-right { order: 2; }
 
   /* Video: el sujeto suele estar arriba-centro de la imagen.
      object-position ajustada para que en aspect-ratio vertical
