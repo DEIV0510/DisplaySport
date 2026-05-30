@@ -112,9 +112,7 @@ const PRODUCTS = {
       'Cuidado': 'Lavado en agua fría, no usar suavizante'
     },
     colors: [
-      { name: 'Negro', hex: '#0a0a0a' },
-      { name: 'Azul marino', hex: '#1a2742' },
-      { name: 'Gris', hex: '#6e6e6e' }
+      { name: 'Negro', hex: '#0a0a0a' }
     ],
     sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M52 55 L 148 55 L 152 72 L 156 158 L 110 158 L 107 95 L 93 95 L 90 158 L 44 158 L 48 72 Z"/></g><rect x="50" y="55" width="100" height="9" fill="#0a0a0a"/><path d="M100 64 L 100 158" stroke="#0a0a0a" stroke-width="2"/><path d="M60 80 L 90 80 M 110 80 L 140 80" stroke="#6e6e6e" stroke-width="1" opacity="0.5"/></svg>`,
@@ -158,8 +156,7 @@ const PRODUCTS = {
     },
     colors: [
       { name: 'Negro', hex: '#0a0a0a' },
-      { name: 'Azul marino', hex: '#1a2742' },
-      { name: 'Gris oscuro', hex: '#2a2a2a' }
+      { name: 'Gris oscuro', hex: '#3a3a3a' }
     ],
     sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><path d="M48 55 L 152 55 L 158 78 L 162 170 L 108 170 L 105 105 L 95 105 L 92 170 L 38 170 L 42 78 Z"/></g><g fill="#0a0a0a" opacity="0.7"><path d="M58 95 L 142 95 L 144 120 L 100 130 L 56 120 Z"/></g><rect x="46" y="55" width="108" height="11" fill="#0a0a0a"/><path d="M100 66 L 100 170" stroke="#ffffff" stroke-width="2"/><rect x="58" y="120" width="22" height="14" fill="#0a0a0a" opacity="0.5" stroke="#ffffff" stroke-width="0.5"/><rect x="120" y="120" width="22" height="14" fill="#0a0a0a" opacity="0.5" stroke="#ffffff" stroke-width="0.5"/></svg>`,
@@ -177,6 +174,11 @@ const PRODUCTS = {
     priceTBD: true,
     bgNum: '04',
     badge: 'Termo', badgeStyle: 'dark',
+    photo: 'assets/products/termo1.png',
+    photos: [
+      'assets/products/termo1.png',
+      'assets/products/termo2.png'
+    ],
     short: 'Termo de 250 ml en silicona con manigueta. Liviano, plegable y fácil de llevar en cualquier salida.',
     description: 'Termo en silicona alimentaria libre de BPA con capacidad de 250 ml. Trae manigueta para llevarlo cómodamente o engancharlo a la mochila/cinturón. Liviano, flexible, plegable cuando está vacío y resistente a temperaturas. Perfecto para tiradas, gym o cualquier entrenamiento donde la hidratación a la mano marca la diferencia.',
     features: [
@@ -194,8 +196,9 @@ const PRODUCTS = {
       'Origen': 'Hecho en Colombia'
     },
     colors: [
-      { name: 'Negro', hex: '#0a0a0a' },
-      { name: 'Blanco', hex: '#ebebeb' }
+      { name: 'Negro', hex: '#1a1a1a' },
+      { name: 'Gris', hex: '#8a8a8a' },
+      { name: 'Blanco', hex: '#f0f0f0' }
     ],
     sizes: ['250 ml'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><rect x="78" y="22" width="44" height="14" rx="3"/><path d="M70 40 L 130 40 L 138 70 L 138 175 Q 138 182 130 182 L 70 182 Q 62 182 62 175 L 62 70 Z"/></g><rect x="85" y="14" width="30" height="10" rx="2" fill="#0a0a0a"/><path d="M138 80 Q 165 85 165 110 Q 165 135 138 140" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="62" y1="80" x2="138" y2="80" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,3"/><line x1="62" y1="110" x2="138" y2="110" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,3"/><line x1="62" y1="140" x2="138" y2="140" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,3"/><text x="100" y="165" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#0a0a0a" opacity="0.6" letter-spacing="1">250ml</text></svg>`,
