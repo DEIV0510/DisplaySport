@@ -75,324 +75,117 @@ const PRODUCTS = {
     ],
     sizes: ['S', 'M', 'L'],
     svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M50 55 L 150 55 L 155 75 L 158 165 L 108 165 L 105 100 L 95 100 L 92 165 L 42 165 L 45 75 Z"/></g><rect x="48" y="55" width="104" height="10" fill="#0a0a0a"/><path d="M100 65 L 100 165" stroke="#0a0a0a" stroke-width="2"/><path d="M55 100 L 90 105" stroke="#6e6e6e" stroke-width="1.5" fill="none" opacity="0.6"/><path d="M145 100 L 110 105" stroke="#6e6e6e" stroke-width="1.5" fill="none" opacity="0.6"/><rect x="65" y="80" width="14" height="3" fill="#0a0a0a" opacity="0.5"/></svg>`,
-    related: ['licra', 'camiseta', 'esqueleto', 'visera']
+    related: ['pantaloneta-boston', 'pantaloneta-elite', 'termo-silicona']
   },
 
-  'licra': {
-    id: 'licra',
-    name: 'Licra',
+  'pantaloneta-boston': {
+    id: 'pantaloneta-boston',
+    name: 'Pantaloneta Boston',
+    reference: 'Boston',
     category: 'Ropa',
-    tag: 'Licra / Running · Cycling · Fitness',
-    lines: ['hombre', 'dama'],
-    disciplines: ['running', 'cycling', 'fitness'],
-    priceTBD: false,
-    price: '90.000',
-    bgNum: '02',
-    badge: 'Licra', badgeStyle: 'dark',
-    short: 'Licra de compresión técnica para máxima libertad de movimiento. Soporte muscular sin restringir el paso.',
-    description: 'Licra fabricada en Colombia con tela de compresión técnica. Recuperación muscular acelerada, manejo inteligente de humedad y un fit que no se desliza. Ideal para entrenamientos largos, ciclismo y running.',
-    features: [
-      'Tela de compresión técnica',
-      'Manejo de humedad',
-      'Pretina ancha sin marcas',
-      'Costuras planas',
-      'Disponible para hombre y dama'
-    ],
-    specs: {
-      'Material': 'Poliamida + Elastano',
-      'Soporte': 'Compresión media',
-      'Origen': 'Hecho en Colombia',
-      'Cuidado': 'Lavado en agua fría'
-    },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris oscuro', hex: '#2a2a2a' }],
-    sizes: ['S', 'M', 'L'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><path d="M58 30 L 142 30 L 148 60 L 152 180 L 108 180 L 105 90 L 95 90 L 92 180 L 48 180 L 52 60 Z"/></g><rect x="56" y="30" width="88" height="8" fill="#0a0a0a"/><path d="M100 38 L 100 180" stroke="#6e6e6e" stroke-width="1" opacity="0.6"/><path d="M62 80 L 90 80 M 110 80 L 138 80" stroke="#6e6e6e" stroke-width="0.8" opacity="0.4"/><path d="M62 130 L 90 130 M 110 130 L 138 130" stroke="#6e6e6e" stroke-width="0.8" opacity="0.4"/></svg>`,
-    related: ['pantaloneta', 'top', 'buzo-compresion', 'cinturon-running']
-  },
-
-  'camiseta': {
-    id: 'camiseta',
-    name: 'Camiseta',
-    category: 'Ropa',
-    tag: 'Camiseta / Running · Fitness · CrossFit',
-    lines: ['hombre', 'dama'],
-    disciplines: ['running', 'fitness', 'crossfit'],
-    priceTBD: false,
-    price: '40.000',
-    bgNum: '03',
-    badge: 'Camiseta', badgeStyle: 'light',
-    short: 'Camiseta técnica de manga corta. Tela respirable que mantiene el cuerpo fresco entre kilómetros.',
-    description: 'Camiseta básica técnica de fabricación nacional. Tela ligera con ventilación estratégica, fit relajado pero anatómico y un corte que sirve igual para correr, levantar pesas o entrenar funcional.',
-    features: [
-      'Tela respirable y ligera',
-      'Secado rápido',
-      'Fit anatómico relajado',
-      'Costuras planas',
-      'Versátil: running, gym, calle'
-    ],
-    specs: {
-      'Material': 'Poliéster técnico',
-      'Manga': 'Corta',
-      'Origen': 'Hecho en Colombia',
-      'Cuidado': 'Lavado en agua fría'
-    },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Blanco', hex: '#ebebeb' }, { name: 'Gris', hex: '#6e6e6e' }],
-    sizes: ['S', 'M', 'L'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M60 50 L 80 38 L 120 38 L 140 50 L 165 75 L 152 95 L 140 88 L 140 170 L 60 170 L 60 88 L 48 95 L 35 75 Z"/></g><path d="M85 38 Q 100 50 115 38" fill="none" stroke="#0a0a0a" stroke-width="2"/><line x1="60" y1="120" x2="140" y2="120" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3"/></svg>`,
-    related: ['esqueleto', 'pantaloneta', 'top', 'buzo-compresion']
-  },
-
-  'esqueleto': {
-    id: 'esqueleto',
-    name: 'Esqueleto',
-    category: 'Ropa',
-    tag: 'Esqueleto / Fitness · CrossFit · Running',
+    tag: 'Pantaloneta / Running · Fitness',
     lines: ['hombre'],
-    disciplines: ['fitness', 'crossfit', 'running'],
-    priceTBD: false,
-    price: '40.000',
-    bgNum: '04',
-    badge: 'Esqueleto', badgeStyle: 'dark',
-    short: 'Esqueleto sin mangas con espalda abierta. Máxima ventilación para entrenamientos intensos.',
-    description: 'Esqueleto técnico pensado para entrenar duro. Espalda con corte abierto que libera el calor, hombros amplios para movilidad total y tela liviana que apenas se siente. Perfecto para CrossFit, gym y running en clima cálido.',
-    features: [
-      'Sin mangas',
-      'Espalda abierta para máxima ventilación',
-      'Tela ultra-liviana',
-      'Hombros amplios para movilidad',
-      'Diseñado para alta intensidad'
-    ],
-    specs: {
-      'Material': 'Poliéster técnico',
-      'Tipo': 'Sin mangas / Espalda abierta',
-      'Origen': 'Hecho en Colombia',
-      'Cuidado': 'Lavado en agua fría'
-    },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#6e6e6e' }],
-    sizes: ['S', 'M', 'L'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M75 50 L 95 35 L 105 35 L 125 50 L 130 70 L 145 75 L 145 170 L 55 170 L 55 75 L 70 70 Z"/></g><path d="M75 50 Q 100 70 125 50" fill="none" stroke="#0a0a0a" stroke-width="2"/><path d="M70 70 L 80 90 L 80 170 M 130 70 L 120 90 L 120 170" stroke="#0a0a0a" stroke-width="1" fill="none" opacity="0.4"/></svg>`,
-    related: ['camiseta', 'pantaloneta', 'buzo-compresion', 'visera']
-  },
-
-  'buzo-compresion': {
-    id: 'buzo-compresion',
-    name: 'Buzo de compresión',
-    category: 'Ropa',
-    tag: 'Buzo / Running · Fitness',
-    lines: ['hombre', 'dama'],
-    disciplines: ['running', 'fitness', 'cycling'],
-    priceTBD: false,
-    price: '90.000',
-    bgNum: '05',
-    badge: 'Compresión', badgeStyle: 'light',
-    short: 'Buzo de compresión técnica de manga larga. Soporte muscular y protección para entrenamientos al aire libre.',
-    description: 'Buzo con tela de compresión que acelera la recuperación y mantiene el cuerpo caliente en mañanas frías. Cuello redondo, puños elásticos y costuras planas. Ideal para correr en altura, ciclismo y entrenamientos de fondo.',
-    features: [
-      'Compresión técnica',
-      'Manga larga con puños elásticos',
-      'Tela térmica ligera',
-      'Costuras planas',
-      'Para clima frío y altura'
-    ],
-    specs: {
-      'Material': 'Poliamida + Elastano',
-      'Soporte': 'Compresión media',
-      'Manga': 'Larga',
-      'Origen': 'Hecho en Colombia',
-      'Cuidado': 'Lavado en agua fría'
-    },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris oscuro', hex: '#2a2a2a' }],
-    sizes: ['S', 'M', 'L'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><path d="M65 45 L 80 32 L 120 32 L 135 45 L 165 78 L 168 175 L 152 178 L 148 95 L 145 95 L 145 170 L 55 170 L 55 95 L 52 95 L 48 178 L 32 175 L 35 78 Z"/></g><path d="M85 32 Q 100 44 115 32" fill="none" stroke="#0a0a0a" stroke-width="2"/><line x1="40" y1="170" x2="55" y2="170" stroke="#0a0a0a" stroke-width="3"/><line x1="145" y1="170" x2="160" y2="170" stroke="#0a0a0a" stroke-width="3"/><line x1="100" y1="40" x2="100" y2="170" stroke="#6e6e6e" stroke-width="0.5" opacity="0.4"/></svg>`,
-    related: ['camiseta', 'licra', 'pantaloneta', 'visera']
-  },
-
-  'top': {
-    id: 'top',
-    name: 'Top',
-    category: 'Ropa',
-    tag: 'Top / Running · Fitness · CrossFit',
-    lines: ['dama'],
     disciplines: ['running', 'fitness', 'crossfit'],
-    priceTBD: false,
-    price: '70.000',
-    bgNum: '06',
-    badge: 'Top', badgeStyle: 'light',
-    short: 'Top deportivo con soporte real. Tirantes anchos, banda inferior reforzada, sin compromisos.',
-    description: 'Top diseñado para mujeres que entrenan en serio. Soporte para alta intensidad, tela suave con tratamiento antibacterial y espalda nadadora para libertad de hombros. Hecho en Colombia.',
+    priceTBD: true,
+    bgNum: '02',
+    badge: 'Boston', badgeStyle: 'dark',
+    short: 'Pantaloneta Boston: corte clásico, tela técnica liviana y resorte cómodo para entrenar sin pensar.',
+    description: 'Pantaloneta referencia Boston, diseñada y producida en Colombia. Tela técnica liviana de secado rápido, costuras planas anti-rozadura y un fit anatómico que se mueve con el cuerpo. Ideal para running, fitness y entrenamientos diarios.',
     features: [
-      'Soporte alto impacto',
-      'Tirantes anchos ergonómicos',
-      'Banda inferior reforzada',
-      'Copa removible',
-      'Espalda nadadora'
+      'Tela técnica liviana',
+      'Secado rápido',
+      'Costuras planas anti-rozadura',
+      'Resorte cómodo',
+      'Referencia: Boston'
     ],
     specs: {
-      'Material': 'Poliamida + Elastano',
-      'Soporte': 'Alto impacto',
-      'Copa': 'Removible',
+      'Referencia': 'Boston',
+      'Material': 'Tela técnica liviana',
       'Origen': 'Hecho en Colombia',
-      'Cuidado': 'Lavado a mano'
+      'Cuidado': 'Lavado en agua fría, no usar suavizante'
     },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#6e6e6e' }],
-    sizes: ['XS', 'S', 'M', 'L'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M55 60 Q 70 45 100 45 Q 130 45 145 60 L 155 90 L 152 140 Q 130 152 100 152 Q 70 152 48 140 L 45 90 Z"/></g><path d="M70 50 L 80 70" stroke="#0a0a0a" stroke-width="3" fill="none"/><path d="M130 50 L 120 70" stroke="#0a0a0a" stroke-width="3" fill="none"/><path d="M100 45 L 100 152" stroke="#0a0a0a" stroke-width="1.5" opacity="0.4"/><ellipse cx="100" cy="90" rx="22" ry="14" fill="none" stroke="#0a0a0a" stroke-width="1.5" opacity="0.5"/></svg>`,
-    related: ['croptop', 'licra', 'pantaloneta', 'visera']
+    colors: [
+      { name: 'Negro', hex: '#0a0a0a' },
+      { name: 'Azul marino', hex: '#1a2742' },
+      { name: 'Gris', hex: '#6e6e6e' }
+    ],
+    sizes: ['S', 'M', 'L'],
+    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M52 55 L 148 55 L 152 72 L 156 158 L 110 158 L 107 95 L 93 95 L 90 158 L 44 158 L 48 72 Z"/></g><rect x="50" y="55" width="100" height="9" fill="#0a0a0a"/><path d="M100 64 L 100 158" stroke="#0a0a0a" stroke-width="2"/><path d="M60 80 L 90 80 M 110 80 L 140 80" stroke="#6e6e6e" stroke-width="1" opacity="0.5"/></svg>`,
+    related: ['pantaloneta', 'pantaloneta-elite', 'termo-silicona']
   },
 
-  'croptop': {
-    id: 'croptop',
-    name: 'Croptop',
+  'pantaloneta-elite': {
+    id: 'pantaloneta-elite',
+    name: 'Pantaloneta Elite',
+    reference: 'Elite',
     category: 'Ropa',
-    tag: 'Croptop / Fitness · CrossFit',
-    lines: ['dama'],
-    disciplines: ['fitness', 'crossfit', 'running'],
-    priceTBD: false,
-    price: '45.000',
-    bgNum: '07',
-    badge: 'Croptop', badgeStyle: 'dark',
-    short: 'Croptop deportivo de cintura alta. Diseño favorecedor con tela técnica y soporte ligero.',
-    description: 'Croptop diseñado para combinar dentro y fuera del gimnasio. Tela suave touch, soporte de bajo a medio impacto y un corte favorecedor que se ve tan bien como funciona. Versátil para yoga, gym y entrenamiento funcional.',
+    tag: 'Pantaloneta / Running · Fitness',
+    lines: ['hombre'],
+    disciplines: ['running', 'fitness', 'crossfit'],
+    priceTBD: true,
+    bgNum: '03',
+    badge: 'Elite', badgeStyle: 'light',
+    short: 'Pantaloneta Elite con licra interna integrada. Compresión muscular y libertad de movimiento en una sola prenda.',
+    description: 'Pantaloneta referencia Elite, diseñada y producida en Colombia. Trae licra interna de compresión que ofrece soporte muscular, evita rozaduras y se queda en su lugar. La capa exterior es de tela técnica liviana con secado rápido. Pensada para runners y atletas que entrenan en serio.',
     features: [
-      'Soporte bajo-medio impacto',
-      'Tela suave touch',
-      'Largo crop (cintura alta)',
-      'Sin costuras irritantes',
-      'Versátil para gym, yoga y calle'
+      'Licra interna integrada',
+      'Compresión muscular',
+      'Tela exterior liviana y técnica',
+      'Secado rápido',
+      'Sin rozaduras',
+      'Referencia: Elite'
     ],
     specs: {
-      'Material': 'Poliéster + Elastano',
-      'Soporte': 'Bajo-medio impacto',
-      'Largo': 'Crop',
+      'Referencia': 'Elite',
+      'Material exterior': 'Tela técnica liviana',
+      'Licra interna': 'Sí, de compresión',
       'Origen': 'Hecho en Colombia',
-      'Cuidado': 'Lavado a mano'
+      'Cuidado': 'Lavado en agua fría, no usar suavizante'
     },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#b8b8b8' }],
-    sizes: ['XS', 'S', 'M', 'L'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#b8b8b8"><path d="M65 55 Q 75 45 100 45 Q 125 45 135 55 L 140 85 L 138 130 Q 120 138 100 138 Q 80 138 62 130 L 60 85 Z"/></g><path d="M75 50 L 82 65" stroke="#0a0a0a" stroke-width="2" fill="none"/><path d="M125 50 L 118 65" stroke="#0a0a0a" stroke-width="2" fill="none"/><g fill="#0a0a0a" opacity="0.3"><circle cx="80" cy="90" r="1.5"/><circle cx="90" cy="90" r="1.5"/><circle cx="100" cy="90" r="1.5"/><circle cx="110" cy="90" r="1.5"/><circle cx="120" cy="90" r="1.5"/><circle cx="80" cy="100" r="1.5"/><circle cx="100" cy="100" r="1.5"/><circle cx="120" cy="100" r="1.5"/><circle cx="80" cy="110" r="1.5"/><circle cx="100" cy="110" r="1.5"/><circle cx="120" cy="110" r="1.5"/></g></svg>`,
-    related: ['top', 'licra', 'camiseta', 'visera']
-  },
-
-  /* ============ ACCESORIOS ============ */
-
-  'visera': {
-    id: 'visera',
-    name: 'Visera',
-    category: 'Accesorios',
-    tag: 'Visera / Running · Cycling',
-    lines: ['accesorios'],
-    disciplines: ['running', 'cycling', 'fitness'],
-    priceTBD: false,
-    price: '40.000',
-    bgNum: '08',
-    badge: 'Visera', badgeStyle: 'light',
-    short: 'Visera ultraligera con banda absorbente. Protección solar para entrenar bajo el sol colombiano.',
-    description: 'Visera técnica de fabricación nacional. Banda interna absorbente que mantiene el sudor lejos de los ojos, visera curvada aerodinámica y ajuste con velcro de alta resistencia. Liviana, fresca y reflectiva en el logo.',
-    features: [
-      'Banda interna absorbente',
-      'Ajuste con velcro reforzado',
-      'Visera curvada aerodinámica',
-      'Ultraligera',
-      'Lavable a máquina'
+    colors: [
+      { name: 'Negro', hex: '#0a0a0a' },
+      { name: 'Azul marino', hex: '#1a2742' },
+      { name: 'Gris oscuro', hex: '#2a2a2a' }
     ],
-    specs: {
-      'Material': 'Poliéster técnico',
-      'Ajuste': 'Velcro reforzado',
-      'Origen': 'Hecho en Colombia'
-    },
-    colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#0a0a0a' }, { name: 'Gris', hex: '#6e6e6e' }],
-    sizes: ['Única'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><path d="M30 105 Q 100 70 170 105 L 168 120 Q 100 100 32 120 Z"/></g><path d="M55 100 Q 100 80 145 100 L 145 105 Q 100 88 55 105 Z" fill="#0a0a0a" opacity="0.4"/><rect x="78" y="95" width="44" height="6" fill="#6e6e6e"/><text x="100" y="100" fill="#ffffff" font-family="Arial Black" font-size="6" text-anchor="middle">DS</text></svg>`,
-    related: ['canguro', 'cinturon-running', 'botella-silicona', 'pantaloneta']
+    sizes: ['S', 'M', 'L'],
+    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><path d="M48 55 L 152 55 L 158 78 L 162 170 L 108 170 L 105 105 L 95 105 L 92 170 L 38 170 L 42 78 Z"/></g><g fill="#0a0a0a" opacity="0.7"><path d="M58 95 L 142 95 L 144 120 L 100 130 L 56 120 Z"/></g><rect x="46" y="55" width="108" height="11" fill="#0a0a0a"/><path d="M100 66 L 100 170" stroke="#ffffff" stroke-width="2"/><rect x="58" y="120" width="22" height="14" fill="#0a0a0a" opacity="0.5" stroke="#ffffff" stroke-width="0.5"/><rect x="120" y="120" width="22" height="14" fill="#0a0a0a" opacity="0.5" stroke="#ffffff" stroke-width="0.5"/></svg>`,
+    related: ['pantaloneta', 'pantaloneta-boston', 'termo-silicona']
   },
 
-  'canguro': {
-    id: 'canguro',
-    name: 'Canguro',
+  'termo-silicona': {
+    id: 'termo-silicona',
+    name: 'Termo 250 ml',
+    reference: 'Silicona con manigueta',
     category: 'Accesorios',
-    tag: 'Canguro / Running · Cycling',
+    tag: 'Termo / Running · Cycling · Gym',
     lines: ['accesorios'],
-    disciplines: ['running', 'cycling', 'fitness'],
+    disciplines: ['running', 'fitness', 'cycling', 'crossfit'],
     priceTBD: true,
-    bgNum: '09',
-    badge: 'Canguro', badgeStyle: 'dark',
-    short: 'Canguro técnico con compartimientos para llaves, celular y geles. Ajuste anti-rebote.',
-    description: 'Canguro hecho en Colombia para cargar lo esencial sin que se mueva. Banda elástica que se ajusta a la cadera, dos compartimientos con cremallera y tela impermeable. Cabe celular grande, llaves, tarjetas y un par de geles.',
-    features: [
-      'Dos compartimientos con cremallera',
-      'Banda elástica anti-rebote',
-      'Tela impermeable',
-      'Cabe celular grande',
-      'Ajuste ergonómico'
-    ],
-    specs: {
-      'Material': 'Nylon impermeable + Elastano',
-      'Compartimientos': '2 con cremallera',
-      'Origen': 'Hecho en Colombia'
-    },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }],
-    sizes: ['Única'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><rect x="20" y="80" width="160" height="50" rx="14"/></g><rect x="30" y="92" width="60" height="26" rx="4" fill="#0a0a0a" stroke="#6e6e6e" stroke-width="0.5"/><rect x="110" y="92" width="60" height="26" rx="4" fill="#0a0a0a" stroke="#6e6e6e" stroke-width="0.5"/><line x1="35" y1="96" x2="85" y2="96" stroke="#6e6e6e" stroke-width="1" opacity="0.6"/><line x1="115" y1="96" x2="165" y2="96" stroke="#6e6e6e" stroke-width="1" opacity="0.6"/><line x1="0" y1="105" x2="20" y2="105" stroke="#1f1f1f" stroke-width="4"/><line x1="180" y1="105" x2="200" y2="105" stroke="#1f1f1f" stroke-width="4"/></svg>`,
-    related: ['cinturon-running', 'botella-silicona', 'visera', 'pantaloneta']
-  },
-
-  'cinturon-running': {
-    id: 'cinturon-running',
-    name: 'Cinturón de running',
-    category: 'Accesorios',
-    tag: 'Cinturón / Running · Trail',
-    lines: ['accesorios'],
-    disciplines: ['running', 'fitness'],
-    priceTBD: true,
-    bgNum: '10',
-    badge: 'Belt', badgeStyle: 'light',
-    short: 'Cinturón de running con porta-geles, porta-celular y soporte para dorsal. Para tiradas largas.',
-    description: 'Cinturón pensado para distancias largas: media maratón, maratón, trail. Múltiples porta-geles, bolsillo para celular, soporte para número de carrera. Ajuste con velcro y banda anti-rebote.',
-    features: [
-      'Porta-geles múltiples',
-      'Bolsillo para celular',
-      'Soporte para dorsal',
-      'Banda anti-rebote',
-      'Reflectivos para baja luz'
-    ],
-    specs: {
-      'Material': 'Nylon ripstop + Elastano',
-      'Origen': 'Hecho en Colombia'
-    },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }],
-    sizes: ['Única'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#1f1f1f"><rect x="10" y="92" width="180" height="22" rx="3"/></g><rect x="80" y="92" width="40" height="22" fill="#0a0a0a" stroke="#6e6e6e" stroke-width="0.5"/><rect x="40" y="98" width="10" height="10" fill="#6e6e6e" opacity="0.6"/><rect x="55" y="98" width="10" height="10" fill="#6e6e6e" opacity="0.6"/><rect x="135" y="98" width="10" height="10" fill="#6e6e6e" opacity="0.6"/><rect x="150" y="98" width="10" height="10" fill="#6e6e6e" opacity="0.6"/><rect x="84" y="100" width="32" height="6" rx="1" fill="#6e6e6e" opacity="0.5"/></svg>`,
-    related: ['canguro', 'botella-silicona', 'visera', 'pantaloneta']
-  },
-
-  'botella-silicona': {
-    id: 'botella-silicona',
-    name: 'Botella en silicona',
-    category: 'Accesorios',
-    tag: 'Botella / Running · Cycling · Gym',
-    lines: ['accesorios'],
-    disciplines: ['running', 'cycling', 'fitness', 'crossfit'],
-    priceTBD: true,
-    bgNum: '11',
-    badge: 'Silicona', badgeStyle: 'dark',
-    short: 'Botella plegable en silicona libre de BPA. Se enrolla cuando está vacía. Para llevar a todas partes.',
-    description: 'Botella en silicona alimentaria sin BPA. Se aplasta y enrolla cuando está vacía para que ocupe casi nada en la mochila. Boquilla anti-derrame, tapa con clip y resistente a temperaturas extremas.',
+    bgNum: '04',
+    badge: 'Termo', badgeStyle: 'dark',
+    short: 'Termo de 250 ml en silicona con manigueta. Liviano, plegable y fácil de llevar en cualquier salida.',
+    description: 'Termo en silicona alimentaria libre de BPA con capacidad de 250 ml. Trae manigueta para llevarlo cómodamente o engancharlo a la mochila/cinturón. Liviano, flexible, plegable cuando está vacío y resistente a temperaturas. Perfecto para tiradas, gym o cualquier entrenamiento donde la hidratación a la mano marca la diferencia.',
     features: [
       'Silicona alimentaria libre de BPA',
-      'Plegable cuando está vacía',
-      'Boquilla anti-derrame',
-      'Tapa con clip para mochila',
-      'Resistente a temperaturas'
+      'Capacidad: 250 ml',
+      'Manigueta para llevar fácil',
+      'Plegable cuando está vacío',
+      'Resistente a temperaturas',
+      'Tapa con cierre seguro'
     ],
     specs: {
       'Material': 'Silicona alimentaria',
-      'Capacidad': '500 ml',
+      'Capacidad': '250 ml',
+      'Manigueta': 'Sí',
       'Origen': 'Hecho en Colombia'
     },
-    colors: [{ name: 'Negro', hex: '#0a0a0a' }, { name: 'Blanco', hex: '#ebebeb' }],
-    sizes: ['500 ml'],
-    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><rect x="78" y="22" width="44" height="14" rx="3"/><path d="M70 40 L 130 40 L 138 70 L 138 175 Q 138 182 130 182 L 70 182 Q 62 182 62 175 L 62 70 Z"/></g><rect x="85" y="14" width="30" height="10" rx="2" fill="#0a0a0a"/><line x1="62" y1="80" x2="138" y2="80" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,3"/><line x1="62" y1="110" x2="138" y2="110" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,3"/><line x1="62" y1="140" x2="138" y2="140" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,3"/><text x="100" y="160" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#0a0a0a" opacity="0.5" letter-spacing="1">500ml</text></svg>`,
-    related: ['cinturon-running', 'canguro', 'visera', 'pantaloneta']
+    colors: [
+      { name: 'Negro', hex: '#0a0a0a' },
+      { name: 'Blanco', hex: '#ebebeb' }
+    ],
+    sizes: ['250 ml'],
+    svg: `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#ffffff"><rect x="78" y="22" width="44" height="14" rx="3"/><path d="M70 40 L 130 40 L 138 70 L 138 175 Q 138 182 130 182 L 70 182 Q 62 182 62 175 L 62 70 Z"/></g><rect x="85" y="14" width="30" height="10" rx="2" fill="#0a0a0a"/><path d="M138 80 Q 165 85 165 110 Q 165 135 138 140" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="62" y1="80" x2="138" y2="80" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,3"/><line x1="62" y1="110" x2="138" y2="110" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,3"/><line x1="62" y1="140" x2="138" y2="140" stroke="#0a0a0a" stroke-width="0.5" opacity="0.3" stroke-dasharray="3,3"/><text x="100" y="165" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#0a0a0a" opacity="0.6" letter-spacing="1">250ml</text></svg>`,
+    related: ['pantaloneta', 'pantaloneta-boston', 'pantaloneta-elite']
   }
 };
 

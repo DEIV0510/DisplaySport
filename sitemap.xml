@@ -27,15 +27,8 @@
   </url>
 
   <!-- Productos (1 por cada item en assets/products.js) -->
-  <url><loc>https://display-sport.co/producto.html?p=pantaloneta</loc><priority>0.8</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=licra</loc><priority>0.8</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=camiseta</loc><priority>0.8</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=esqueleto</loc><priority>0.8</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=buzo-compresion</loc><priority>0.8</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=top</loc><priority>0.8</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=croptop</loc><priority>0.8</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=visera</loc><priority>0.8</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=canguro</loc><priority>0.7</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=cinturon-running</loc><priority>0.7</priority></url>
-  <url><loc>https://display-sport.co/producto.html?p=botella-silicona</loc><priority>0.7</priority></url>
+  <url><loc>https://display-sport.co/producto.html?p=pantaloneta</loc><priority>0.9</priority></url>
+  <url><loc>https://display-sport.co/producto.html?p=pantaloneta-boston</loc><priority>0.9</priority></url>
+  <url><loc>https://display-sport.co/producto.html?p=pantaloneta-elite</loc><priority>0.9</priority></url>
+  <url><loc>https://display-sport.co/producto.html?p=termo-silicona</loc><priority>0.8</priority></url>
 </urlset>
