@@ -68,6 +68,45 @@
     requestAnimationFrame(tick);
   }
 
+  // ============ Hero products — parallax con mouse ============
+  // Cada producto se desplaza con intensidad distinta según su
+  // "profundidad" (capa). Crea sensación 3D real cuando el usuario
+  // mueve el mouse sobre el hero card.
+  const heroProductsEl = document.getElementById('hero-products');
+  const heroStage = document.querySelector('.hero-logo-stage');
+  if (heroProductsEl && heroStage && !reducedMotion && supportsFinePointer) {
+    const heroProds = heroProductsEl.querySelectorAll('.hero-product');
+    // Intensidad de parallax por capa (capa al frente se mueve más)
+    const depths = [22, 14, 14, 10]; // matches z-index 4,3,3,2
+    let rafId = null;
+    let targetX = 0, targetY = 0;
+    let currentX = 0, currentY = 0;
+
+    function animateParallax() {
+      // Easing suave hacia el target
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+      heroProds.forEach((p, i) => {
+        const d = depths[i] || 10;
+        p.style.setProperty('--mx', `${currentX * d}px`);
+        p.style.setProperty('--my', `${currentY * d}px`);
+      });
+      rafId = requestAnimationFrame(animateParallax);
+    }
+
+    heroStage.addEventListener('mousemove', (e) => {
+      const rect = heroStage.getBoundingClientRect();
+      targetX = ((e.clientX - rect.left) / rect.width) - 0.5;  // -0.5 a 0.5
+      targetY = ((e.clientY - rect.top) / rect.height) - 0.5;
+      if (!rafId) rafId = requestAnimationFrame(animateParallax);
+    }, { passive: true });
+
+    heroStage.addEventListener('mouseleave', () => {
+      targetX = 0; targetY = 0;
+      // Dejar correr el RAF unos frames para que vuelvan suavemente al centro
+    });
+  }
+
   // ============ Navbar scroll state ============
   // Al hacer scroll > 40px, el navbar se compacta, sube al top y
   // el top-banner se oculta (translateY). El JS solo añade/quita
