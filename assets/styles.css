@@ -195,13 +195,14 @@ body > nav.is-scrolled .logo-img { height: 46px; }
 .hero-right { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; }
 .runner-card {
   width: 100%; height: 600px; max-height: 70vh;
-  /* Glassmorphism: deja ver el video de fondo del hero sutilmente
-     a traves del card. */
-  background: linear-gradient(135deg, rgba(31,31,31,0.55) 0%, rgba(10,10,10,0.78) 100%);
-  backdrop-filter: blur(8px) saturate(120%);
-  -webkit-backdrop-filter: blur(8px) saturate(120%);
-  border: 1px solid rgba(255,255,255,0.12);
-  position: relative; overflow: hidden;
+  /* Card transparente: los productos flotan sobre el video del hero
+     directamente, sin contenedor visible. */
+  background: transparent;
+  border: 0;
+  position: relative;
+  /* overflow visible para que los productos puedan extenderse fuera
+     del area del card original (mas dispersos). */
+  overflow: visible;
   animation: cardIn 1.2s cubic-bezier(.2,.7,.2,1) 0.3s backwards;
 }
 @keyframes cardIn {
@@ -1670,11 +1671,19 @@ body { padding-top: 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  /* Stage transparente: el .runner-card padre ya provee el fondo
-     glassmorphism. */
+  /* Overflow visible — los productos pueden salir del card para
+     un layout mas disperso. */
+  overflow: visible;
   background: transparent;
 }
+
+/* Ocultar la decoracion interna del card (grid-pattern, pulse-rings,
+   shimmer, logo) cuando el card es transparente — solo dejamos las
+   fotos de productos flotantes con sus halos, particulas y lineas. */
+.hero-logo-stage .grid-pattern,
+.hero-logo-stage .pulse-ring,
+.hero-logo-stage .shimmer,
+.hero-logo-stage .hero-logo-main { display: none; }
 
 /* ============ HERO BACKGROUND VIDEO (full section) ============
    El video llena el fondo del <section class='hero'> entero.
@@ -2137,44 +2146,44 @@ body { padding-top: 0; }
   75%      { transform: translate3d(calc(var(--mx) + 8px), calc(var(--my) - 12px), 15px) rotate3d(0.4, 1, 0.2, 8deg); }
 }
 
-/* 1. Pantaloneta Carioca — centro grande, capa principal */
+/* 1. Pantaloneta Carioca — centro, capa principal */
 .hero-product--1 {
   top: 18%;
-  left: 22%;
-  width: 56%;
+  left: 24%;
+  width: 52%;
   height: 56%;
   z-index: 4;
   animation: prod3D1 7s cubic-bezier(.45,0,.55,1) infinite;
 }
 
-/* 2. Pantaloneta Boston — arriba derecha, mediana */
+/* 2. Pantaloneta Boston — arriba derecha (puede salir del card) */
 .hero-product--2 {
-  top: 2%;
-  right: 4%;
-  width: 36%;
-  height: 36%;
+  top: -8%;
+  right: -10%;
+  width: 40%;
+  height: 40%;
   z-index: 3;
   animation: prod3D2 6.5s cubic-bezier(.45,0,.55,1) infinite 0.4s;
 }
 .hero-product--2 .hero-product-tag { animation-delay: 2s; }
 
-/* 3. Pantaloneta Elite — abajo izquierda, mediana */
+/* 3. Pantaloneta Elite — abajo izquierda (puede salir del card) */
 .hero-product--3 {
-  bottom: 6%;
-  left: 2%;
-  width: 36%;
-  height: 36%;
+  bottom: -4%;
+  left: -8%;
+  width: 38%;
+  height: 38%;
   z-index: 3;
   animation: prod3D3 7.5s cubic-bezier(.45,0,.55,1) infinite 1.2s;
 }
 .hero-product--3 .hero-product-tag { animation-delay: 4s; }
 
-/* 4. Termo — abajo derecha, pequeño */
+/* 4. Termo — esquina superior izquierda */
 .hero-product--4 {
-  bottom: 2%;
-  right: 14%;
-  width: 28%;
-  height: 28%;
+  top: 0%;
+  left: -2%;
+  width: 26%;
+  height: 26%;
   z-index: 2;
   animation: prod3D4 6.2s cubic-bezier(.45,0,.55,1) infinite 1.8s;
 }
@@ -2194,23 +2203,22 @@ body { padding-top: 0; }
   .hero-product-tag { opacity: 1; }
 }
 
-/* Tablet */
+/* Tablet — sigue dispersa */
 @media (max-width: 900px) {
-  .hero-product--1 { top: 20%; left: 20%; width: 60%; height: 54%; }
-  .hero-product--2 { top: 3%; right: 2%; width: 34%; height: 32%; }
-  .hero-product--3 { bottom: 8%; left: 0%; width: 34%; height: 32%; }
-  .hero-product--4 { bottom: 2%; right: 12%; width: 26%; height: 24%; }
+  .hero-product--1 { top: 18%; left: 20%; width: 60%; height: 56%; }
+  .hero-product--2 { top: -6%; right: -8%; width: 38%; height: 34%; }
+  .hero-product--3 { bottom: -4%; left: -8%; width: 38%; height: 34%; }
+  .hero-product--4 { top: 0%; left: 0%; width: 24%; height: 22%; }
   .hero-product-tag { font-size: 8px; padding: 4px 8px; bottom: -22px; }
 }
 
-/* Mobile estrecho — Carioca protagonista, otros más pequeños */
+/* Mobile estrecho — Carioca protagonista, dispersión generosa */
 @media (max-width: 480px) {
-  .hero-product--1 { top: 16%; left: 14%; width: 72%; height: 60%; }
-  .hero-product--2 { top: 1%; right: 0%; width: 30%; height: 28%; }
-  .hero-product--3 { bottom: 5%; left: -2%; width: 30%; height: 28%; }
-  .hero-product--4 { bottom: 0%; right: 8%; width: 22%; height: 20%; }
+  .hero-product--1 { top: 12%; left: 14%; width: 72%; height: 64%; }
+  .hero-product--2 { top: -4%; right: -8%; width: 34%; height: 30%; }
+  .hero-product--3 { bottom: -2%; left: -8%; width: 34%; height: 30%; }
+  .hero-product--4 { top: 0%; left: 2%; width: 22%; height: 20%; }
   .hero-product-tag { display: none; }
-  /* En mobile las partículas serían demasiado densas */
   .hero-particle--5, .hero-particle--6 { display: none; }
 }
 
@@ -2912,7 +2920,10 @@ body.menu-open { overflow: hidden; }
 /* ============ HERO MOBILE — pulir copy y card ============ */
 @media (max-width: 900px) {
   /* Hero a 1 columna con el video full-bleed y altura adaptada a la
-     pantalla del celular (svh excluye la barra URL del browser). */
+     pantalla del celular (svh excluye la barra URL del browser).
+     IMPORTANTE: en mobile invertimos el orden — el card con productos
+     flotantes aparece PRIMERO (arriba), texto despues. Es lo que
+     llama la atencion al abrir el sitio en celular. */
   .hero {
     grid-template-columns: 1fr;
     padding: 100px 20px 50px;
@@ -2920,6 +2931,8 @@ body.menu-open { overflow: hidden; }
     min-height: 92svh;
     min-height: 92vh; /* fallback navegadores antiguos */
   }
+  .hero-left  { order: 2; }
+  .hero-right { order: 1; margin-top: 0 !important; }
 
   /* Video: el sujeto suele estar arriba-centro de la imagen.
      object-position ajustada para que en aspect-ratio vertical
