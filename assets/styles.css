@@ -1954,57 +1954,105 @@ body { padding-top: 0; }
   .showcase-photo { padding: 22px; }
 }
 
-/* ============ HERO PRODUCTS — slideshow automatico ============
-   4 fotos hero (una por producto) que rotan en bucle con
-   cross-fade. Reemplaza al logo grande del hero card.
-   Total ciclo: 16s (4s por foto, transicion 1s entre ellas). */
+/* ============ HERO PRODUCTS — constelación flotante ============
+   4 fotos visibles AL MISMO TIEMPO, cada una en posición y tamaño
+   distintos, con animación de flotación individual (movimiento +
+   rotación) para sensación de levitación libre. Diferentes z-index
+   crean profundidad. */
 .hero-products {
   position: absolute;
   inset: 0;
   z-index: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  pointer-events: none;
 }
-.hero-product-slide {
+
+.hero-product {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
   object-fit: contain;
-  padding: 20px;
-  opacity: 0;
-  filter: drop-shadow(0 14px 32px rgba(0,0,0,0.55)) drop-shadow(0 0 22px rgba(255,94,20,0.18));
-  animation: heroProdFade 16s ease-in-out infinite;
-}
-.hero-product-slide:nth-child(1) { animation-delay: 0s; }
-.hero-product-slide:nth-child(2) { animation-delay: 4s; }
-.hero-product-slide:nth-child(3) { animation-delay: 8s; }
-.hero-product-slide:nth-child(4) { animation-delay: 12s; }
-
-/* Cada foto: visible 3s, fade-in 0.6s, fade-out 0.6s.
-   En porcentajes (sobre 16s): visible 0-25%, fade-out 25-31%,
-   oculta 31-100%. */
-@keyframes heroProdFade {
-  0%   { opacity: 0; transform: scale(0.96); }
-  3.75% { opacity: 1; transform: scale(1); }      /* fade-in completado a 0.6s */
-  21.25% { opacity: 1; transform: scale(1); }     /* visible hasta 3.4s */
-  25%  { opacity: 0; transform: scale(1.05); }    /* fade-out completado a 4s */
-  100% { opacity: 0; transform: scale(0.96); }
+  filter: drop-shadow(0 16px 32px rgba(0,0,0,0.6)) drop-shadow(0 0 24px rgba(255,94,20,0.2));
+  will-change: transform;
 }
 
-/* Reduced-motion: muestra solo la primera fija */
+/* 1. Pantaloneta Carioca — centro, grande, capa principal */
+.hero-product--1 {
+  top: 20%;
+  left: 24%;
+  width: 52%;
+  height: 52%;
+  z-index: 4;
+  animation: heroFloat1 5.5s ease-in-out infinite;
+}
+
+/* 2. Pantaloneta Boston — arriba derecha, mediana */
+.hero-product--2 {
+  top: 4%;
+  right: 6%;
+  width: 38%;
+  height: 38%;
+  z-index: 3;
+  animation: heroFloat2 4.8s ease-in-out infinite 0.4s;
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,0.55)) drop-shadow(0 0 18px rgba(255,94,20,0.15));
+}
+
+/* 3. Pantaloneta Elite — abajo izquierda, mediana */
+.hero-product--3 {
+  bottom: 8%;
+  left: 4%;
+  width: 36%;
+  height: 36%;
+  z-index: 3;
+  animation: heroFloat3 5.2s ease-in-out infinite 1s;
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,0.55)) drop-shadow(0 0 18px rgba(255,94,20,0.15));
+}
+
+/* 4. Termo — abajo derecha, pequeño */
+.hero-product--4 {
+  bottom: 4%;
+  right: 16%;
+  width: 28%;
+  height: 28%;
+  z-index: 2;
+  animation: heroFloat4 4.6s ease-in-out infinite 1.6s;
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,0.5)) drop-shadow(0 0 14px rgba(255,94,20,0.12));
+}
+
+/* Animaciones individuales — cada producto se mueve distinto */
+@keyframes heroFloat1 {
+  0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+  50%      { transform: translateY(-18px) rotate(2deg); }
+}
+@keyframes heroFloat2 {
+  0%, 100% { transform: translate(0, 0) rotate(5deg); }
+  50%      { transform: translate(-10px, -14px) rotate(-3deg); }
+}
+@keyframes heroFloat3 {
+  0%, 100% { transform: translate(0, 0) rotate(-4deg); }
+  50%      { transform: translate(8px, -12px) rotate(4deg); }
+}
+@keyframes heroFloat4 {
+  0%, 100% { transform: translateY(0) rotate(3deg); }
+  50%      { transform: translateY(-16px) rotate(-4deg); }
+}
+
+/* Reduced-motion: sin animación, posiciones fijas */
 @media (prefers-reduced-motion: reduce) {
-  .hero-product-slide { animation: none !important; }
-  .hero-product-slide:first-child { opacity: 1 !important; }
+  .hero-product { animation: none !important; }
 }
 
-/* Mobile: padding mas chico, mismo cycle */
+/* Tablet — ajustar tamaños para que sigan viéndose bien */
 @media (max-width: 900px) {
-  .hero-product-slide { padding: 14px; }
+  .hero-product--1 { top: 22%; left: 22%; width: 56%; height: 50%; }
+  .hero-product--2 { top: 5%; right: 4%; width: 36%; height: 34%; }
+  .hero-product--3 { bottom: 10%; left: 2%; width: 34%; height: 32%; }
+  .hero-product--4 { bottom: 4%; right: 14%; width: 26%; height: 24%; }
 }
+
+/* Mobile estrecho — el principal más grande, los otros más chicos */
 @media (max-width: 480px) {
-  .hero-product-slide { padding: 10px; }
+  .hero-product--1 { top: 18%; left: 16%; width: 68%; height: 56%; }
+  .hero-product--2 { top: 3%; right: 2%; width: 32%; height: 30%; }
+  .hero-product--3 { bottom: 8%; left: 0%; width: 32%; height: 30%; }
+  .hero-product--4 { bottom: 2%; right: 10%; width: 24%; height: 22%; }
 }
 
 /* ============ HERO MODELS — cross-fade automatico (legacy) ============
