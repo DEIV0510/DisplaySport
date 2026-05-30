@@ -132,6 +132,13 @@ const PRODUCTS = {
     priceTBD: true,
     bgNum: '03',
     badge: 'Elite', badgeStyle: 'light',
+    photo: 'assets/products/elite1.png',
+    photos: [
+      'assets/products/elite1.png',
+      'assets/products/elite2.png',
+      'assets/products/elite3.png',
+      'assets/products/elite4.png'
+    ],
     short: 'Pantaloneta Elite con licra interna integrada. Compresión muscular y libertad de movimiento en una sola prenda.',
     description: 'Pantaloneta referencia Elite, diseñada y producida en Colombia. Trae licra interna de compresión que ofrece soporte muscular, evita rozaduras y se queda en su lugar. La capa exterior es de tela técnica liviana con secado rápido. Pensada para runners y atletas que entrenan en serio.',
     features: [
